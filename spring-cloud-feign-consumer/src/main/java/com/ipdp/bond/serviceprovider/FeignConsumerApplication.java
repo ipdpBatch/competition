@@ -1,11 +1,11 @@
-package io.ymq.example.feign.consumer;
+package com.ipdp.bond.serviceprovider;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@EnableFeignClients
+@EnableFeignClients(basePackages = "com.ipdp")
 @EnableDiscoveryClient
 @SpringBootApplication
 public class FeignConsumerApplication {

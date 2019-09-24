@@ -1,7 +1,6 @@
-package io.ymq.example.feign.consumer;
+package com.ipdp.bond.serviceprovider;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @create 2017-12-06 15:13
  **/
 @FeignClient("eureka-provider-order")
-@Component("homeClient")
 public interface  HomeClient {
 
     @GetMapping("/")

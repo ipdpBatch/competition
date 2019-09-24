@@ -1,9 +1,8 @@
-package io.ymq.example.feign.consumer;
+package com.ipdp.bond.serviceprovider;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * 描述:调用提供者的 `home` 方法
@@ -14,7 +13,7 @@ import javax.annotation.Resource;
 @RestController
 public class ConsumerController {
 
-    @Resource(name = "homeClient")
+    @Autowired
     private HomeClient homeClient;
 
     @GetMapping(value = "/hello")
