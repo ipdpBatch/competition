@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../EurekaServer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../OrderServiceProvider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../OrderServiceProvider/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../PayServiceProvider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../PayServiceProvider/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProductServiceProvider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProductServiceProvider/src/main/resources/application.yml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../UserServiceProvider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../UserServiceProvider/src/main/resources/application.yml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/../spring-cloud-feign-consumer" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,11 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+#defaultZone��һ��ħ���ַ�����ֵ��Ϊ�κβ���ʾ��ѡ��Ŀͻ����ṩ����URL�����������õ�Ĭ��ֵ��
+spring:
+  application:
+    name: eureka-provider-product
+#ָ��΢��������ƺ����ڵ��õ�ʱ��ֻ��Ҫʹ�ø����ƾͿ��Խ��з���ķ���
+server:
+  port: 8082

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../EurekaServer/EurekaServer.iml" filepath="$PROJECT_DIR$/../EurekaServer/EurekaServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OrderServiceProvider/OrderServiceProvider.iml" filepath="$PROJECT_DIR$/../OrderServiceProvider/OrderServiceProvider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PayServiceProvider/PayServiceProvider.iml" filepath="$PROJECT_DIR$/../PayServiceProvider/PayServiceProvider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ProductServiceProvider/ProductServiceProvider.iml" filepath="$PROJECT_DIR$/../ProductServiceProvider/ProductServiceProvider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../UserServiceProvider/UserServiceProvider.iml" filepath="$PROJECT_DIR$/../UserServiceProvider/UserServiceProvider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-cloud-feign-consumer/spring-cloud-feign-consumer.iml" filepath="$PROJECT_DIR$/../spring-cloud-feign-consumer/spring-cloud-feign-consumer.iml" />
+    </modules>
+  </component>
+</project>
