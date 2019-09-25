@@ -1,4 +1,4 @@
-package com.octopus.eureka.user;
+package com.octopus.eureka.user.dao;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @version 1.0.0
  * @date Created in 17:13 2019/9/25
  */
-public class UserDao implements Serializable {
+public class CustomerDto implements Serializable {
     String customerId;
     String customerName;
     String certificationId;
@@ -17,7 +17,7 @@ public class UserDao implements Serializable {
     String riskLevel;
     String isSigned;
 
-    public UserDao(String customerId, String customerName, String certificationId, String certificationType, String riskLevel, String isSigned) {
+    public CustomerDto(String customerId, String customerName, String certificationId, String certificationType, String riskLevel, String isSigned) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.certificationId = certificationId;

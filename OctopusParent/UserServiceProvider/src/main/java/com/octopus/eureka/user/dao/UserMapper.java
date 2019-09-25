@@ -1,4 +1,4 @@
-package com.octopus.eureka.user;
+package com.octopus.eureka.user.dao;
 
 import org.apache.ibatis.annotations.*;
 
@@ -17,19 +17,19 @@ public interface UserMapper {
     /**
      * 添加操作，返回新增元素的 ID
      *
-     * @param userDao
+     * @param customerDto
      */
     @Insert("INSERT INTO t_customer_cif_info ( customer_id, customer_name, certification_id, certification_type, risk_level, is_signed ) VALUES (#{customerId},#{customerName},#{certificationId},#{certificationType},#{riskLevel},#{isSigned})")
-    int insert(UserDao userDao);
+    int insert(CustomerDto customerDto);
 
     /**
      * 更新操作
      *
-     * @param userDao
+     * @param customerDto
      * @return 受影响的行数
      */
     @Update("update t_customer_cif_info set customer_id=#{id},customer_name=#{name},certification_id=#{idno},certification_type=#{idtype},risk_level=#{risklv},is_signed={issigned}  where customer_id= #{id}")
-    int update(UserDao userDao);
+    int update(CustomerDto customerDto);
 
     /**
      * 删除操作
@@ -46,7 +46,7 @@ public interface UserMapper {
      * @return
      */
     @Select("select * from t_customer_cif_info")
-    List<UserDao> selectAll();
+    List<CustomerDto> selectAll();
 
     /**
      * 根据主键查询单个
@@ -55,5 +55,5 @@ public interface UserMapper {
      * @return
      */
     @Select("select id,name,age from person where id=#{id}")
-    UserDao selectById(@Param("id") Long id);
+    CustomerDto selectById(@Param("id") Long id);
 }

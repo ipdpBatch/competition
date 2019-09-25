@@ -1,6 +1,6 @@
 package com.octopus.eureka;
-import com.octopus.eureka.user.UserDao;
-import com.octopus.eureka.user.UserMapper;
+import com.octopus.eureka.user.dao.CustomerDto;
+import com.octopus.eureka.user.dao.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class UserServiceApplicationTests {
 
     @Test
     public void test(){
-        UserDao user = new UserDao("abcs81728", "田生", "11010119217839","1","C5","Y");
+        CustomerDto user = new CustomerDto("abcs81728", "田生", "11010119217839","1","C5","Y");
         int i =userMapper.insert(user);
         System.out.println(i+"rows have been inserted!!");
 
