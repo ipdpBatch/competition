@@ -19,7 +19,7 @@ public interface UserMapper {
      *
      * @param userDao
      */
-    @Insert("INSERT INTO t_customer_cif_info ( customer_id, customer_name, certification_id, certification_type, risk_level, is_signed ) VALUES (#{id},#{name},#{idno},#{idtype},#{risklv},#{issigned})")
+    @Insert("INSERT INTO t_customer_cif_info ( customer_id, customer_name, certification_id, certification_type, risk_level, is_signed ) VALUES (#{customerId},#{customerName},#{certificationId},#{certificationType},#{riskLevel},#{isSigned})")
     int insert(UserDao userDao);
 
     /**

@@ -12,16 +12,16 @@ import java.io.Serializable;
 public class UserDao implements Serializable {
     String customerId;
     String customerName;
-    String cetificationId;
-    String cetificationType;
+    String certificationId;
+    String certificationType;
     String riskLevel;
     String isSigned;
 
-    public UserDao(String customerId, String customerName, String cetificationId, String cetificationType, String riskLevel, String isSigned) {
+    public UserDao(String customerId, String customerName, String certificationId, String certificationType, String riskLevel, String isSigned) {
         this.customerId = customerId;
         this.customerName = customerName;
-        this.cetificationId = cetificationId;
-        this.cetificationType = cetificationType;
+        this.certificationId = certificationId;
+        this.certificationType = certificationType;
         this.riskLevel = riskLevel;
         this.isSigned = isSigned;
     }
@@ -42,20 +42,20 @@ public class UserDao implements Serializable {
         this.customerName = customerName;
     }
 
-    public String getCetificationId() {
-        return cetificationId;
+    public String getCertificationId() {
+        return certificationId;
     }
 
-    public void setCetificationId(String cetificationId) {
-        this.cetificationId = cetificationId;
+    public void setCertificationId(String certificationId) {
+        this.certificationId = certificationId;
     }
 
-    public String getCetificationType() {
-        return cetificationType;
+    public String getCertificationType() {
+        return certificationType;
     }
 
-    public void setCetificationType(String cetificationType) {
-        this.cetificationType = cetificationType;
+    public void setCertificationType(String certificationType) {
+        this.certificationType = certificationType;
     }
 
     public String getRiskLevel() {
