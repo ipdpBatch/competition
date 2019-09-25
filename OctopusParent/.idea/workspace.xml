@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c40d8a90-3d6e-4793-b203-e80fb61dd822" name="Default" comment="" />
+    <list default="true" id="c40d8a90-3d6e-4793-b203-e80fb61dd822" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EurekaServer/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/EurekaServer/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EurekaServer/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/EurekaServer/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserServiceProvider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UserServiceProvider/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserServiceProvider/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/UserServiceProvider/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserServiceProvider/src/test/java/com/octopus/eureka/EurekaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserServiceProvider/src/test/java/com/octopus/eureka/EurekaApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/EurekaServer/target/" />
@@ -18,38 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PayServiceApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PayServiceProvider/src/main/java/com/octopus/eureka/PayServiceApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProductServiceProvider/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductServiceApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProductServiceProvider/src/main/java/com/octopus/eureka/ProductServiceApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="250">
+              <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -57,8 +40,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UserServiceProvider/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+            <state relative-caret-position="691">
+              <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -66,8 +49,8 @@
       <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UserServiceProvider/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+            <state relative-caret-position="304">
+              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -81,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserServiceApplication.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserServiceApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/UserServiceApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="14" column="66" lean-forward="true" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+            <state relative-caret-position="192">
+              <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,20 +76,76 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProductServiceProvider/src/main/resources/application.yml">
+      <file leaf-file-name="EurekaApplicationTests.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/UserServiceProvider/src/test/java/com/octopus/eureka/EurekaApplicationTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+            <state relative-caret-position="247">
+              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/UserMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/UserDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="19" column="143" selection-start-line="19" selection-start-column="143" selection-end-line="19" selection-end-column="143" />
+              <folding>
+                <element signature="e#234#235#0" expanded="true" />
+                <element signature="e#267#268#0" expanded="true" />
+                <element signature="e#319#320#0" expanded="true" />
+                <element signature="e#363#364#0" expanded="true" />
+                <element signature="e#402#403#0" expanded="true" />
+                <element signature="e#437#438#0" expanded="true" />
+                <element signature="e#493#494#0" expanded="true" />
+                <element signature="e#541#542#0" expanded="true" />
+                <element signature="e#582#583#0" expanded="true" />
+                <element signature="e#619#620#0" expanded="true" />
+                <element signature="e#679#680#0" expanded="true" />
+                <element signature="e#731#732#0" expanded="true" />
+                <element signature="e#774#775#0" expanded="true" />
+                <element signature="e#813#814#0" expanded="true" />
+                <element signature="e#877#878#0" expanded="true" />
+                <element signature="e#933#934#0" expanded="true" />
+                <element signature="e#969#970#0" expanded="true" />
+                <element signature="e#1001#1002#0" expanded="true" />
+                <element signature="e#1051#1052#0" expanded="true" />
+                <element signature="e#1093#1094#0" expanded="true" />
+                <element signature="e#1128#1129#0" expanded="true" />
+                <element signature="e#1159#1160#0" expanded="true" />
+                <element signature="e#1207#1208#0" expanded="true" />
+                <element signature="e#1247#1248#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PayServiceProvider/pom.xml">
+        <entry file="file://$PROJECT_DIR$/EurekaServer/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+            <state relative-caret-position="19">
+              <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EurekaServer/src/main/resources/application.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="10" selection-start-line="10" selection-end-line="15" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -116,6 +155,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -134,8 +174,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/EurekaServer/src/main/java/EurekaServerApplication.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/EurekaServer/pom.xml" />
         <option value="$PROJECT_DIR$/OrderServiceProvider/src/main/java/com/octopus/eureka/OrderServiceApplication.java" />
         <option value="$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/UserController.java" />
         <option value="$PROJECT_DIR$/OrderServiceProvider/src/main/java/com/octopus/eureka/OrderController.java" />
@@ -144,15 +182,22 @@
         <option value="$PROJECT_DIR$/ProductServiceProvider/src/main/java/com/octopus/eureka/ProductServiceApplication.java" />
         <option value="$PROJECT_DIR$/PayServiceProvider/src/main/java/com/octopus/eureka/PayController.java" />
         <option value="$PROJECT_DIR$/PayServiceProvider/src/main/java/com/octopus/eureka/PayServiceApplication.java" />
-        <option value="$PROJECT_DIR$/EurekaServer/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/OrderServiceProvider/pom.xml" />
         <option value="$PROJECT_DIR$/PayServiceProvider/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/PayServiceProvider/pom.xml" />
         <option value="$PROJECT_DIR$/ProductServiceProvider/pom.xml" />
         <option value="$PROJECT_DIR$/ProductServiceProvider/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/UserServiceProvider/pom.xml" />
-        <option value="$PROJECT_DIR$/UserServiceProvider/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/UserServiceApplication.java" />
+        <option value="$PROJECT_DIR$/EurekaServer/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/UserServiceProvider/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/EurekaServer/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/PersonDO.java" />
+        <option value="$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/PersonMapper.java" />
+        <option value="$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/UserMapper.java" />
+        <option value="$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/UserDao.java" />
+        <option value="$PROJECT_DIR$/UserServiceProvider/src/test/java/com/octopus/eureka/EurekaApplicationTests.java" />
       </list>
     </option>
   </component>
@@ -188,178 +233,6 @@
             <path>
               <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
               <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaServer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="eureka" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="EurekaServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="OrderServiceProvider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="OrderServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="OrderServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="OrderServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="OrderServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="eureka" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="OrderServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="PayServiceProvider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="PayServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="PayServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="PayServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="PayServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="eureka" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="PayServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductServiceProvider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="eureka" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
-              <item name="ProductServiceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
               <item name="UserServiceProvider" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -399,6 +272,30 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
+              <item name="UserServiceProvider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
+              <item name="UserServiceProvider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OctopusParent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OctopusParent" type="462c0819:PsiDirectoryNode" />
+              <item name="UserServiceProvider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="eureka" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -422,9 +319,13 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="show.run.dashboard.notification" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.octopus.eureka" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\octopus\OctopusParent" />
       <recent name="D:\octopus\OctopusParent\OrderServiceProvider\src\main\resources" />
@@ -444,9 +345,32 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.UserServiceApplication">
+  <component name="RunManager" selected="JUnit.EurekaApplicationTests.test">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="EurekaApplicationTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="UserServiceProvider" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.octopus.eureka.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.octopus.eureka" />
+      <option name="MAIN_CLASS_NAME" value="com.octopus.eureka.EurekaApplicationTests" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -477,16 +401,6 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.octopus.eureka.EurekaServerApplication" />
-    </configuration>
-    <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="OrderServiceProvider" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.octopus.eureka.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.octopus.eureka.OrderServiceApplication" />
     </configuration>
     <configuration name="PayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="PayServiceProvider" />
@@ -543,18 +457,18 @@
     <list>
       <item itemvalue="Spring Boot.EurekaServerApplication" />
       <item itemvalue="Spring Boot.EurekaApplication" />
-      <item itemvalue="Spring Boot.OrderServiceApplication" />
       <item itemvalue="Spring Boot.UserServiceApplication" />
       <item itemvalue="Spring Boot.ProductServiceApplication" />
       <item itemvalue="Spring Boot.PayServiceApplication" />
+      <item itemvalue="JUnit.EurekaApplicationTests.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EurekaApplicationTests.test" />
         <item itemvalue="Spring Boot.UserServiceApplication" />
+        <item itemvalue="Spring Boot.EurekaServerApplication" />
         <item itemvalue="Spring Boot.ProductServiceApplication" />
         <item itemvalue="Spring Boot.PayServiceApplication" />
-        <item itemvalue="Spring Boot.OrderServiceApplication" />
-        <item itemvalue="Spring Boot.EurekaServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -568,7 +482,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569394560718</updated>
-      <workItem from="1569394564239" duration="5818000" />
+      <workItem from="1569394564239" duration="11028000" />
     </task>
     <task id="LOCAL-00001" summary="version1.0 重新组织工程">
       <created>1569400319984</created>
@@ -581,7 +495,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5818000" />
+    <option name="totallyTimeSpent" value="11028000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="693" extended-state="6" />
@@ -605,15 +519,15 @@
       <window_info anchor="bottom" id="Java Enterprise" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32958803" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23033708" />
       <window_info anchor="bottom" id="Spring" />
       <window_info anchor="bottom" id="Terminal" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32925835" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32925835" />
       <window_info anchor="right" id="Bean Validation" />
       <window_info id="Web" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Theme Preview" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -673,24 +587,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UserServiceProvider/src/test/java/com/octopus/eureka/EurekaApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProductServiceProvider/src/main/java/com/octopus/eureka/ProductController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="14" column="30" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EurekaServer/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -701,13 +601,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EurekaServer/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
         </state>
       </provider>
     </entry>
@@ -722,16 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EurekaServer/src/main/java/com/octopus/eureka/EurekaServerApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -794,24 +677,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/EurekaServer/src/main/java/com/octopus/eureka/EurekaServerApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="315">
+          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EurekaServer/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="10" selection-start-line="10" selection-end-line="15" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EurekaServer/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/UserServiceProvider/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+        <state relative-caret-position="691">
+          <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/UserServiceProvider/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        <state relative-caret-position="304">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/UserServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -822,13 +739,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/UserServiceApplication.java">
+    <entry file="file://$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="14" column="66" lean-forward="true" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+        <state relative-caret-position="273">
+          <caret line="19" column="143" selection-start-line="19" selection-start-column="143" selection-end-line="19" selection-end-column="143" />
+          <folding>
+            <element signature="e#234#235#0" expanded="true" />
+            <element signature="e#267#268#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#402#403#0" expanded="true" />
+            <element signature="e#437#438#0" expanded="true" />
+            <element signature="e#493#494#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+            <element signature="e#582#583#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
+            <element signature="e#679#680#0" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#774#775#0" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#933#934#0" expanded="true" />
+            <element signature="e#969#970#0" expanded="true" />
+            <element signature="e#1001#1002#0" expanded="true" />
+            <element signature="e#1051#1052#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="e#1128#1129#0" expanded="true" />
+            <element signature="e#1159#1160#0" expanded="true" />
+            <element signature="e#1207#1208#0" expanded="true" />
+            <element signature="e#1247#1248#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UserServiceProvider/src/main/java/com/octopus/eureka/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UserServiceProvider/src/test/java/com/octopus/eureka/EurekaApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
         </state>
       </provider>
     </entry>
