@@ -1,4 +1,4 @@
-package com.octopus.eureka;
+package com.octopus.eureka.user;
 
 import java.io.Serializable;
 

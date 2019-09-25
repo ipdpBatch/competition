@@ -1,4 +1,4 @@
-package com.octopus.eureka;
+package com.octopus.eureka.user;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,12 +8,11 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class PayServiceApplication {
-    private final static Logger logger = LoggerFactory.getLogger(PayServiceApplication.class);
+public class UserServiceApplication {
+    private final static Logger logger = LoggerFactory.getLogger(UserServiceApplication.class);
     public static void main(String[] args) {
-        logger.info("支付微服务开始注册");
-        SpringApplication.run(PayServiceApplication.class, args);
-        logger.info("支付微服务注册成功!!");
+        logger.info("用户微服务开始注册");
+        SpringApplication.run(UserServiceApplication.class, args);
+        logger.info("用户微服务注册成功!!");
     }
-
 }

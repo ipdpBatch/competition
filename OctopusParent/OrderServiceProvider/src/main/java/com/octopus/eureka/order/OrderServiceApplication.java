@@ -1,4 +1,4 @@
-package com.octopus.eureka;
+package com.octopus.eureka.order;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

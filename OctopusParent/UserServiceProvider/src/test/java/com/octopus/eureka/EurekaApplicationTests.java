@@ -1,4 +1,6 @@
 package com.octopus.eureka;
+import com.octopus.eureka.user.UserDao;
+import com.octopus.eureka.user.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
