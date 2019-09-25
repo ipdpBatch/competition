@@ -10,7 +10,7 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 spring:
   datasource:
-    url: jdbc:mysql://mysql.ipdp.top/competition-control?useUnicode=true&characterEncoding=UTF-8&
+    url: jdbc:mysql://mysql.ipdp.top/competition-user?useUnicode=true&characterEncoding=UTF-8&
     username: root
     password: ipdp@ipdp
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -28,7 +28,7 @@ public interface UserMapper {
      * @param customerDto
      * @return 受影响的行数
      */
-    @Update("update t_customer_cif_info set customer_id=#{id},customer_name=#{name},certification_id=#{idno},certification_type=#{idtype},risk_level=#{risklv},is_signed={issigned}  where customer_id= #{id}")
+    @Update("update t_customer_cif_info set customer_id=#{customerId},customer_name=#{customerName},certification_id=#{certificationId},certification_type=#{certificationType},risk_level=#{riskLevel},is_signed={isSigned}  where customer_id= #{customerId}")
     int update(CustomerDto customerDto);
 
     /**
@@ -37,8 +37,8 @@ public interface UserMapper {
      * @param id
      * @return 受影响的行数
      */
-    @Delete("delete from t_customer_cif_info where customer_id=#{id}")
-    Long delete(@Param("id") String id);
+    @Delete("delete from t_customer_cif_info where customer_id=#{customerId}")
+    Long delete(@Param("customerId") String id);
 
     /**
      * 查询所有
@@ -54,6 +54,6 @@ public interface UserMapper {
      * @param id
      * @return
      */
-    @Select("select id,name,age from person where id=#{id}")
-    CustomerDto selectById(@Param("id") Long id);
+    @Select("select * from t_customer_cif_info where customer_id=#{customerId}")
+    CustomerDto selectById(@Param("customerId") String id);
 }

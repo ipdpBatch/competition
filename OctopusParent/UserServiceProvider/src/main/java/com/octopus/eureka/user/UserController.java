@@ -1,6 +1,11 @@
 package com.octopus.eureka.user;
 
+import com.octopus.eureka.user.dao.CustomerDto;
+import com.octopus.eureka.user.dao.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,10 +18,19 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class UserController {
+    @Autowired
+    private UserMapper userMapper;
+
     @Value("${server.port}")
     String port;
+
     @RequestMapping("/user")
     public String home() {
         return "Hello world ,port:" + port +". This is " + this.getClass().getName();
+    }
+
+    @GetMapping("/user/{id}")
+    public CustomerDto findById(@PathVariable String id){
+        return userMapper.selectById(id);
     }
 }
