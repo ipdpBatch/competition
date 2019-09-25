@@ -10,6 +10,10 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>EurekaServer</module>
+        <module>OrderServiceProvider</module>
+        <module>UserServiceProvider</module>
+        <module>PayServiceProvider</module>
+        <module>ProductServiceProvider</module>
     </modules>
 
     <dependencies>

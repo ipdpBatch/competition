@@ -7,10 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="EurekaServer" />
-        <module name="OrderServiceProvider" />
         <module name="PayServiceProvider" />
         <module name="ProductServiceProvider" />
         <module name="UserServiceProvider" />
+      </profile>
+      <profile name="Annotation profile for octopus-parent" enabled="true">
+        <sourceOutputDir name="../ProductServiceProvider/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../ProductServiceProvider/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="OrderServiceProvider" />
       </profile>
     </annotationProcessing>
   </component>
