@@ -16,6 +16,10 @@
         <module>ProductServiceProvider</module>
     </modules>
 
+
+
+
+
     <dependencies>
         <!-- 添加 MyBatis -->
         <dependency>
