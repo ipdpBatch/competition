@@ -17,6 +17,7 @@ public class CustomerDto implements Serializable {
     String riskLevel;
     String isSigned;
 
+
     public CustomerDto(String customerId, String customerName, String certificationId, String certificationType, String riskLevel, String isSigned) {
         this.customerId = customerId;
         this.customerName = customerName;

@@ -4,10 +4,9 @@ import com.octopus.eureka.user.dao.CustomerDto;
 import com.octopus.eureka.user.dao.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 文件创建时写入注释内容
@@ -26,11 +25,22 @@ public class UserController {
 
     @RequestMapping("/user")
     public String home() {
-        return "Hello world ,port:" + port +". This is " + this.getClass().getName();
+        return "Hello world ,port:" + port + ". This is " + this.getClass().getName();
     }
 
     @GetMapping("/user/{id}")
-    public CustomerDto findById(@PathVariable String id){
-        return userMapper.selectById(id);
+    public CustomerDto findById(@PathVariable String id) {
+        CustomerDto customerDto = userMapper.selectById(id);
+        if (customerDto != null) {
+            return customerDto;
+        } else {
+            return null;
+        }
     }
+
+    @GetMapping("/user/all")
+    public List<CustomerDto> findAll() {
+        return userMapper.selectAll();
+    }
+
 }
