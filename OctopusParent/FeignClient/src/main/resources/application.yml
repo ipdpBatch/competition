@@ -6,5 +6,13 @@ eureka:
 spring:
   application:
     name: feign-consumer
+  datasource:
+        url: jdbc:mysql://mysql.ipdp.top/competition-order?useUnicode=true&characterEncoding=UTF-8&
+        username: root
+        password: ipdp@ipdp
+        driver-class-name: com.mysql.cj.jdbc.Driver
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
 server:
   port: 9000

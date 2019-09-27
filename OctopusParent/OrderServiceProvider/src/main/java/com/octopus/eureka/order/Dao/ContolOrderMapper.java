@@ -17,8 +17,8 @@ public interface ContolOrderMapper {
      *
      * @param controlOrderDto
      */
-    @Insert("INSERT INTO t_control_order (request_time, update_time, order_step, step_status) VALUES (#{requestTime},#{updateTime},#{orderStep},#{stepStatus})")
     @Options(useGeneratedKeys=true, keyProperty="orderSeq", keyColumn="order_seq")
+    @Insert("INSERT INTO t_control_order (request_time, update_time, order_step, step_status) VALUES (#{requestTime},#{updateTime},#{orderStep},#{stepStatus})")
     public int insert(ControlOrderDto controlOrderDto);
 
     /**
