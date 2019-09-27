@@ -1,4 +1,4 @@
-package com.octopus.eureka.control;
+package com.octopus.feign;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
