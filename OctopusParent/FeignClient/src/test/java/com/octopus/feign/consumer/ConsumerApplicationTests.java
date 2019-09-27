@@ -1,10 +1,16 @@
 package com.octopus.feign.consumer;
 
-import com.octopus.eureka.order.Dao.ControlOrderDto;
 import org.junit.Test;
+import com.octopus.eureka.order.Dao.ControlOrderDto;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.octopus.feign.consumer.rabbitMq.HelloSender;
+import com.octopus.feign.consumer.rabbitMq.Receiver;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -13,22 +19,33 @@ import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes= ConsumerApplication.class)
 public class ConsumerApplicationTests {
     private final static Logger logger = LoggerFactory.getLogger(ConsumerApplicationTests.class);
     @Autowired
     private OctopusHandController octopusHandController;
 
+
+    @Autowired
+    private HelloSender helloSender;
+
+    @Autowired
+    private Receiver receiver;
+
+//    @Autowired
+//    private RabbitTemplate rabbitTemplate;
+
     @Test
-    public void contextLoads() {
+    public void sendOrder() {
+        helloSender.send();
     }
 
     @Test
-    public void testOrder(){
+    public void testOrder() {
 //        List<ControlOrderDto> controlOrderList = octopusHandController.getControlOrderList();
 //        logger.info("查询结果："+controlOrderList.toString());
         ControlOrderDto controlOrder = octopusHandController.getControlOrder("13");
-        logger.info("查询结果："+controlOrder.toString());
+        logger.info("查询结果：" + controlOrder.toString());
 //        ControlOrderDto controlOrderDto = new ControlOrderDto(null,new Date(),new Date(),"ESTB","INIT");
 ////        controlOrderDto.setOrderSeq("12312312313");
 ////        controlOrderDto.setOrderStep("VOLF");
@@ -45,6 +62,12 @@ public class ConsumerApplicationTests {
 //        logger.info("更新条数：" + result2);
 ////        int result3 = octopusHandController.deleteControlOrder("1");
 //        logger.info("删除条数：" + result3);
+    }
+
+    @Test
+    public void receiverOrder() {
+
+        receiver.receivertest1( );
 
     }
 }

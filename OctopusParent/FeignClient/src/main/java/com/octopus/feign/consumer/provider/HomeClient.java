@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @date Created in 19:06 2019/9/26
  */
 
-@FeignClient("eureka-provider-user")
+@FeignClient("eureka-provider-product")
 public interface  HomeClient {
     @GetMapping("/user/all")
     String findAllUser();
