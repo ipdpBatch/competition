@@ -5,7 +5,7 @@ eureka:
 #defaultZone是一个魔术字符串后备值，为任何不表示首选项的客户端提供服务URL（即它是有用的默认值）
 spring:
   application:
-    name: eureka-provider-user
+    name: eureka-provider-product
   datasource:
     url: jdbc:mysql://mysql.ipdp.top/competition-product?useUnicode=true&characterEncoding=UTF-8&
     username: root

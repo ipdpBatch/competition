@@ -1,4 +1,5 @@
-package com.octopus.feign.consumer;
+package com.octopus.feign.consumer.rabbitMq;
+
 
 
 import com.octopus.feign.consumer.ConsumerApplication;
@@ -33,6 +34,7 @@ public class ConsumerApplicationTests {
     @Test
     public void receiverOrder() {
 
-        receiver.receivertest1( );
+        receiver.receivertest1();
     }
 }
+
