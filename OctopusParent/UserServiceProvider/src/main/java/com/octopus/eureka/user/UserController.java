@@ -1,7 +1,7 @@
 package com.octopus.eureka.user;
 
-import com.octopus.eureka.user.dao.CustomerDto;
-import com.octopus.eureka.user.dao.UserMapper;
+import com.octopus.eureka.user.dao.CustomerCifInfoDto;
+import com.octopus.eureka.user.dao.CustomerCifInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 public class UserController {
     @Autowired
-    private UserMapper userMapper;
+    private CustomerCifInfoMapper customerCifInfoMapper;
 
     @Value("${server.port}")
     String port;
@@ -29,18 +29,18 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    public CustomerDto findById(@PathVariable String id) {
-        CustomerDto customerDto = userMapper.selectById(id);
-        if (customerDto != null) {
-            return customerDto;
+    public CustomerCifInfoDto findById(@PathVariable String id) {
+        CustomerCifInfoDto customerCifInfoDto = customerCifInfoMapper.selectById(id);
+        if (customerCifInfoDto != null) {
+            return customerCifInfoDto;
         } else {
             return null;
         }
     }
 
     @GetMapping("/user/all")
-    public List<CustomerDto> findAll() {
-        return userMapper.selectAll();
+    public List<CustomerCifInfoDto> findAll() {
+        return customerCifInfoMapper.selectAll();
     }
 
 }
