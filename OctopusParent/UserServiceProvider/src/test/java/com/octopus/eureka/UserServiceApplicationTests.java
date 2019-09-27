@@ -1,4 +1,5 @@
 package com.octopus.eureka;
+import com.octopus.eureka.user.UserServiceApplication;
 import com.octopus.eureka.user.dao.CustomerCifInfoDto;
 import com.octopus.eureka.user.dao.CustomerCifInfoMapper;
 import org.junit.Test;
@@ -7,11 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
+
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes=UserServiceApplication.class)
 public class UserServiceApplicationTests {
 
-    @Autowired
+    @Resource
     private CustomerCifInfoMapper customerCifInfoMapper;
 
     @Test
