@@ -12,17 +12,17 @@ import java.util.List;
 
 @Controller
 public class OctopusHandController {
-    @Autowired
-    private HomeClient homeClient;
+//    @Autowired
+//    private HomeClient homeClient;
     @Autowired
     private OrderClient orderClient;
 
-    public String findAllUsers(){
-        return homeClient.findAllUser();
-    }
-    public String findById(String id){
-        return homeClient.findById(id);
-    }
+//    public String findAllUsers(){
+//        return homeClient.findAllUser();
+//    }
+//    public String findById(String id){
+//        return homeClient.findById(id);
+//    }
 
 //    @Autowired
 //    private HomeClient homeClient;
