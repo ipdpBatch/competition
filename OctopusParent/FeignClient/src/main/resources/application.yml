@@ -6,6 +6,11 @@ eureka:
 spring:
   application:
     name: eureka-provider-feign
+  datasource:
+    url: jdbc:mysql://mysql.ipdp.top/competition-user?useUnicode=true&characterEncoding=UTF-8&
+    username: root
+    password: ipdp@ipdp
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   rabbitmq:
     addresses: 123.206.79.70:5672

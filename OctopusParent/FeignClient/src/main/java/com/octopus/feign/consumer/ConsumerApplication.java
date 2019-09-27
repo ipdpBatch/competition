@@ -14,4 +14,5 @@ public class ConsumerApplication {
         SpringApplication.run(ConsumerApplication.class, args);
         logger.info("消费者客户端启动成功!!");
     }
+
 }

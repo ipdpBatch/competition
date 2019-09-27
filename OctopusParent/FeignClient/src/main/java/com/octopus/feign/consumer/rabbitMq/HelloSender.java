@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+import static com.octopus.feign.consumer.rabbitMq.RabbitMqConfig.QUEUE_NAME;
+
 @Component
 public class HelloSender {
 
@@ -15,10 +17,10 @@ public class HelloSender {
     private AmqpTemplate rabbitTemplate;
 
     public void send() {
-        String context = "hello " + new Date();
+        String context = "hello1111 " + new Date();
         System.out.println("Sender : " + context);
 // 调用 发送消息的方法
-        this.rabbitTemplate.convertAndSend("myQueue", context);
+        this.rabbitTemplate.convertAndSend(RabbitMqConfig.QUEUE_NAME, context);
     }
 
 }
