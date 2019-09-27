@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+@Mapper
 public interface CustomerSignInfoMapper {
     
 	@Insert("INSERT INTO t_customer_sign__info ( customer_id, product_id, sign_status, transcation_date, transcation_time) VALUES (#{customerId},#{productId},#{signStatus},#{transcationDate},#{transcationTime})")
