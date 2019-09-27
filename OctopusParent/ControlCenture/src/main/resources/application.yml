@@ -1,2 +1,8 @@
 server:
   port: 9001
+spring:
+  datasource:
+    url: jdbc:mysql://mysql.ipdp.top/competition-user?useUnicode=true&characterEncoding=UTF-8&
+    username: root
+    password: ipdp@ipdp
+    driver-class-name: com.mysql.cj.jdbc.Driver
