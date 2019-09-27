@@ -1,5 +1,6 @@
 package com.octopus.eureka.control;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,21 @@ public class OctopusEarController {
     public int buy(@RequestParam String businessCode, @RequestParam String customerId, @RequestParam String productId, @RequestParam BigDecimal transactionAmount) {
             //return "businessCode:" + businessCode + "\ncustomerId:" + customerId +"\nproductId:"+productId +"\ntransactionAmount:"+ transactionAmount ;
       BuyBo buyBo = new BuyBo(businessCode,customerId,productId,transactionAmount);
-      int res= mqSender.sendBuyMessage(buyBo);
-      return res;
+      //1.将买入请求写入控制中心的t_control_order中，同时得到订单编号
+      // 2.发送MQ001到feign client，由consumer完成调用建单服务
+        buyBo.setDestiny("ORDER");
+        buyBo.setOrderStep("ESTB");
+        int res= 0;
+        try {
+            res = mqSender.sendBuyMessage(buyBo);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return res;
     }
+
+
+
+
+
 }

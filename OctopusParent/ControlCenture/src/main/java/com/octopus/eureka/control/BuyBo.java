@@ -49,10 +49,42 @@ class BuyBo {
         this.transactionAmount = transactionAmount;
     }
 
+    public String getOrderSeq() {
+        return orderSeq;
+    }
+
+    public void setOrderSeq(String orderSeq) {
+        this.orderSeq = orderSeq;
+    }
+
+
+    String orderSeq;
     String businessCode;
     String customerId;
     String productId;
     BigDecimal transactionAmount;
+    /*控制步骤，服务代码*/
+    String orderStep;
+    /*消息目标队列*/
+    String destiny;
+
+
+    public String getOrderStep() {
+        return orderStep;
+    }
+
+    public void setOrderStep(String orderStep) {
+        this.orderStep = orderStep;
+    }
+
+
+    public String getDestiny() {
+        return destiny;
+    }
+
+    public void setDestiny(String destiny) {
+        this.destiny = destiny;
+    }
 
 
 }
