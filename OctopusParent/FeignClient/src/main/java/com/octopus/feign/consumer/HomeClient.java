@@ -1,8 +1,9 @@
-package com.octopus.eureka.control;
+package com.octopus.feign.consumer;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
 /**
  * 文件创建时写入注释内容
  *
