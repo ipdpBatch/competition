@@ -19,6 +19,6 @@ public class ControlCentureApplicationTests {
     @Test
     public void findByUsers(){
        //System.out.println(consumerController.findAllUsers());
-       System.out.println(octopusEarController.findById("a219391"));
+       //System.out.println(octopusEarController.findById("a219391"));
     }
 }

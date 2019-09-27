@@ -13,9 +13,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class ControlCentureApplication {
     private final static Logger logger = LoggerFactory.getLogger(ControlCentureApplication.class);
     public static void main(String[] args) {
-        logger.info("消费者客户端开始启动");
+        logger.info("控制中心开始启动");
         SpringApplication.run(ControlCentureApplication.class, args);
-        logger.info("消费者客户端启动成功!!");
+        logger.info("控制中心启动成功!!");
     }
-
 }
