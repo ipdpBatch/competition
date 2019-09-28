@@ -5,27 +5,32 @@
     <modelVersion>4.0.0</modelVersion>
     <!--功能：父工程 打包方式为pom 管理jar包的版本号。项目中的所有工程都应该继承父工程。-->
     <groupId>com.octopus</groupId>
-    <artifactId>octopus-parent</artifactId>
+    <artifactId>OctopusParent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.8.RELEASE</version>
+    </parent>
+
     <modules>
         <module>EurekaServer</module>
+        <module>ControlCenture</module>
         <module>OrderServiceProvider</module>
         <module>UserServiceProvider</module>
         <module>PayServiceProvider</module>
         <module>ProductServiceProvider</module>
+        <module>FeignClient</module>
     </modules>
-
-
-
-
 
     <dependencies>
         <!-- 添加 MyBatis -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.1.0</version>
+            <version>2.0.0</version>
         </dependency>
 
         <!-- 添加 MySQL -->
@@ -38,7 +43,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-json</artifactId>
-            <version>2.0.3.RELEASE</version>
             <scope>compile</scope>
         </dependency>
 
@@ -47,15 +51,4 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
-
-    <!-- 继承说明：这里继承SpringBoot提供的父工程 -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.8.RELEASE</version>
-        <relativePath/>
-    </parent>
-
-
-
 </project>

@@ -20,6 +20,9 @@ public class ControlOrderDto implements Serializable{
     //订单状态
     private String stepStatus;
 
+    public ControlOrderDto() {
+    }
+
     public ControlOrderDto(String orderSeq, Date requestTime, Date updateTime, String orderStep, String stepStatus) {
         this.orderSeq = orderSeq;
         this.requestTime = requestTime;
@@ -66,5 +69,16 @@ public class ControlOrderDto implements Serializable{
 
     public void setStepStatus(String stepStatus) {
         this.stepStatus = stepStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "ControlOrderDto{" +
+                "orderSeq='" + orderSeq + '\'' +
+                ", requestTime=" + requestTime +
+                ", updateTime=" + updateTime +
+                ", orderStep='" + orderStep + '\'' +
+                ", stepStatus='" + stepStatus + '\'' +
+                '}';
     }
 }
