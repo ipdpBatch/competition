@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <!--功能：父工程 打包方式为pom 管理jar包的版本号。项目中的所有工程都应该继承父工程。-->
     <groupId>com.octopus</groupId>
-    <artifactId>octopus-parent</artifactId>
+    <artifactId>OctopusParent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
