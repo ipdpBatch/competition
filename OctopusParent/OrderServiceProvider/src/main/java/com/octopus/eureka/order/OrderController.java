@@ -2,6 +2,8 @@ package com.octopus.eureka.order;
 
 import com.octopus.eureka.order.Dao.ContolOrderMapper;
 import com.octopus.eureka.order.Dao.ControlOrderDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,8 @@ import java.util.List;
 @RestController
 public class OrderController {
 
+    private final static Logger logger = LoggerFactory.getLogger(OrderController.class);
+
     @Value("${server.port}")
     String port;
 
@@ -29,27 +33,31 @@ public class OrderController {
         return "Hello world ,port:" + port +". This is " + this.getClass().getName();
     }
     @RequestMapping("/controlOrder/{orderSeq}")
-    public ControlOrderDto getControlOrder(@PathVariable String orderSeq) {
+    public ControlOrderDto getControlOrder(@PathVariable("orderSeq") String orderSeq) {
+        logger.info("请求参数orderSeq："+ orderSeq);
         return contolOrderMapper.selectById(orderSeq);
     }
 
-    @RequestMapping("/controlOrder/all")
+    @GetMapping("/controlOrder/all")
     public List<ControlOrderDto> getControlOrderList() {
         return contolOrderMapper.selectAll();
     }
 
-    @RequestMapping("/controlOrder/update/{controlOrderDto}")
-    public int updateControlOrder(@PathVariable ControlOrderDto controlOrderDto) {
+    @RequestMapping("/controlOrder/update")
+    public int updateControlOrder(@RequestBody ControlOrderDto controlOrderDto) {
         return contolOrderMapper.update(controlOrderDto);
     }
 
-    @RequestMapping("/controlOrder/add/{controlOrderDto}")
-    public int addControlOrder(@PathVariable ControlOrderDto controlOrderDto) {
-        return contolOrderMapper.insert(controlOrderDto);
+    @RequestMapping("/controlOrder/add")
+    public int addControlOrder(@RequestBody ControlOrderDto controlOrderDto) {
+        int result = contolOrderMapper.insert(controlOrderDto);
+        logger.info("order层，插入后主键seq为："+controlOrderDto.getOrderSeq());
+        return result;
     }
 
     @RequestMapping("/controlOrder/delete/{orderSeq}")
-    public int deleteControlOrder(@PathVariable String orderSeq) {
+    public int deleteControlOrder(@PathVariable("orderSeq")  String orderSeq) {
+        logger.info("请求参数orderSeq："+ orderSeq);
         return contolOrderMapper.delete(orderSeq);
     }
 }

@@ -1,5 +1,6 @@
 package com.octopus.eureka.order.Dao;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -8,7 +9,7 @@ import java.util.Date;
  * @Date 2019/9/26 11:35 PM
  * @Version 1.0
  */
-public class OrderFinancialDto {
+public class OrderFinancialDto implements Serializable{
     //订单编号
     private String orderSeq;
     //建单日期
@@ -29,6 +30,9 @@ public class OrderFinancialDto {
     private String orderStatus;
     //订单资金状态
     private String capitalStatus;
+
+    public OrderFinancialDto() {
+    }
 
     public OrderFinancialDto(String orderSeq, String createDate, String createTime, String transcationCode, String customerId, String productId, BigDecimal transcationAmout, BigDecimal transcationVol, String orderStatus, String capitalStatus) {
         this.orderSeq = orderSeq;
@@ -121,5 +125,21 @@ public class OrderFinancialDto {
 
     public void setCapitalStatus(String capitalStatus) {
         this.capitalStatus = capitalStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderFinancialDto{" +
+                "orderSeq='" + orderSeq + '\'' +
+                ", createDate='" + createDate + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", transcationCode='" + transcationCode + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", productId='" + productId + '\'' +
+                ", transcationAmout=" + transcationAmout +
+                ", transcationVol=" + transcationVol +
+                ", orderStatus='" + orderStatus + '\'' +
+                ", capitalStatus='" + capitalStatus + '\'' +
+                '}';
     }
 }

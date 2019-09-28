@@ -1,4 +1,4 @@
-package com.octopus.feign.consumer;
+package com.octopus.feign.consumer.provider;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
