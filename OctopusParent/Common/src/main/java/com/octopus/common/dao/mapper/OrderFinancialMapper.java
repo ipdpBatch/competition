@@ -1,6 +1,6 @@
 package com.octopus.common.dao.mapper;
 
-import com.octopus.common.dao.OrderFinancialDto;
+import com.octopus.common.dao.domain.OrderFinancialDto;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

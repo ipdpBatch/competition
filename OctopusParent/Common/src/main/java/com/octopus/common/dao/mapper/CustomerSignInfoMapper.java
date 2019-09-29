@@ -2,7 +2,7 @@ package com.octopus.common.dao.mapper;
 
 import java.util.List;
 
-import com.octopus.common.dao.CustomerSignInfoDto;
+import com.octopus.common.dao.domain.CustomerSignInfoDto;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

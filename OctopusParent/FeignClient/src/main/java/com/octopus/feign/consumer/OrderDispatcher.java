@@ -1,9 +1,9 @@
 package com.octopus.feign.consumer;
 
-import com.octopus.common.dao.*;
+import com.octopus.common.dao.domain.ControlOrderDto;
+import com.octopus.common.dao.domain.OrderFinancialDto;
 import com.octopus.feign.consumer.provider.OrderClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.octopus.eureka.order;
 
 import com.octopus.common.dao.mapper.ContolOrderMapper;
-import com.octopus.common.dao.ControlOrderDto;
+import com.octopus.common.dao.domain.ControlOrderDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.octopus.feign.consumer.provider;
 
-import com.octopus.common.dao.ControlOrderDto;
-import com.octopus.common.dao.OrderFinancialDto;
+import com.octopus.common.dao.domain.ControlOrderDto;
+import com.octopus.common.dao.domain.OrderFinancialDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 

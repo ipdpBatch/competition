@@ -1,7 +1,7 @@
 package com.octopus.common.dao.mapper;
 
 
-import com.octopus.common.dao.ProductBaseInfoDto;
+import com.octopus.common.dao.domain.ProductBaseInfoDto;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

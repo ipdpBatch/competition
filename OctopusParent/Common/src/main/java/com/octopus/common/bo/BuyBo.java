@@ -1,15 +1,29 @@
 package com.octopus.common.bo;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- * 文件创建时写入注释内容
+ * 申购交易通过控制中心之后，转换为MQ信息，需要将此BO转成json传输给feignclient
  *
  * @author zp3778
  * @version 1.0.0
  * @date Created in 20:35 2019/9/27
  */
-public class BuyBo {
+public class BuyBo implements Serializable {
+    /*订单编号*/
+    String orderSeq;
+    /*业务代码*/
+    String businessCode;
+    /*客户号*/
+    String customerId;
+    /*产品代码*/
+    String productId;
+    /*交易金额*/
+    BigDecimal transactionAmount;
+    /*消息目标队列*/
+    String destiny;
+
     public String getBusinessCode() {
         return businessCode;
     }
@@ -57,14 +71,6 @@ public class BuyBo {
         this.orderSeq = orderSeq;
     }
 
-
-    String orderSeq;
-    String businessCode;
-    String customerId;
-    String productId;
-    BigDecimal transactionAmount;
-    /*消息目标队列*/
-    String destiny;
 
 
     public String getDestiny() {

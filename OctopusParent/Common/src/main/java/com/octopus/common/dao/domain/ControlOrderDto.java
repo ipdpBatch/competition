@@ -1,4 +1,4 @@
-package com.octopus.common.dao;
+package com.octopus.common.dao.domain;
 
 import java.io.Serializable;
 import java.util.Date;

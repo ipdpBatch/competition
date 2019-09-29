@@ -1,6 +1,6 @@
 package com.octopus.common.dao.mapper;
 
-import com.octopus.common.dao.ControlOrderDto;
+import com.octopus.common.dao.domain.ControlOrderDto;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

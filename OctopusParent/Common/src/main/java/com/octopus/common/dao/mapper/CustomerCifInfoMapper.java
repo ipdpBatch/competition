@@ -1,6 +1,6 @@
 package com.octopus.common.dao.mapper;
 
-import com.octopus.common.dao.CustomerCifInfoDto;
+import com.octopus.common.dao.domain.CustomerCifInfoDto;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

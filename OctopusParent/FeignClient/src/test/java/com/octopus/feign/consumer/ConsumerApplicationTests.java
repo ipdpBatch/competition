@@ -1,7 +1,7 @@
 package com.octopus.feign.consumer;
 
 import org.junit.Test;
-import com.octopus.common.dao.ControlOrderDto;
+import com.octopus.common.dao.domain.ControlOrderDto;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

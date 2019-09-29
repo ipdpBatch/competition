@@ -1,6 +1,6 @@
 package com.octopus.eureka;
 
-import com.octopus.common.dao.CustomerCifInfoDto;
+import com.octopus.common.dao.domain.CustomerCifInfoDto;
 import com.octopus.common.dao.mapper.CustomerCifInfoMapper;
 import com.octopus.eureka.user.UserServiceApplication;
 import org.junit.Test;
