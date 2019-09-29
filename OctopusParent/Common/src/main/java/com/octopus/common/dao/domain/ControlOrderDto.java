@@ -10,66 +10,66 @@ import java.util.Date;
  */
 public class ControlOrderDto implements Serializable{
     //订单编号
-    private float orderSeq;
+    private String orderSeq;
     //请求时间
-    private Date requestTime;
+    private String requestTime;
     //更新时间
-    private Date updateTime;
-    //订单步骤
-    private String orderStep;
-    //订单状态
-    private String stepStatus;
+    private String updateTime;
+//    //订单步骤
+//    private String orderStep;
+//    //订单状态
+//    private String stepStatus;
 
     public ControlOrderDto() {
     }
 
-    public ControlOrderDto(float orderSeq, Date requestTime, Date updateTime, String orderStep, String stepStatus) {
+    public ControlOrderDto(String orderSeq, String requestTime, String updateTime, String orderStep, String stepStatus) {
         this.orderSeq = orderSeq;
         this.requestTime = requestTime;
         this.updateTime = updateTime;
-        this.orderStep = orderStep;
-        this.stepStatus = stepStatus;
+//        this.orderStep = orderStep;
+//        this.stepStatus = stepStatus;
     }
 
-    public float getOrderSeq() {
+    public String getOrderSeq() {
         return orderSeq;
     }
 
-    public void setOrderSeq(float orderSeq) {
+    public void setOrderSeq(String orderSeq) {
         this.orderSeq = orderSeq;
     }
 
-    public Date getRequestTime() {
+    public String getRequestTime() {
         return requestTime;
     }
 
-    public void setRequestTime(Date requestTime) {
+    public void setRequestTime(String requestTime) {
         this.requestTime = requestTime;
     }
 
-    public Date getUpdateTime() {
+    public String getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
     }
-
-    public String getOrderStep() {
-        return orderStep;
-    }
-
-    public void setOrderStep(String orderStep) {
-        this.orderStep = orderStep;
-    }
-
-    public String getStepStatus() {
-        return stepStatus;
-    }
-
-    public void setStepStatus(String stepStatus) {
-        this.stepStatus = stepStatus;
-    }
+//
+//    public String getOrderStep() {
+//        return orderStep;
+//    }
+//
+//    public void setOrderStep(String orderStep) {
+//        this.orderStep = orderStep;
+//    }
+//
+//    public String getStepStatus() {
+//        return stepStatus;
+//    }
+//
+//    public void setStepStatus(String stepStatus) {
+//        this.stepStatus = stepStatus;
+//    }
 
     @Override
     public String toString() {
@@ -77,8 +77,8 @@ public class ControlOrderDto implements Serializable{
                 "orderSeq='" + orderSeq + '\'' +
                 ", requestTime=" + requestTime +
                 ", updateTime=" + updateTime +
-                ", orderStep='" + orderStep + '\'' +
-                ", stepStatus='" + stepStatus + '\'' +
+//                ", orderStep='" + orderStep + '\'' +
+//                ", stepStatus='" + stepStatus + '\'' +
                 '}';
     }
 }

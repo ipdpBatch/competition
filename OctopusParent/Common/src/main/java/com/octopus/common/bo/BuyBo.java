@@ -34,6 +34,10 @@ public class BuyBo implements Serializable {
         this.orderStep = orderStep;
     }
 
+    public BuyBo() {
+        //
+    }
+
     public String getBusinessCode() {
         return businessCode;
     }

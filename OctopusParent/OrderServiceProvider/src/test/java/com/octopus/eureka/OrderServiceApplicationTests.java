@@ -17,7 +17,7 @@ public class OrderServiceApplicationTests {
 
     @Test
     public void contextLoads() {
-        controlOrderMapper.selectById(12);
+        controlOrderMapper.selectById("12");
     }
 
 }

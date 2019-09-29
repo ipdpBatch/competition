@@ -1,6 +1,7 @@
 package com.octopus.common.dao.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * 文件创建时写入注释内容
@@ -9,15 +10,15 @@ import java.io.Serializable;
  * @version 1.0.0
  * @date Created in 17:13 2019/9/25
  */
-public class PositionBalanceDto<Decimal> implements Serializable {
-    String customerId;
-    String productId;
-    Decimal totalVolume;
-    Decimal onTheWayVol;
-    Decimal onTheWayAmt;
-    String positionStatus;
+public class PositionBalanceDto implements Serializable {
+    private String customerId;
+    private  String productId;
+    private BigDecimal totalVolume;
+    private BigDecimal onTheWayVol;
+    private BigDecimal onTheWayAmt;
+    private String positionStatus;
 
-    public PositionBalanceDto(String customerId, String productId, Decimal totalVolume, Decimal onTheWayVol, Decimal onTheWayAmt, String positionStatus) {
+    public PositionBalanceDto(String customerId, String productId, BigDecimal totalVolume, BigDecimal onTheWayVol, BigDecimal onTheWayAmt, String positionStatus) {
         this.customerId = customerId;
         this.productId = productId;
         this.totalVolume = totalVolume;
@@ -42,27 +43,27 @@ public class PositionBalanceDto<Decimal> implements Serializable {
         this.productId = productId;
     }
 
-    public Decimal getTotalVolume() {
+    public BigDecimal getTotalVolume() {
         return totalVolume;
     }
 
-    public void setTotalVolume(Decimal totalVolume) {
+    public void setTotalVolume(BigDecimal totalVolume) {
         this.totalVolume = totalVolume;
     }
 
-    public Decimal getOnTheWayVol() {
+    public BigDecimal getOnTheWayVol() {
         return onTheWayVol;
     }
 
-    public void setOnTheWayVol(Decimal onTheWayVol) {
+    public void setOnTheWayVol(BigDecimal onTheWayVol) {
         this.onTheWayVol = onTheWayVol;
     }
 
-    public Decimal getOnTheWayAmt() {
+    public BigDecimal getOnTheWayAmt() {
         return onTheWayAmt;
     }
 
-    public void setOnTheWayAmt(Decimal onTheWayAmt) {
+    public void setOnTheWayAmt(BigDecimal onTheWayAmt) {
         this.onTheWayAmt = onTheWayAmt;
     }
 
