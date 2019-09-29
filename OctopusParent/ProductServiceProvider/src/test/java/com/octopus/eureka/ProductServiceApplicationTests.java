@@ -1,7 +1,7 @@
 package com.octopus.eureka;
 
 import com.octopus.common.dao.ProductBaseInfoDto;
-import com.octopus.common.dao.ProductBaseInfoMapper;
+import com.octopus.common.dao.mapper.ProductBaseInfoMapper;
 import com.octopus.eureka.product.ProductServiceApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;

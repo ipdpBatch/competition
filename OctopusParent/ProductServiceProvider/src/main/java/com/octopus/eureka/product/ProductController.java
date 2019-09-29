@@ -1,7 +1,7 @@
 package com.octopus.eureka.product;
 
 import com.octopus.common.dao.ProductBaseInfoDto;
-import com.octopus.common.dao.ProductBaseInfoMapper;
+import com.octopus.common.dao.mapper.ProductBaseInfoMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

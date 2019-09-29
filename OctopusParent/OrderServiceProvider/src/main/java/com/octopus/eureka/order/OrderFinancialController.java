@@ -1,7 +1,7 @@
 package com.octopus.eureka.order;
 
 import com.octopus.common.dao.OrderFinancialDto;
-import com.octopus.common.dao.OrderFinancialMapper;
+import com.octopus.common.dao.mapper.OrderFinancialMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

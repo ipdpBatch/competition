@@ -1,6 +1,6 @@
 package com.octopus.eureka.order;
 
-import com.octopus.common.dao.ContolOrderMapper;
+import com.octopus.common.dao.mapper.ContolOrderMapper;
 import com.octopus.common.dao.ControlOrderDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

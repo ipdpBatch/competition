@@ -1,4 +1,4 @@
-package com.octopus.common.dao;
+package com.octopus.common.dao.mapper;
 
 import org.apache.ibatis.annotations.*;
 

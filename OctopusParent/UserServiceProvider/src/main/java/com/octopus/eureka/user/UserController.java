@@ -1,7 +1,7 @@
 package com.octopus.eureka.user;
 
 import com.octopus.common.dao.CustomerCifInfoDto;
-import com.octopus.common.dao.CustomerCifInfoMapper;
+import com.octopus.common.dao.mapper.CustomerCifInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
