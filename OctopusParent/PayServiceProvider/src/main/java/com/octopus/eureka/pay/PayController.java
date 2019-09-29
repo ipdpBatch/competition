@@ -1,7 +1,7 @@
 package com.octopus.eureka.pay;
 
-import com.octopus.common.dao.PaymentInfoDto;
-import com.octopus.common.dao.PaymentInfoMapper;
+import com.octopus.common.dao.domain.PaymentInfoDto;
+import com.octopus.common.dao.mapper.PaymentInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;

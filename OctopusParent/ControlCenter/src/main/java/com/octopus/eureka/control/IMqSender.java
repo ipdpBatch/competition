@@ -1,6 +1,7 @@
 package com.octopus.eureka.control;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.octopus.common.bo.BuyBo;
 
 /**
  * 文件创建时写入注释内容

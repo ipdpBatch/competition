@@ -1,7 +1,7 @@
 package com.octopus.feign.consumer;
 
 import org.junit.Test;
-import com.octopus.common.dao.ControlOrderDto;
+import com.octopus.common.dao.domain.ControlOrderDto;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ConsumerApplicationTests {
     private final static Logger logger = LoggerFactory.getLogger(ConsumerApplicationTests.class);
     @Autowired
-    private OctopusHandController octopusHandController;
+    private OrderDispatcher orderDispatcher;
 
 
     @Autowired
@@ -38,7 +38,7 @@ public class ConsumerApplicationTests {
     public void testOrder() {
 //        List<ControlOrderDto> controlOrderList = octopusHandController.getControlOrderList();
 //        logger.info("查询结果："+controlOrderList.toString());
-        ControlOrderDto controlOrder = octopusHandController.getControlOrder("13");
+        ControlOrderDto controlOrder = orderDispatcher.getControlOrder("13");
         logger.info("查询结果：" + controlOrder.toString());
 //        ControlOrderDto controlOrderDto = new ControlOrderDto(null,new Date(),new Date(),"ESTB","INIT");
 ////        controlOrderDto.setOrderSeq("12312312313");

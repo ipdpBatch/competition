@@ -2,6 +2,7 @@ package com.octopus.eureka.control;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.octopus.common.bo.BuyBo;
 import org.springframework.stereotype.Component;
 
 /**

@@ -1,7 +1,7 @@
 package com.octopus.eureka.product;
 
-import com.octopus.common.dao.ProductBaseInfoDto;
-import com.octopus.common.dao.ProductBaseInfoMapper;
+import com.octopus.common.dao.domain.ProductBaseInfoDto;
+import com.octopus.common.dao.mapper.ProductBaseInfoMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +29,7 @@ public class ProductController {
         return "Hello world ,port:" + port +". This is " + this.getClass().getName();
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/product/{id}")
     public ProductBaseInfoDto findById(@PathVariable String id) {
         ProductBaseInfoDto productBaseInfoDto = productBaseInfoMapper.selectById(id);
         if (productBaseInfoDto != null) {
@@ -39,7 +39,7 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/user/all")
+    @GetMapping("/product/all")
     public List<ProductBaseInfoDto> findAll() {
         return productBaseInfoMapper.selectAll();
     }

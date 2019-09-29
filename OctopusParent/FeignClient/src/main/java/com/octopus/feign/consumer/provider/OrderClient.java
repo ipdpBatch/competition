@@ -1,7 +1,7 @@
 package com.octopus.feign.consumer.provider;
 
-import com.octopus.common.dao.ControlOrderDto;
-import com.octopus.common.dao.OrderFinancialDto;
+import com.octopus.common.dao.domain.ControlOrderDto;
+import com.octopus.common.dao.domain.OrderFinancialDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +20,7 @@ public interface OrderClient {
     @RequestMapping(value = "/controlOrder/all", method = RequestMethod.GET)
     List<ControlOrderDto> getControlOrderList();
 
-    @RequestMapping(value ="/controlOrder/{id}", method = RequestMethod.GET)
+    @RequestMapping(value ="/controlOrder/{orderSeq}", method = RequestMethod.GET)
     ControlOrderDto getControlOrder(@PathVariable("orderSeq") String orderSeq);
 
     @RequestMapping(value ="/controlOrder/delete/{orderSeq}",method = RequestMethod.DELETE)
