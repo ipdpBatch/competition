@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class ControlOrderDto implements Serializable{
     //订单编号
-    private String orderSeq;
+    private float orderSeq;
     //请求时间
     private Date requestTime;
     //更新时间
@@ -23,7 +23,7 @@ public class ControlOrderDto implements Serializable{
     public ControlOrderDto() {
     }
 
-    public ControlOrderDto(String orderSeq, Date requestTime, Date updateTime, String orderStep, String stepStatus) {
+    public ControlOrderDto(float orderSeq, Date requestTime, Date updateTime, String orderStep, String stepStatus) {
         this.orderSeq = orderSeq;
         this.requestTime = requestTime;
         this.updateTime = updateTime;
@@ -31,11 +31,11 @@ public class ControlOrderDto implements Serializable{
         this.stepStatus = stepStatus;
     }
 
-    public String getOrderSeq() {
+    public float getOrderSeq() {
         return orderSeq;
     }
 
-    public void setOrderSeq(String orderSeq) {
+    public void setOrderSeq(float orderSeq) {
         this.orderSeq = orderSeq;
     }
 

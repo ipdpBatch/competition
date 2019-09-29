@@ -2,7 +2,6 @@ package com.octopus.common.dao.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  * @Author dongjiale
@@ -11,7 +10,7 @@ import java.util.Date;
  */
 public class OrderFinancialDto implements Serializable{
     //订单编号
-    private String orderSeq;
+    private float orderSeq;
     //建单日期
     private String createDate;
     //建单时间
@@ -34,7 +33,7 @@ public class OrderFinancialDto implements Serializable{
     public OrderFinancialDto() {
     }
 
-    public OrderFinancialDto(String orderSeq, String createDate, String createTime, String transcationCode, String customerId, String productId, BigDecimal transcationAmout, BigDecimal transcationVol, String orderStatus, String capitalStatus) {
+    public OrderFinancialDto(float orderSeq, String createDate, String createTime, String transcationCode, String customerId, String productId, BigDecimal transcationAmout, BigDecimal transcationVol, String orderStatus, String capitalStatus) {
         this.orderSeq = orderSeq;
         this.createDate = createDate;
         this.createTime = createTime;
@@ -47,11 +46,11 @@ public class OrderFinancialDto implements Serializable{
         this.capitalStatus = capitalStatus;
     }
 
-    public String getOrderSeq() {
+    public float getOrderSeq() {
         return orderSeq;
     }
 
-    public void setOrderSeq(String orderSeq) {
+    public void setOrderSeq(float orderSeq) {
         this.orderSeq = orderSeq;
     }
 

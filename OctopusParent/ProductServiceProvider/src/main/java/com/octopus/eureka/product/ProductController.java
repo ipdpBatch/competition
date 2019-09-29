@@ -29,7 +29,7 @@ public class ProductController {
         return "Hello world ,port:" + port +". This is " + this.getClass().getName();
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/product/{id}")
     public ProductBaseInfoDto findById(@PathVariable String id) {
         ProductBaseInfoDto productBaseInfoDto = productBaseInfoMapper.selectById(id);
         if (productBaseInfoDto != null) {
@@ -39,7 +39,7 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/user/all")
+    @GetMapping("/product/all")
     public List<ProductBaseInfoDto> findAll() {
         return productBaseInfoMapper.selectAll();
     }
