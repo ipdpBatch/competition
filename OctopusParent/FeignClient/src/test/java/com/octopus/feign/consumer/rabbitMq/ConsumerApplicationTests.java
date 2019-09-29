@@ -28,7 +28,7 @@ public class ConsumerApplicationTests {
 
     @Test
     public void sendOrder() {
-        helloSender.send();
+        helloSender.send1();
     }
 
     @Test

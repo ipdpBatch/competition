@@ -11,12 +11,17 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMqConfig {
 
-    public static final String QUEUE_NAME = "queue";
-    @Bean
-    public Queue helloQueue() {
-        return new Queue(QUEUE_NAME, true);
-    }
-
+//    public static final String QUEUE_NAME_SEND = "FeignSend";
+//    @Bean
+//    public Queue FeignSend() {
+//        return new Queue(QUEUE_NAME_SEND, true);
+//    }
+//
+//    public static final String QUEUE_NAME_RECEIVE = "Control";
+//    @Bean
+//    public Queue FeignRecive() {
+//        return new Queue(QUEUE_NAME_RECEIVE, true);
+//    }
 //    @Bean
 //    public Queue userQueue() {
 //        return new Queue("user");

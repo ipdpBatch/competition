@@ -6,3 +6,10 @@ spring:
     username: root
     password: ipdp@ipdp
     driver-class-name: com.mysql.cj.jdbc.Driver
+  rabbitmq:
+    addresses: 123.206.79.70:5672
+    username: ipdp
+    password: ipdp
+    enabled: true
+    max-attempts: 3
+    initial-interval: 3000

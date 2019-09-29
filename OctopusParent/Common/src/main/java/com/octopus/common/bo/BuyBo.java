@@ -24,6 +24,10 @@ public class BuyBo implements Serializable {
     /*消息目标队列*/
     String destiny;
 
+    public BuyBo() {
+        //
+    }
+
     public String getBusinessCode() {
         return businessCode;
     }
