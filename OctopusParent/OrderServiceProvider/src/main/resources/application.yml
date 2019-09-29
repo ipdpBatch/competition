@@ -7,9 +7,9 @@ eureka:
 
 spring:
   application:
-    name: eureka-provider-pay
+    name: eureka-provider-order
   datasource:
-    url: jdbc:mysql://mysql.ipdp.top/competition-order?useUnicode=true&characterEncoding=UTF-8&
+    url: jdbc:mysql://mysql.ipdp.top/competition-order?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
     username: root
     password: ipdp@ipdp
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = RabbitMqConfig.QUEUE_NAME)
 public class Receiver {
     //1\. @RabbitListener(queues = "myQueue") // 不能自动创建队列
     //2\. 自动创建队列 @RabbitListener(queuesToDeclare = @Queue("myQueue"))
@@ -51,7 +50,7 @@ public class Receiver {
     private RabbitTemplate rabbitTemplate;
 
     public void receivertest1(){
-        Object message = rabbitTemplate.receiveAndConvert(RabbitMqConfig.QUEUE_NAME);
+        Object message = rabbitTemplate.receiveAndConvert();
         System.out.println("receiveMessage:"+message);
     }
 }
