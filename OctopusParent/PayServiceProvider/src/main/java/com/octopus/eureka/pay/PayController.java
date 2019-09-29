@@ -1,8 +1,7 @@
 package com.octopus.eureka.pay;
 
-import com.octopus.eureka.pay.dao.PaymentInfoDto;
-import com.octopus.eureka.pay.dao.PaymentInfoMapper;
-import org.apache.ibatis.annotations.Param;
+import com.octopus.common.dao.PaymentInfoDto;
+import com.octopus.common.dao.PaymentInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +32,7 @@ public class PayController {
     }
 
     @GetMapping("/pay/{orderSeq}/{payType}")
-    public PaymentInfoDto findById(@PathVariable("orderSeq")float  orderSeq,@PathVariable("payType")String payType) {
+    public PaymentInfoDto findById(@PathVariable("orderSeq")float  orderSeq, @PathVariable("payType")String payType) {
         PaymentInfoDto PaymentInfoDto = paymentInfoMapper.selectById(orderSeq,payType);
         if (PaymentInfoDto != null) {
             return PaymentInfoDto;

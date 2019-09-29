@@ -1,4 +1,4 @@
-package com.octopus.eureka.pay.dao;
+package com.octopus.common.dao;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
