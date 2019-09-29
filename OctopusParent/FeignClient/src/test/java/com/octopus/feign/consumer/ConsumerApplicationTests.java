@@ -1,7 +1,7 @@
 package com.octopus.feign.consumer;
 
 import org.junit.Test;
-import com.octopus.eureka.order.Dao.ControlOrderDto;
+import com.octopus.common.dao.ControlOrderDto;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +11,6 @@ import com.octopus.feign.consumer.rabbitMq.Receiver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.Date;
-import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes= ConsumerApplication.class)

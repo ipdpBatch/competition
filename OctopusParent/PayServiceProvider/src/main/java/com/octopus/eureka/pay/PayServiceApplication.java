@@ -1,5 +1,6 @@
 package com.octopus.eureka.pay;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -8,6 +9,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
+@MapperScan("com.octopus.common.dao")
 public class PayServiceApplication {
     private final static Logger logger = LoggerFactory.getLogger(PayServiceApplication.class);
     public static void main(String[] args) {

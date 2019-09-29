@@ -1,8 +1,6 @@
 package com.octopus.feign.consumer;
 
-import com.octopus.eureka.order.Dao.ControlOrderDto;
-import com.octopus.eureka.order.Dao.OrderFinancialDto;
-import com.octopus.feign.consumer.provider.HomeClient;
+import com.octopus.common.dao.*;
 import com.octopus.feign.consumer.provider.OrderClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

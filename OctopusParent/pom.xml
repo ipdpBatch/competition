@@ -17,12 +17,13 @@
 
     <modules>
         <module>EurekaServer</module>
-        <module>ControlCenture</module>
+        <module>ControlCenter</module>
         <module>OrderServiceProvider</module>
         <module>UserServiceProvider</module>
         <module>PayServiceProvider</module>
         <module>ProductServiceProvider</module>
         <module>FeignClient</module>
+        <module>Dao</module>
     </modules>
 
     <dependencies>
