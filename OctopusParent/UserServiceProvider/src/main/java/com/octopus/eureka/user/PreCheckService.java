@@ -21,14 +21,14 @@ public class PreCheckService {
         String customerId = buyBo.getCustomerId();
         CustomerCifInfoDto customerCifInfoDto = userController.findById(customerId);
         int cifFlag = 0;
-        if(StringUtils.isNullOrEmpty(customerCifInfoDto.getCustomerId())){
+        if(customerCifInfoDto == null){
             cifFlag = 0;
         }else{
             cifFlag = 1;
         }
         CustomerSignInfoDto customerSignInfoDto  = userController.getSignInfoById(customerId);
         int signFlag = 0;
-        if(StringUtils.isNullOrEmpty(customerSignInfoDto.getCustomerId())){
+        if(customerSignInfoDto == null){
             signFlag = 0;
         }else{
             signFlag = 1;
