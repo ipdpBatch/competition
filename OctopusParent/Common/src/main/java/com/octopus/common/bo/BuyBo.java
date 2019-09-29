@@ -1,4 +1,4 @@
-package com.octopus.eureka.control;
+package com.octopus.common.bo;
 
 import java.math.BigDecimal;
 
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * @version 1.0.0
  * @date Created in 20:35 2019/9/27
  */
-class BuyBo {
+public class BuyBo {
     public String getBusinessCode() {
         return businessCode;
     }
@@ -63,19 +63,8 @@ class BuyBo {
     String customerId;
     String productId;
     BigDecimal transactionAmount;
-    /*控制步骤，服务代码*/
-    String orderStep;
     /*消息目标队列*/
     String destiny;
-
-
-    public String getOrderStep() {
-        return orderStep;
-    }
-
-    public void setOrderStep(String orderStep) {
-        this.orderStep = orderStep;
-    }
 
 
     public String getDestiny() {

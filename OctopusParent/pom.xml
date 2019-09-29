@@ -23,22 +23,11 @@
         <module>PayServiceProvider</module>
         <module>ProductServiceProvider</module>
         <module>FeignClient</module>
-        <module>Dao</module>
+        <module>Common</module>
     </modules>
 
     <dependencies>
-        <!-- 添加 MyBatis -->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.0.0</version>
-        </dependency>
 
-        <!-- 添加 MySQL -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
 
         <!--添加Json支持-->
         <dependency>

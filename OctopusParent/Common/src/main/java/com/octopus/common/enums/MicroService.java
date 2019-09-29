@@ -1,4 +1,4 @@
-package com.octopus.eureka.control.common;
+package com.octopus.common.enums;
 
 /**
  * 文件创建时写入注释内容

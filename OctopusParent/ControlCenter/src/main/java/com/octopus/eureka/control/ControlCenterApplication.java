@@ -8,11 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.octopus.common.dao")
-public class ControlCentureApplication {
-    private final static Logger logger = LoggerFactory.getLogger(ControlCentureApplication.class);
+public class ControlCenterApplication {
+    private final static Logger logger = LoggerFactory.getLogger(ControlCenterApplication.class);
     public static void main(String[] args) {
         logger.info("控制中心开始启动");
-        SpringApplication.run(ControlCentureApplication.class, args);
+        SpringApplication.run(ControlCenterApplication.class, args);
         logger.info("控制中心启动成功!!");
     }
 }
