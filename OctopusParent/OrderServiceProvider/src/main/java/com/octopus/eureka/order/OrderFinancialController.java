@@ -25,7 +25,7 @@ public class OrderFinancialController {
     OrderFinancialMapper orderFinancialMapper;
 
     @RequestMapping("/order/{orderSeq}")
-    public OrderFinancialDto getOrder(@PathVariable("orderSeq") String orderSeq) {
+    public OrderFinancialDto getOrder(@PathVariable("orderSeq") float orderSeq) {
         logger.info("请求参数orderSeq："+ orderSeq);
         return orderFinancialMapper.selectById(orderSeq);
     }
@@ -46,7 +46,7 @@ public class OrderFinancialController {
     }
 
     @RequestMapping("/order/delete/{orderSeq}")
-    public int deleteOrder(@PathVariable("orderSeq") String orderSeq) {
+    public int deleteOrder(@PathVariable("orderSeq") float orderSeq) {
         logger.info("请求参数orderSeq："+ orderSeq);
         return orderFinancialMapper.delete(orderSeq);
     }

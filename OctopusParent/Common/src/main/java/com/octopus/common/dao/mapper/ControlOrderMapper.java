@@ -11,7 +11,7 @@ import java.util.List;
  * @Version 1.0
  */
 @Mapper
-public interface ContolOrderMapper {
+public interface ControlOrderMapper {
 
     /**
      * 添加操作，返回新增元素的 ID
@@ -55,7 +55,7 @@ public interface ContolOrderMapper {
      * @return
      */
     @Select("select * from t_control_order where order_seq=#{orderSeq}")
-    public ControlOrderDto selectById(@Param("orderSeq") String orderSeq);
+    public ControlOrderDto selectById(@Param("orderSeq") float orderSeq);
 
 
 }

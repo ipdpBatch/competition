@@ -20,8 +20,8 @@ public interface OrderClient {
     @RequestMapping(value = "/controlOrder/all", method = RequestMethod.GET)
     List<ControlOrderDto> getControlOrderList();
 
-    @RequestMapping(value ="/controlOrder/{id}", method = RequestMethod.GET)
-    ControlOrderDto getControlOrder(@PathVariable("id") String orderSeq);
+    @RequestMapping(value ="/controlOrder/{orderSeq}", method = RequestMethod.GET)
+    ControlOrderDto getControlOrder(@PathVariable("orderSeq") String orderSeq);
 
     @RequestMapping(value ="/controlOrder/delete/{orderSeq}",method = RequestMethod.DELETE)
     int deleteControlOrder(@PathVariable("orderSeq") String orderSeq);
