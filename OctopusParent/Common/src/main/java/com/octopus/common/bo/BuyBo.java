@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  */
 public class BuyBo implements Serializable {
     /*订单编号*/
-    String orderSeq;
+    float orderSeq;
     /*业务代码*/
     String businessCode;
     /*客户号*/
@@ -23,6 +23,16 @@ public class BuyBo implements Serializable {
     BigDecimal transactionAmount;
     /*消息目标队列*/
     String destiny;
+    /*订单步骤*/
+    String orderStep;
+
+    public String getOrderStep() {
+        return orderStep;
+    }
+
+    public void setOrderStep(String orderStep) {
+        this.orderStep = orderStep;
+    }
 
     public BuyBo() {
         //
@@ -67,11 +77,11 @@ public class BuyBo implements Serializable {
         this.transactionAmount = transactionAmount;
     }
 
-    public String getOrderSeq() {
+    public float getOrderSeq() {
         return orderSeq;
     }
 
-    public void setOrderSeq(String orderSeq) {
+    public void setOrderSeq(float orderSeq) {
         this.orderSeq = orderSeq;
     }
 

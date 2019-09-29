@@ -1,5 +1,6 @@
 package com.octopus.feign.consumer;
 
+import com.octopus.common.bo.BuyBo;
 import com.octopus.common.dao.domain.ControlOrderDto;
 import com.octopus.common.dao.domain.OrderFinancialDto;
 import com.octopus.feign.consumer.provider.OrderClient;
@@ -11,63 +12,55 @@ import java.util.List;
 
 @RestController
 public class OrderDispatcher {
-//    @Autowired
+    //    @Autowired
 //    private HomeClient homeClient;
     @Autowired
     private OrderClient orderClient;
 
-//    public String findAllUsers(){
-//        return homeClient.findAllUser();
-//    }
-//    public String findById(String id){
-//        return homeClient.findById(id);
-//    }
-
-//    @Autowired
-//    private HomeClient homeClient;
-//
-//    public String findAllUsers(){
-//        return homeClient.findAllUser();
-//    }
-//    public String findById(String id){
-//        return homeClient.findById(id);
-//    }
-
-
     //订单控制表
-    public List<ControlOrderDto> getControlOrderList(){
-        return  orderClient.getControlOrderList();
+    public List<ControlOrderDto> getControlOrderList() {
+        return orderClient.getControlOrderList();
     }
 
     public ControlOrderDto getControlOrder(String orderSeq) {
         return orderClient.getControlOrder(orderSeq);
     }
 
-    public int deleteControlOrder(String orderSeq){
-        return  orderClient.deleteControlOrder(orderSeq);
+    public int deleteControlOrder(String orderSeq) {
+        return orderClient.deleteControlOrder(orderSeq);
     }
-    public int updateControlOrder(ControlOrderDto controlOrderDto){
+
+    public int updateControlOrder(ControlOrderDto controlOrderDto) {
         return orderClient.updateControlOrder(controlOrderDto);
     }
-    public int addControlOrder(ControlOrderDto controlOrderDto){
+
+    public int addControlOrder(ControlOrderDto controlOrderDto) {
         return orderClient.addControlOrder(controlOrderDto);
     }
 
     //订单表
-    public List<OrderFinancialDto> getOrderList(){
+    public List<OrderFinancialDto> getOrderList() {
         return orderClient.getOrderList();
     }
-    public OrderFinancialDto getOrder(String orderSeq){
+
+    public OrderFinancialDto getOrder(String orderSeq) {
         return orderClient.getOrder(orderSeq);
     }
-    public int deleteOrder(String orderSeq){
+
+    public int deleteOrder(String orderSeq) {
         return orderClient.deleteOrder(orderSeq);
     }
-    public int updateOrder(OrderFinancialDto orderFinancialDto){
+
+    public int updateOrder(OrderFinancialDto orderFinancialDto) {
         return orderClient.updateOrder(orderFinancialDto);
     }
-    public int addOrder(OrderFinancialDto orderFinancialDto){
+
+    public int addOrder(OrderFinancialDto orderFinancialDto) {
         return orderClient.addOrder(orderFinancialDto);
     }
 
+    /*订单建单服务*/
+    public boolean createOrder(BuyBo buyBo) {
+     return true;
+    }
 }
