@@ -4,12 +4,13 @@ import com.octopus.common.dao.*;
 import com.octopus.feign.consumer.provider.OrderClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 
-@Controller
-public class OctopusHandController {
+@RestController
+public class OrderDispatcher {
 //    @Autowired
 //    private HomeClient homeClient;
     @Autowired

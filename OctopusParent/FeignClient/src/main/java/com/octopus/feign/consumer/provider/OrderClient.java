@@ -21,7 +21,7 @@ public interface OrderClient {
     List<ControlOrderDto> getControlOrderList();
 
     @RequestMapping(value ="/controlOrder/{id}", method = RequestMethod.GET)
-    ControlOrderDto getControlOrder(@PathVariable("orderSeq") String orderSeq);
+    ControlOrderDto getControlOrder(@PathVariable("id") String orderSeq);
 
     @RequestMapping(value ="/controlOrder/delete/{orderSeq}",method = RequestMethod.DELETE)
     int deleteControlOrder(@PathVariable("orderSeq") String orderSeq);

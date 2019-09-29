@@ -1,5 +1,6 @@
 package com.octopus.common.dao.mapper;
 
+import com.octopus.common.dao.PositionBalanceDto;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
