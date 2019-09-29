@@ -1,6 +1,10 @@
 package com.octopus.feign.consumer.rabbitMq;
 
+
+
 import com.octopus.feign.consumer.ConsumerApplication;
+import com.octopus.feign.consumer.rabbitMq.HelloSender;
+import com.octopus.feign.consumer.rabbitMq.Receiver;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -29,7 +33,8 @@ public class ConsumerApplicationTests {
 
     @Test
     public void receiverOrder() {
-        rabbitTemplate.convertSendAndReceive("myQueue");
-    }
 
+        receiver.receivertest1();
+    }
 }
+

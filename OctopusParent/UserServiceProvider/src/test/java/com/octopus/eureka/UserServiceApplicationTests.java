@@ -1,10 +1,10 @@
 package com.octopus.eureka;
+
+import com.octopus.common.dao.CustomerCifInfoDto;
+import com.octopus.common.dao.CustomerCifInfoMapper;
 import com.octopus.eureka.user.UserServiceApplication;
-import com.octopus.eureka.user.dao.CustomerCifInfoDto;
-import com.octopus.eureka.user.dao.CustomerCifInfoMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 

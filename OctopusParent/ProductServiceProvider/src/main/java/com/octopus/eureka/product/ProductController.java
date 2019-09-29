@@ -1,7 +1,7 @@
 package com.octopus.eureka.product;
 
-import com.octopus.eureka.product.dao.ProductBseInfoDto;
-import com.octopus.eureka.product.dao.ProductBseInfoMapper;
+import com.octopus.common.dao.ProductBaseInfoDto;
+import com.octopus.common.dao.ProductBaseInfoMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +21,7 @@ import java.util.List;
 @RestController
 public class ProductController {
     @Resource
-    private ProductBseInfoMapper productBseInfoMapper;
+    private ProductBaseInfoMapper productBaseInfoMapper;
     @Value("${server.port}")
     String port;
     @RequestMapping("/product")
@@ -30,17 +30,17 @@ public class ProductController {
     }
 
     @GetMapping("/user/{id}")
-    public ProductBseInfoDto findById(@PathVariable String id) {
-        ProductBseInfoDto productBseInfoDto = productBseInfoMapper.selectById(id);
-        if (productBseInfoDto != null) {
-            return productBseInfoDto;
+    public ProductBaseInfoDto findById(@PathVariable String id) {
+        ProductBaseInfoDto productBaseInfoDto = productBaseInfoMapper.selectById(id);
+        if (productBaseInfoDto != null) {
+            return productBaseInfoDto;
         } else {
             return null;
         }
     }
 
     @GetMapping("/user/all")
-    public List<ProductBseInfoDto> findAll() {
-        return productBseInfoMapper.selectAll();
+    public List<ProductBaseInfoDto> findAll() {
+        return productBaseInfoMapper.selectAll();
     }
 }
