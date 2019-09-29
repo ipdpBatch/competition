@@ -46,17 +46,6 @@ public interface OrderFinancialMapper {
      * @return
      */
     @Select("select order_seq, create_date, create_time, transcation_code, customer_id, product_id, transcation_amout, transcation_vol, order_status, capital_status from t_order_financial")
-    @Results({
-            @Result(property = "orderSeq",column = "order_seq"),
-            @Result(property = "createDate",column = "create_date"),
-            @Result(property = "createTime",column = "create_time"),
-            @Result(property = "transcationCode",column = "transcation_code"),
-            @Result(property = "customerId",column = "customer_id"),
-            @Result(property = "productId",column = "product_id"),
-            @Result(property = "transcationAmout",column = "transcation_amout"),
-            @Result(property = "orderStatus",column = "order_status"),
-            @Result(property = "capitalStatus",column = "capital_status")
-    })
     public List<OrderFinancialDto> selectAll();
 
     /**
@@ -66,18 +55,6 @@ public interface OrderFinancialMapper {
      * @return
      */
     @Select("select order_seq, create_date, create_time, transcation_code, customer_id, product_id, transcation_amout, transcation_vol, order_status, capital_status from t_order_financial where order_seq=#{orderSeq}")
-    @Results({
-            @Result(property = "orderSeq",column = "order_seq"),
-            @Result(property = "createDate",column = "create_date"),
-            @Result(property = "createTime",column = "create_time"),
-            @Result(property = "transcationCode",column = "transcation_code"),
-            @Result(property = "customerId",column = "customer_id"),
-            @Result(property = "productId",column = "product_id"),
-            @Result(property = "transcationAmout",column = "transcation_amout"),
-            @Result(property = "transcationVol",column = "transcation_vol"),
-            @Result(property = "orderStatus",column = "order_status"),
-            @Result(property = "capitalStatus",column = "capital_status")
-    })
     public OrderFinancialDto selectById(@Param("orderSeq") float orderSeq);
 
 }
