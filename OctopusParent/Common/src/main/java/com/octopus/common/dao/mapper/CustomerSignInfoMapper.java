@@ -26,5 +26,8 @@ public interface CustomerSignInfoMapper {
 	List<CustomerSignInfoDto> selectAll();
 	
     @Select("select * from t_customer_sign__info where customer_id=#{customerId} and product_id=#{productId}")
-    CustomerSignInfoDto selectById(@Param("customerId") String customerId, @Param("productId") String productId);
+    CustomerSignInfoDto selectByPrimaryKey(@Param("customerId") String customerId, @Param("productId") String productId);
+
+    @Select("select * from t_customer_sign__info where customer_id=#{customerId}")
+    CustomerSignInfoDto selectByCusid(@Param("customerId") String customerId);
 }
