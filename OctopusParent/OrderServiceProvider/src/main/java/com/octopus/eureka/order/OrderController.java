@@ -34,7 +34,7 @@ public class OrderController {
     }
 
     @GetMapping("/controlOrder/{orderSeq}")
-    public ControlOrderDto getControlOrder(@PathVariable("orderSeq") float orderSeq) {
+    public ControlOrderDto getControlOrder(@PathVariable("orderSeq") String orderSeq) {
         logger.info("请求参数orderSeq："+ orderSeq);
         return controlOrderMapper.selectById(orderSeq);
     }
