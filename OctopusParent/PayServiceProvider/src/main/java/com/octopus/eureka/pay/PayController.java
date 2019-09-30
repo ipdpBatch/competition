@@ -32,7 +32,7 @@ public class PayController {
     }
 
     @GetMapping("/pay/{orderSeq}/{payType}")
-    public PaymentInfoDto findById(@PathVariable("orderSeq")float  orderSeq, @PathVariable("payType")String payType) {
+    public PaymentInfoDto findById(@PathVariable("orderSeq")double  orderSeq, @PathVariable("payType")String payType) {
         PaymentInfoDto PaymentInfoDto = paymentInfoMapper.selectById(orderSeq,payType);
         if (PaymentInfoDto != null) {
             return PaymentInfoDto;

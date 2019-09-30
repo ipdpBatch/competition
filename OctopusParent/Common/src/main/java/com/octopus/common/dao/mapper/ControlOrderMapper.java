@@ -37,7 +37,7 @@ public interface ControlOrderMapper {
      * @return 受影响的行数
      */
     @Delete("delete from t_control_order where order_seq= #{orderSeq}")
-    public int delete(@Param("orderSeq") float orderSeq);
+    public int delete(@Param("orderSeq") double orderSeq);
 
     /**
      * 查询所有

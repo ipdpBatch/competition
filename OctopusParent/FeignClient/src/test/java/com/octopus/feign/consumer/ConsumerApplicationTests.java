@@ -2,6 +2,7 @@ package com.octopus.feign.consumer;
 
 import com.octopus.common.bo.BuyBo;
 import com.octopus.common.dao.domain.OrderFinancialDto;
+import com.octopus.common.dao.domain.ProductBaseInfoDto;
 import org.junit.Test;
 import com.octopus.common.dao.domain.ControlOrderDto;
 import org.junit.runner.RunWith;
@@ -22,6 +23,9 @@ import java.util.List;
 public class ConsumerApplicationTests {
     private final static Logger logger = LoggerFactory.getLogger(ConsumerApplicationTests.class);
     @Autowired
+    private ProductDispatcher productDispatcher;
+
+    @Autowired
     private OrderDispatcher orderDispatcher;
 
 
@@ -37,6 +41,50 @@ public class ConsumerApplicationTests {
     @Test
     public void sendOrder() {
         helloSender.send();
+    }
+
+    @Test
+    public void testProduct(){
+
+//        List<ProductBaseInfoDto> productList = productDispatcher.selectAll();
+//        logger.info("列表："+productList.toString());
+//        ProductBaseInfoDto productdto = productDispatcher.getProductById("000539");
+//        logger.info("主键："+productdto.toString());
+//
+//        ProductBaseInfoDto productBaseInfoDto=new ProductBaseInfoDto();
+//        productBaseInfoDto.setProductId("100999");
+//        productBaseInfoDto.setProductName("1999");
+//        productBaseInfoDto.setProductRiskLevel("01");
+//        productBaseInfoDto.setProductType("01");
+//        productBaseInfoDto.setProductRemainAmount(200000);
+//        productBaseInfoDto.setProductRaiseAmount(300000);
+//        productBaseInfoDto.setRegistarCode("98");
+//        productBaseInfoDto.setRegistarName("ABC");
+//        logger.info("新建产品记录："+productBaseInfoDto.toString());
+//        System.out.println("产品"+productBaseInfoDto.toString());
+//        int i=productDispatcher.insertProduct(productBaseInfoDto);
+//        logger.info("插入后的productBaseInfoDto："+i);
+
+//        int j=productDispatcher.deleteProduct("000123");
+//        logger.info("删除结果："+j);
+
+
+        ProductBaseInfoDto productBaseInfoDto=new ProductBaseInfoDto();
+        productBaseInfoDto.setProductId("000999");
+        productBaseInfoDto.setProductName("666");
+        productBaseInfoDto.setProductRiskLevel("01");
+        productBaseInfoDto.setProductType("01");
+//        productBaseInfoDto.setProductRemainAmount(200000);
+//        productBaseInfoDto.setProductRaiseAmount(300000);
+//        productBaseInfoDto.setRegistarCode("98");
+//        productBaseInfoDto.setRegistarName("ABC");
+        int k=productDispatcher.updateProduct(productBaseInfoDto);
+        logger.info("修改结果："+k);
+
+//        ProductBaseInfoDto productdto = productDispatcher.addProduct("000539");
+//        logger.debug("查询结果：" + productdto.toString());
+//        receiver.receivertest1( );
+
     }
 
     @Test

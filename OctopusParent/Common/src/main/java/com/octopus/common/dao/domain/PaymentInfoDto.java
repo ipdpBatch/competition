@@ -12,11 +12,11 @@ import java.math.BigDecimal;
  */
 public class PaymentInfoDto implements Serializable {
 
-    public float getOrderSeq() {
+    public double getOrderSeq() {
         return orderSeq;
     }
 
-    public void setOrderSeq(float orderSeq) {
+    public void setOrderSeq(double orderSeq) {
         this.orderSeq = orderSeq;
     }
 
@@ -84,13 +84,13 @@ public class PaymentInfoDto implements Serializable {
         this.errorMessage = errorMessage;
     }
 
-    float orderSeq;
+    double orderSeq;
     String  payType;
     String customerId;
     String accountNoOut;
     String accountNoIn;
 
-    public PaymentInfoDto(float orderSeq, String payType, String customerId, String accountNoOut, String accountNoIn, BigDecimal payAmount, String paySystem, String returnCode, String errorMessage) {
+    public PaymentInfoDto(double orderSeq, String payType, String customerId, String accountNoOut, String accountNoIn, BigDecimal payAmount, String paySystem, String returnCode, String errorMessage) {
         this.orderSeq = orderSeq;
         this.payType = payType;
         this.customerId = customerId;

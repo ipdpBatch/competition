@@ -30,8 +30,8 @@ public class UserController {
     @Autowired
     private CustomerSignInfoMapper customerSignInfoMapper;
 
-    @Resource
-    PreCheckService preCheckService;
+/*    @Resource
+    PreCheckService preCheckService;*/
 
     @Value("${server.port}")
     String port;
@@ -62,9 +62,9 @@ public class UserController {
         return customerSignInfoDto;
     }
 
-    @GetMapping("/user/precheck/{buybo}")
+   /* @GetMapping("/user/precheck/{buybo}")
     public int preCheck(@PathVariable BuyBo buybo){
         return preCheckService.doProcess(buybo);
-    }
+    }*/
 
 }
