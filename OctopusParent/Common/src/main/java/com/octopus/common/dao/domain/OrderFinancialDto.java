@@ -10,47 +10,31 @@ import java.math.BigDecimal;
  */
 public class OrderFinancialDto implements Serializable{
     //订单编号
-    private float orderSeq;
+    private double orderSeq;
     //建单日期
     private String createDate;
     //建单时间
     private String createTime;
     //交易码
-    private String transcationCode;
+    private String transactionCode;
     //客户编号
     private String customerId;
     //产品编号
     private String productId;
     //交易金额
-    private BigDecimal transcationAmout;
+    private BigDecimal transactionAmount;
     //交易份额
-    private BigDecimal transcationVol;
+    private BigDecimal transactionVol;
     //订单状态
     private String orderStatus;
     //订单资金状态
     private String capitalStatus;
 
-    public OrderFinancialDto() {
-    }
-
-    public OrderFinancialDto(float orderSeq, String createDate, String createTime, String transcationCode, String customerId, String productId, BigDecimal transcationAmout, BigDecimal transcationVol, String orderStatus, String capitalStatus) {
-        this.orderSeq = orderSeq;
-        this.createDate = createDate;
-        this.createTime = createTime;
-        this.transcationCode = transcationCode;
-        this.customerId = customerId;
-        this.productId = productId;
-        this.transcationAmout = transcationAmout;
-        this.transcationVol = transcationVol;
-        this.orderStatus = orderStatus;
-        this.capitalStatus = capitalStatus;
-    }
-
-    public float getOrderSeq() {
+    public double getOrderSeq() {
         return orderSeq;
     }
 
-    public void setOrderSeq(float orderSeq) {
+    public void setOrderSeq(double orderSeq) {
         this.orderSeq = orderSeq;
     }
 
@@ -70,12 +54,12 @@ public class OrderFinancialDto implements Serializable{
         this.createTime = createTime;
     }
 
-    public String getTranscationCode() {
-        return transcationCode;
+    public String getTransactionCode() {
+        return transactionCode;
     }
 
-    public void setTranscationCode(String transcationCode) {
-        this.transcationCode = transcationCode;
+    public void setTransactionCode(String transactionCode) {
+        this.transactionCode = transactionCode;
     }
 
     public String getCustomerId() {
@@ -94,20 +78,20 @@ public class OrderFinancialDto implements Serializable{
         this.productId = productId;
     }
 
-    public BigDecimal getTranscationAmout() {
-        return transcationAmout;
+    public BigDecimal getTransactionAmount() {
+        return transactionAmount;
     }
 
-    public void setTranscationAmout(BigDecimal transcationAmout) {
-        this.transcationAmout = transcationAmout;
+    public void setTransactionAmount(BigDecimal transactionAmount) {
+        this.transactionAmount = transactionAmount;
     }
 
-    public BigDecimal getTranscationVol() {
-        return transcationVol;
+    public BigDecimal getTransactionVol() {
+        return transactionVol;
     }
 
-    public void setTranscationVol(BigDecimal transcationVol) {
-        this.transcationVol = transcationVol;
+    public void setTransactionVol(BigDecimal transactionVol) {
+        this.transactionVol = transactionVol;
     }
 
     public String getOrderStatus() {
@@ -132,11 +116,11 @@ public class OrderFinancialDto implements Serializable{
                 "orderSeq='" + orderSeq + '\'' +
                 ", createDate='" + createDate + '\'' +
                 ", createTime='" + createTime + '\'' +
-                ", transcationCode='" + transcationCode + '\'' +
+                ", transactionCode='" + transactionCode + '\'' +
                 ", customerId='" + customerId + '\'' +
                 ", productId='" + productId + '\'' +
-                ", transcationAmout=" + transcationAmout +
-                ", transcationVol=" + transcationVol +
+                ", transactionAmount=" + transactionAmount +
+                ", transactionVol=" + transactionVol +
                 ", orderStatus='" + orderStatus + '\'' +
                 ", capitalStatus='" + capitalStatus + '\'' +
                 '}';

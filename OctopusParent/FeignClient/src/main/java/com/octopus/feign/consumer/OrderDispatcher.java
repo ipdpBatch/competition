@@ -63,8 +63,8 @@ public class OrderDispatcher {
     public OrderFinancialDto createOrder(BuyBo buyBo) {
         OrderFinancialDto orderFinancialDto = new OrderFinancialDto();
         orderFinancialDto.setCustomerId(buyBo.getCustomerId());
-        orderFinancialDto.setTranscationAmout(buyBo.getTransactionAmount());
-        orderFinancialDto.setTranscationCode(buyBo.getBusinessCode());
+        orderFinancialDto.setTransactionAmount(buyBo.getTransactionAmount());
+        orderFinancialDto.setTransactionCode(buyBo.getBusinessCode());
         orderFinancialDto.setProductId(buyBo.getProductId());
         OrderFinancialDto order = orderClient.getAddOrder(orderFinancialDto);
 

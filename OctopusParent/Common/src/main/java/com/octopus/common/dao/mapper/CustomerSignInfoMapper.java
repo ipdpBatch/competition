@@ -13,10 +13,10 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface CustomerSignInfoMapper {
     
-	@Insert("INSERT INTO t_customer_sign__info ( customer_id, product_id, sign_status, transcation_date, transcation_time) VALUES (#{customerId},#{productId},#{signStatus},#{transcationDate},#{transcationTime})")
+	@Insert("INSERT INTO t_customer_sign__info ( customer_id, product_id, sign_status, transaction_date, transaction_time) VALUES (#{customerId},#{productId},#{signStatus},#{transactionDate},#{transactionTime})")
     int insert(CustomerSignInfoDto customerSignInfoDto);
 	
-	@Update("update t_customer_sign__info set customer_id=#{customerId},product_id=#{productId},sign_status=#{signStatus},transcation_date=#{transcationDate},transcation_time=#{transcationTime}  where customer_id= #{customerId} and product_id= #{productId}")
+	@Update("update t_customer_sign__info set customer_id=#{customerId},product_id=#{productId},sign_status=#{signStatus},transaction_date=#{transactionDate},transaction_time=#{transactionTime}  where customer_id= #{customerId} and product_id= #{productId}")
     int update(CustomerSignInfoDto customerSignInfoDto);
 	
 	@Delete("delete from t_customer_sign__info where customer_id=#{customerId} and product_id=#{productId}")
