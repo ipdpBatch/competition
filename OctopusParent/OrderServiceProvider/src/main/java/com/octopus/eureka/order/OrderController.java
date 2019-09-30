@@ -57,7 +57,7 @@ public class OrderController {
     }
 
     @RequestMapping("/controlOrder/delete/{orderSeq}")
-    public int deleteControlOrder(@PathVariable("orderSeq")  float orderSeq) {
+    public int deleteControlOrder(@PathVariable("orderSeq")  double orderSeq) {
         logger.info("请求参数orderSeq："+ orderSeq);
         return controlOrderMapper.delete(orderSeq);
     }

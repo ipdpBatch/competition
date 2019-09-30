@@ -21,7 +21,7 @@ public class preCheckTest {
         BuyBo test = new BuyBo();
         test.setBusinessCode("110");
         test.setCustomerId("1111111");
-        float orderSeq = new Float(00000012);
+        double orderSeq = 12;
         test.setOrderSeq(orderSeq);
         test.setProductId("01000");
         test.setTransactionAmount(new BigDecimal(100.00));

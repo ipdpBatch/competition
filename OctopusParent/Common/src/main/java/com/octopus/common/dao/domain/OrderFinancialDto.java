@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  */
 public class OrderFinancialDto implements Serializable{
     //订单编号
-    private float orderSeq;
+    private double orderSeq;
     //建单日期
     private String createDate;
     //建单时间
@@ -31,7 +31,7 @@ public class OrderFinancialDto implements Serializable{
     private String capitalStatus;
 
 
-    public OrderFinancialDto(float orderSeq, String createDate, String createTime, String transcationCode, String customerId, String productId, BigDecimal transcationAmout, BigDecimal transcationVol, String orderStatus, String capitalStatus) {
+    public OrderFinancialDto(double orderSeq, String createDate, String createTime, String transcationCode, String customerId, String productId, BigDecimal transcationAmout, BigDecimal transcationVol, String orderStatus, String capitalStatus) {
         this.orderSeq = orderSeq;
         this.createDate = createDate;
         this.createTime = createTime;
@@ -44,11 +44,11 @@ public class OrderFinancialDto implements Serializable{
         this.capitalStatus = capitalStatus;
     }
 
-    public float getOrderSeq() {
+    public double getOrderSeq() {
         return orderSeq;
     }
 
-    public void setOrderSeq(float orderSeq) {
+    public void setOrderSeq(double orderSeq) {
         this.orderSeq = orderSeq;
     }
 

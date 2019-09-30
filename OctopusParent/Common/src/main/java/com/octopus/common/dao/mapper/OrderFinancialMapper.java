@@ -38,7 +38,7 @@ public interface OrderFinancialMapper {
      * @return 受影响的行数
      */
     @Delete("delete from t_order_financial where order_seq= #{orderSeq}")
-    public int delete(@Param("orderSeq") float orderSeq);
+    public int delete(@Param("orderSeq") double orderSeq);
 
     /**
      * 查询所有
@@ -55,6 +55,6 @@ public interface OrderFinancialMapper {
      * @return
      */
     @Select("select order_seq, create_date, create_time, transcation_code, customer_id, product_id, transcation_amout, transcation_vol, order_status, capital_status from t_order_financial where order_seq=#{orderSeq}")
-    public OrderFinancialDto selectById(@Param("orderSeq") float orderSeq);
+    public OrderFinancialDto selectById(@Param("orderSeq") double orderSeq);
 
 }
