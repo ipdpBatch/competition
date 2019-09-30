@@ -51,5 +51,16 @@ public class OrderFinancialController {
         return orderFinancialMapper.delete(orderSeq);
     }
 
+    @RequestMapping("/order/getAdd")
+    public OrderFinancialDto getAddOrder(@RequestBody  OrderFinancialDto orderFinancialDto) {
+        int insert = orderFinancialMapper.insert(orderFinancialDto);
+        if(insert > 0){
+            float orderSeq = orderFinancialDto.getOrderSeq();
+            logger.info("插入订单的orderSeq："+ orderSeq);
+            return orderFinancialMapper.selectById(orderSeq);
+        }
+        return null;
+    }
+
 
 }

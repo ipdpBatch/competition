@@ -30,6 +30,8 @@ public class OrderFinancialDto implements Serializable{
     //订单资金状态
     private String capitalStatus;
 
+    public OrderFinancialDto() {
+    }
 
     public OrderFinancialDto(float orderSeq, String createDate, String createTime, String transcationCode, String customerId, String productId, BigDecimal transcationAmout, BigDecimal transcationVol, String orderStatus, String capitalStatus) {
         this.orderSeq = orderSeq;

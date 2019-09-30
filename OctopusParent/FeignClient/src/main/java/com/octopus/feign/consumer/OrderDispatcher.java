@@ -43,11 +43,11 @@ public class OrderDispatcher {
         return orderClient.getOrderList();
     }
 
-    public OrderFinancialDto getOrder(String orderSeq) {
+    public OrderFinancialDto getOrder(float orderSeq) {
         return orderClient.getOrder(orderSeq);
     }
 
-    public int deleteOrder(String orderSeq) {
+    public int deleteOrder(float orderSeq) {
         return orderClient.deleteOrder(orderSeq);
     }
 
@@ -60,7 +60,14 @@ public class OrderDispatcher {
     }
 
     /*订单建单服务*/
-    public boolean createOrder(BuyBo buyBo) {
-     return true;
+    public OrderFinancialDto createOrder(BuyBo buyBo) {
+        OrderFinancialDto orderFinancialDto = new OrderFinancialDto();
+        orderFinancialDto.setCustomerId(buyBo.getCustomerId());
+        orderFinancialDto.setTranscationAmout(buyBo.getTransactionAmount());
+        orderFinancialDto.setTranscationCode(buyBo.getBusinessCode());
+        orderFinancialDto.setProductId(buyBo.getProductId());
+        OrderFinancialDto order = orderClient.getAddOrder(orderFinancialDto);
+
+        return order;
     }
 }

@@ -37,16 +37,18 @@ public interface OrderClient {
     List<OrderFinancialDto> getOrderList();
 
     @RequestMapping(value ="/order/{orderSeq}", method = RequestMethod.GET)
-    OrderFinancialDto getOrder(@PathVariable("orderSeq") String orderSeq);
+    OrderFinancialDto getOrder(@PathVariable("orderSeq") float orderSeq);
 
     @RequestMapping(value ="/order/delete/{orderSeq}", method = RequestMethod.DELETE)
-    int deleteOrder(@PathVariable("orderSeq") String orderSeq);
+    int deleteOrder(@PathVariable("orderSeq") float orderSeq);
 
-    @RequestMapping(value = "/order/update/",method = RequestMethod.POST)
+    @RequestMapping(value = "/order/update",method = RequestMethod.POST)
     int updateOrder(@RequestBody OrderFinancialDto orderFinancialDto);
 
-    @RequestMapping(value ="/order/add/",method = RequestMethod.POST)
+    @RequestMapping(value ="/order/add",method = RequestMethod.POST)
     int addOrder(@RequestBody OrderFinancialDto orderFinancialDto);
 
+    @RequestMapping(value ="/order/getAdd")
+    OrderFinancialDto getAddOrder(@RequestBody OrderFinancialDto orderFinancialDto);
 
 }
