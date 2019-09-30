@@ -33,6 +33,10 @@ public class ProductBaseInfoDto implements Serializable {
         this.registarName = registarName;
     }
 
+    public ProductBaseInfoDto() {
+
+    }
+
     public String getProductId() {
         return productId;
     }
@@ -61,7 +65,7 @@ public class ProductBaseInfoDto implements Serializable {
         return productRaiseAmount;
     }
 
-    public void setCertificationType(BigDecimal productRaiseAmount) {
+    public void setProductRaiseAmount(BigDecimal productRaiseAmount) {
         this.productRaiseAmount = productRaiseAmount;
     }
 
@@ -95,5 +99,19 @@ public class ProductBaseInfoDto implements Serializable {
 
     public void setRegistarName(String registarName) {
         this.registarName = registarName;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductBaseInfoDto{" +
+                "productId='" + productId + '\'' +
+                ", productRiskLevel='" + productRiskLevel + '\'' +
+                ", productType='" + productType + '\'' +
+                ", productRaiseAmount=" + productRaiseAmount +
+                ", productRemainAmount=" + productRemainAmount +
+                ", productName='" + productName + '\'' +
+                ", registarCode='" + registarCode + '\'' +
+                ", registarName='" + registarName + '\'' +
+                '}';
     }
 }

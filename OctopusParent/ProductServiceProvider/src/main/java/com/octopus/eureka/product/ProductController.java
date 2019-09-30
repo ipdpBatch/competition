@@ -3,10 +3,7 @@ package com.octopus.eureka.product;
 import com.octopus.common.dao.domain.ProductBaseInfoDto;
 import com.octopus.common.dao.mapper.ProductBaseInfoMapper;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -42,5 +39,20 @@ public class ProductController {
     @GetMapping("/product/all")
     public List<ProductBaseInfoDto> findAll() {
         return productBaseInfoMapper.selectAll();
+    }
+
+    @RequestMapping("/product/delete/{productId}")
+    public Long deleteProduct(@PathVariable("productId") String productId){
+        return productBaseInfoMapper.delete(productId);
+    }
+//update 未通
+    @RequestMapping("/product/update")
+    public int updateProduct(@RequestBody ProductBaseInfoDto productBaseInfoDto){
+        return productBaseInfoMapper.update(productBaseInfoDto);
+    }
+
+    @RequestMapping("/product/insert")
+    public int insertProduct(@RequestBody ProductBaseInfoDto productBaseInfoDto) {
+        return productBaseInfoMapper.insert(productBaseInfoDto);
     }
 }
