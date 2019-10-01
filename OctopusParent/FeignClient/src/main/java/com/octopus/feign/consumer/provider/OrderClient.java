@@ -37,10 +37,10 @@ public interface OrderClient {
     List<OrderFinancialDto> getOrderList();
 
     @RequestMapping(value ="/order/{orderSeq}", method = RequestMethod.GET)
-    OrderFinancialDto getOrder(@PathVariable("orderSeq") float orderSeq);
+    OrderFinancialDto getOrder(@PathVariable("orderSeq") double orderSeq);
 
     @RequestMapping(value ="/order/delete/{orderSeq}", method = RequestMethod.DELETE)
-    int deleteOrder(@PathVariable("orderSeq") float orderSeq);
+    int deleteOrder(@PathVariable("orderSeq") double orderSeq);
 
     @RequestMapping(value = "/order/update",method = RequestMethod.POST)
     int updateOrder(@RequestBody OrderFinancialDto orderFinancialDto);

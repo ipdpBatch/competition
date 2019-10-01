@@ -43,11 +43,11 @@ public class OrderDispatcher {
         return orderClient.getOrderList();
     }
 
-    public OrderFinancialDto getOrder(float orderSeq) {
+    public OrderFinancialDto getOrder(double orderSeq) {
         return orderClient.getOrder(orderSeq);
     }
 
-    public int deleteOrder(float orderSeq) {
+    public int deleteOrder(double orderSeq) {
         return orderClient.deleteOrder(orderSeq);
     }
 
