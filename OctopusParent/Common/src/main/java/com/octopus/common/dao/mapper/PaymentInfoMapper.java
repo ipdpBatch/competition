@@ -3,6 +3,7 @@ package com.octopus.common.dao.mapper;
 import com.octopus.common.dao.domain.PaymentInfoDto;
 import org.apache.ibatis.annotations.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -49,7 +50,7 @@ public interface PaymentInfoMapper {
             "WHERE order_seq = #{orderSeq} " +
             "  AND pay_type = #{payType} " +
             " ")
-    Long delete(@Param("orderSeq")double  orderSeq,@Param("payType")String payType);
+    Long delete(@Param("orderSeq") BigInteger orderSeq, @Param("payType")String payType);
 
     /**
      * 查询所有
@@ -66,5 +67,5 @@ public interface PaymentInfoMapper {
      * @return
      */
     @Select("select * from t_payment_info where  order_seq = #{orderSeq}  AND pay_type = #{payType}" )
-    PaymentInfoDto selectById(@Param("orderSeq")double  orderSeq,@Param("payType")String payType);
+    PaymentInfoDto selectById(@Param("orderSeq")BigInteger  orderSeq,@Param("payType")String payType);
 }

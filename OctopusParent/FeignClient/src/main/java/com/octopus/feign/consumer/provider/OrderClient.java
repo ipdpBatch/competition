@@ -5,6 +5,7 @@ import com.octopus.common.dao.domain.OrderFinancialDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -37,10 +38,10 @@ public interface OrderClient {
     List<OrderFinancialDto> getOrderList();
 
     @RequestMapping(value ="/order/{orderSeq}", method = RequestMethod.GET)
-    OrderFinancialDto getOrder(@PathVariable("orderSeq") double orderSeq);
+    OrderFinancialDto getOrder(@PathVariable("orderSeq") BigInteger orderSeq);
 
     @RequestMapping(value ="/order/delete/{orderSeq}", method = RequestMethod.DELETE)
-    int deleteOrder(@PathVariable("orderSeq") double orderSeq);
+    int deleteOrder(@PathVariable("orderSeq") BigInteger orderSeq);
 
     @RequestMapping(value = "/order/update",method = RequestMethod.POST)
     int updateOrder(@RequestBody OrderFinancialDto orderFinancialDto);

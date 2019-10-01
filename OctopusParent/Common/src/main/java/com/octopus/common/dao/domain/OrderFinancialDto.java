@@ -2,6 +2,7 @@ package com.octopus.common.dao.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 /**
  * @Author dongjiale
@@ -10,7 +11,7 @@ import java.math.BigDecimal;
  */
 public class OrderFinancialDto implements Serializable{
     //订单编号
-    private double orderSeq;
+    private BigInteger orderSeq;
     //建单日期
     private String createDate;
     //建单时间
@@ -30,11 +31,11 @@ public class OrderFinancialDto implements Serializable{
     //订单资金状态
     private String capitalStatus;
 
-    public double getOrderSeq() {
+    public BigInteger getOrderSeq() {
         return orderSeq;
     }
 
-    public void setOrderSeq(double orderSeq) {
+    public void setOrderSeq(BigInteger orderSeq) {
         this.orderSeq = orderSeq;
     }
 

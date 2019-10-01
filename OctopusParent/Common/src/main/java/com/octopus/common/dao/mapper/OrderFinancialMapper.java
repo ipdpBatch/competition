@@ -3,6 +3,7 @@ package com.octopus.common.dao.mapper;
 import com.octopus.common.dao.domain.OrderFinancialDto;
 import org.apache.ibatis.annotations.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -39,7 +40,7 @@ public interface OrderFinancialMapper {
      * @return 受影响的行数
      */
     @Delete("delete from t_order_financial where order_seq= #{orderSeq}")
-    public int delete(@Param("orderSeq") double orderSeq);
+    public int delete(@Param("orderSeq") BigInteger orderSeq);
 
     /**
      * 查询所有
@@ -80,6 +81,6 @@ public interface OrderFinancialMapper {
             @Result(property = "orderStatus",column = "order_status"),
             @Result(property = "capitalStatus",column = "capital_status")
     })
-    public OrderFinancialDto selectById(@Param("orderSeq") double orderSeq);
+    public OrderFinancialDto selectById(@Param("orderSeq") BigInteger orderSeq);
 
 }

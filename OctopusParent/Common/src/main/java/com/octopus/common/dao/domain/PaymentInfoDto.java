@@ -2,6 +2,7 @@ package com.octopus.common.dao.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 /**
  * 文件创建时写入注释内容
@@ -12,11 +13,11 @@ import java.math.BigDecimal;
  */
 public class PaymentInfoDto implements Serializable {
 
-    public double getOrderSeq() {
+    public BigInteger getOrderSeq() {
         return orderSeq;
     }
 
-    public void setOrderSeq(double orderSeq) {
+    public void setOrderSeq(BigInteger orderSeq) {
         this.orderSeq = orderSeq;
     }
 
@@ -84,13 +85,13 @@ public class PaymentInfoDto implements Serializable {
         this.errorMessage = errorMessage;
     }
 
-    double orderSeq;
+    BigInteger orderSeq;
     String  payType;
     String customerId;
     String accountNoOut;
     String accountNoIn;
 
-    public PaymentInfoDto(double orderSeq, String payType, String customerId, String accountNoOut, String accountNoIn, BigDecimal payAmount, String paySystem, String returnCode, String errorMessage) {
+    public PaymentInfoDto(BigInteger orderSeq, String payType, String customerId, String accountNoOut, String accountNoIn, BigDecimal payAmount, String paySystem, String returnCode, String errorMessage) {
         this.orderSeq = orderSeq;
         this.payType = payType;
         this.customerId = customerId;

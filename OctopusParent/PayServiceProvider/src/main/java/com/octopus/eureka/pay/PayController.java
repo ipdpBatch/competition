@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -32,7 +33,7 @@ public class PayController {
     }
 
     @GetMapping("/pay/{orderSeq}/{payType}")
-    public PaymentInfoDto findById(@PathVariable("orderSeq")double  orderSeq, @PathVariable("payType")String payType) {
+    public PaymentInfoDto findById(@PathVariable("orderSeq") BigInteger orderSeq, @PathVariable("payType")String payType) {
         PaymentInfoDto PaymentInfoDto = paymentInfoMapper.selectById(orderSeq,payType);
         if (PaymentInfoDto != null) {
             return PaymentInfoDto;

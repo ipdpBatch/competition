@@ -7,6 +7,7 @@ import com.octopus.feign.consumer.provider.OrderClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigInteger;
 import java.util.List;
 
 
@@ -43,11 +44,11 @@ public class OrderDispatcher {
         return orderClient.getOrderList();
     }
 
-    public OrderFinancialDto getOrder(double orderSeq) {
+    public OrderFinancialDto getOrder(BigInteger orderSeq) {
         return orderClient.getOrder(orderSeq);
     }
 
-    public int deleteOrder(double orderSeq) {
+    public int deleteOrder(BigInteger orderSeq) {
         return orderClient.deleteOrder(orderSeq);
     }
 

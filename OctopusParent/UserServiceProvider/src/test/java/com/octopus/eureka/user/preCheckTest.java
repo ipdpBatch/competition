@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes=UserServiceApplication.class)
@@ -21,7 +22,7 @@ public class preCheckTest {
         BuyBo test = new BuyBo();
         test.setBusinessCode("110");
         test.setCustomerId("1111111");
-        double orderSeq = 12;
+        BigInteger orderSeq = BigInteger.valueOf(12);
         test.setOrderSeq(orderSeq);
         test.setProductId("01000");
         test.setTransactionAmount(new BigDecimal(100.00));

@@ -3,6 +3,7 @@ package com.octopus.common.dao.mapper;
 import com.octopus.common.dao.domain.ControlOrderDto;
 import org.apache.ibatis.annotations.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -37,7 +38,7 @@ public interface ControlOrderMapper {
      * @return 受影响的行数
      */
     @Delete("delete from t_control_order where order_seq= #{orderSeq}")
-    public int delete(@Param("orderSeq") double orderSeq);
+    public int delete(@Param("orderSeq") BigInteger orderSeq);
 
     /**
      * 查询所有
