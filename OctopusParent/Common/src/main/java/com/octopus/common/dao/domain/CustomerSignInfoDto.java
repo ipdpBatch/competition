@@ -6,18 +6,9 @@ public class CustomerSignInfoDto implements Serializable{
     String customerId;
     String productId;
     String signStatus;
-    String transcationDate;
-    String transcationTime;
+    String transactionDate;
+    String transactionTime;
 
-	public CustomerSignInfoDto(String customerId, String productId, String signStatus, String transcationDate,
-			String transcationTime) {
-		super();
-		this.customerId = customerId;
-		this.productId = productId;
-		this.signStatus = signStatus;
-		this.transcationDate = transcationDate;
-		this.transcationTime = transcationTime;
-	}
 	public String getCustomerId() {
 		return customerId;
 	}
@@ -36,18 +27,16 @@ public class CustomerSignInfoDto implements Serializable{
 	public void setSignStatus(String signStatus) {
 		this.signStatus = signStatus;
 	}
-	public String getTranscationDate() {
-		return transcationDate;
+	public String getTransactionDate() {
+		return transactionDate;
 	}
-	public void setTranscationDate(String transcationDate) {
-		this.transcationDate = transcationDate;
+	public void setTransactionDate(String transactionDate) {
+		this.transactionDate = transactionDate;
 	}
-	public String getTranscationTime() {
-		return transcationTime;
+	public String getTransactionTime() {
+		return transactionTime;
 	}
-	public void setTranscationTime(String transcationTime) {
-		this.transcationTime = transcationTime;
+	public void setTransactionTime(String transactionTime) {
+		this.transactionTime = transactionTime;
 	}
-    
-    
 }

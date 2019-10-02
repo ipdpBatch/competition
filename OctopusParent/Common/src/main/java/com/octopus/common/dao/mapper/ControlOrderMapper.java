@@ -3,6 +3,7 @@ package com.octopus.common.dao.mapper;
 import com.octopus.common.dao.domain.ControlOrderDto;
 import org.apache.ibatis.annotations.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -18,8 +19,7 @@ public interface ControlOrderMapper {
      *
      * @param controlOrderDto
      */
-//    @Options(useGeneratedKeys=true, keyProperty="orderSeq", keyColumn="order_seq")
-    @Insert("INSERT INTO t_control_order (order_seq,request_time, update_time) VALUES (#{orderSeq},#{requestTime},#{updateTime})")
+    @Insert("INSERT INTO t_control_order (order_seq,request_time, update_time,order_step, step_status) VALUES (#{orderSeq},#{requestTime},#{updateTime},#{orderStep},#{stepStatus})")
     public int insert(ControlOrderDto controlOrderDto);
 
     /**
@@ -28,7 +28,7 @@ public interface ControlOrderMapper {
      * @param controlOrderDto
      * @return 受影响的行数
      */
-    @Update("update t_control_order set request_time=#{requestTime},update_time=#{updateTime} where order_seq= #{orderSeq}")
+    @Update("update t_control_order set request_time=#{requestTime},update_time=#{updateTime}, order_step=#{orderStep},step_status=#{stepStatus} where order_seq= #{orderSeq}")
     public int update(ControlOrderDto controlOrderDto);
 
     /**
@@ -38,21 +38,14 @@ public interface ControlOrderMapper {
      * @return 受影响的行数
      */
     @Delete("delete from t_control_order where order_seq= #{orderSeq}")
-    public int delete(@Param("orderSeq") float orderSeq);
+    public int delete(@Param("orderSeq") BigInteger orderSeq);
 
     /**
      * 查询所有
      *
      * @return
      */
-    @Select("select order_seq,request_time,update_time from t_control_order")
-    @Results({
-            @Result(property = "orderSeq",column = "order_seq"),
-            @Result(property = "requestTime",column = "request_time"),
-            @Result(property = "updateTime",column = "update_time")
-//            @Result(property = "orderStep",column = "order_step"),
-//            @Result(property = "stepStatus",column = "step_status")
-    })
+    @Select("select * from t_control_order")
     public List<ControlOrderDto> selectAll();
 
     /**
@@ -61,14 +54,7 @@ public interface ControlOrderMapper {
      * @param orderSeq
      * @return
      */
-    @Select("select order_seq,request_time,update_time from t_control_order where order_seq=#{orderSeq}")
-    @Results({
-            @Result(id = true,property = "orderSeq",column = "order_seq"),
-            @Result(property = "requestTime",column = "request_time"),
-            @Result(property = "updateTime",column = "update_time")
-//            @Result(property = "orderStep",column = "order_step"),
-//            @Result(property = "stepStatus",column = "step_status")
-    })
+    @Select("select * from t_control_order where order_seq=#{orderSeq}")
     public ControlOrderDto selectById(@Param("orderSeq") String orderSeq);
 
 

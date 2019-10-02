@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes= ProductServiceApplication.class)
@@ -19,8 +20,8 @@ public class ProductServiceApplicationTests {
 
     @Test
     public void test(){
-        float productRaiseAmount = new Float(10000.00);
-        float productRemainAmount = new  Float(100000.00);
+        BigDecimal productRaiseAmount = new BigDecimal(10000.00);
+        BigDecimal productRemainAmount = new BigDecimal(100000.00);
         ProductBaseInfoDto product = new ProductBaseInfoDto("000539", "01", "250", productRaiseAmount,productRemainAmount,"KZ", "Y3", "Y3");
         int i = productBseInfoMapper.insert(product);
         System.out.println(i+"rows have been inserted!!");

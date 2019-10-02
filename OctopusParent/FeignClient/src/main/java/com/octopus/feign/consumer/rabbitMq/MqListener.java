@@ -2,14 +2,18 @@ package com.octopus.feign.consumer.rabbitMq;
 
 import com.alibaba.fastjson.JSONObject;
 import com.octopus.common.bo.BuyBo;
+import com.octopus.feign.consumer.UserDispatcher;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
 @Component
 public class MqListener {
 
+    @Autowired
+    UserDispatcher userDispatcher;
     @RabbitHandler
     @RabbitListener(queues = "Control")
     public void process(String content) {
@@ -18,6 +22,12 @@ public class MqListener {
           String destiny = buybo.getDestiny();
           switch (destiny){
               case "order" :
+                  int checkFlag = userDispatcher.precheck(buybo);
+                  if(checkFlag == 1){
+                      System.out.println("预检查成功");
+                  }else{
+                      System.out.println("预检查失败");
+                  }
                   System.out.println("order");
                   break;
               case "product":

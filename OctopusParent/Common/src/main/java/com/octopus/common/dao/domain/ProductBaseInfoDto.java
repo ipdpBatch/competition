@@ -1,6 +1,7 @@
 package com.octopus.common.dao.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * 文件创建时写入注释内容
@@ -13,15 +14,15 @@ public class ProductBaseInfoDto implements Serializable {
     String productId;
     String productRiskLevel;
     String productType;
-    float productRaiseAmount;
-    float productRemainAmount;
+    BigDecimal productRaiseAmount;
+    BigDecimal productRemainAmount;
     String productName;
     String registarCode;
     String registarName;
 
 
-    public ProductBaseInfoDto(String productId, String productRiskLevel, String productType, float productRaiseAmount,
-                              float productRemainAmount, String productName, String registarCode, String registarName) {
+    public ProductBaseInfoDto(String productId, String productRiskLevel, String productType, BigDecimal productRaiseAmount,
+                              BigDecimal productRemainAmount, String productName, String registarCode, String registarName) {
         this.productId = productId;
         this.productRiskLevel = productRiskLevel;
         this.productType = productType;
@@ -30,6 +31,10 @@ public class ProductBaseInfoDto implements Serializable {
         this.productName = productName;
         this.registarCode = registarCode;
         this.registarName = registarName;
+    }
+
+    public ProductBaseInfoDto() {
+
     }
 
     public String getProductId() {
@@ -56,19 +61,19 @@ public class ProductBaseInfoDto implements Serializable {
         this.productType = productType;
     }
 
-    public float getProductRaiseAmount() {
+    public BigDecimal getProductRaiseAmount() {
         return productRaiseAmount;
     }
 
-    public void setCertificationType(float productRaiseAmount) {
+    public void setProductRaiseAmount(BigDecimal productRaiseAmount) {
         this.productRaiseAmount = productRaiseAmount;
     }
 
-    public float getProductRemainAmount() {
+    public BigDecimal getProductRemainAmount() {
         return productRemainAmount;
     }
 
-    public void setProductRemainAmount(float productRemainAmount) {
+    public void setProductRemainAmount(BigDecimal productRemainAmount) {
         this.productRemainAmount = productRemainAmount;
     }
 
@@ -94,5 +99,19 @@ public class ProductBaseInfoDto implements Serializable {
 
     public void setRegistarName(String registarName) {
         this.registarName = registarName;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductBaseInfoDto{" +
+                "productId='" + productId + '\'' +
+                ", productRiskLevel='" + productRiskLevel + '\'' +
+                ", productType='" + productType + '\'' +
+                ", productRaiseAmount=" + productRaiseAmount +
+                ", productRemainAmount=" + productRemainAmount +
+                ", productName='" + productName + '\'' +
+                ", registarCode='" + registarCode + '\'' +
+                ", registarName='" + registarName + '\'' +
+                '}';
     }
 }

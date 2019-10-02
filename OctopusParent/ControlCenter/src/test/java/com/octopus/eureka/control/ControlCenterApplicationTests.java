@@ -25,7 +25,7 @@ public class ControlCenterApplicationTests {
             BuyBo test = new BuyBo();
             test.setBusinessCode("110");
             test.setCustomerId("1111111");
-            test.setOrderSeq("13");
+            test.setOrderSeq(100);
             test.setProductId("01000");
             test.setTransactionAmount(new BigDecimal(100.00));
             test.setDestiny("order");

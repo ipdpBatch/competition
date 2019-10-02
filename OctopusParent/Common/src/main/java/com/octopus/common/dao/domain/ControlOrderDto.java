@@ -16,19 +16,17 @@ public class ControlOrderDto implements Serializable{
     //更新时间
     private String updateTime;
 //    //订单步骤
-//    private String orderStep;
+    private String orderStep;
 //    //订单状态
-//    private String stepStatus;
+    private String stepStatus;
 
-    public ControlOrderDto() {
-    }
 
     public ControlOrderDto(String orderSeq, String requestTime, String updateTime, String orderStep, String stepStatus) {
         this.orderSeq = orderSeq;
         this.requestTime = requestTime;
         this.updateTime = updateTime;
-//        this.orderStep = orderStep;
-//        this.stepStatus = stepStatus;
+        this.orderStep = orderStep;
+        this.stepStatus = stepStatus;
     }
 
     public String getOrderSeq() {
@@ -54,22 +52,22 @@ public class ControlOrderDto implements Serializable{
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
     }
-//
-//    public String getOrderStep() {
-//        return orderStep;
-//    }
-//
-//    public void setOrderStep(String orderStep) {
-//        this.orderStep = orderStep;
-//    }
-//
-//    public String getStepStatus() {
-//        return stepStatus;
-//    }
-//
-//    public void setStepStatus(String stepStatus) {
-//        this.stepStatus = stepStatus;
-//    }
+
+    public String getOrderStep() {
+        return orderStep;
+    }
+
+    public void setOrderStep(String orderStep) {
+        this.orderStep = orderStep;
+    }
+
+    public String getStepStatus() {
+        return stepStatus;
+    }
+
+    public void setStepStatus(String stepStatus) {
+        this.stepStatus = stepStatus;
+    }
 
     @Override
     public String toString() {
@@ -77,8 +75,8 @@ public class ControlOrderDto implements Serializable{
                 "orderSeq='" + orderSeq + '\'' +
                 ", requestTime=" + requestTime +
                 ", updateTime=" + updateTime +
-//                ", orderStep='" + orderStep + '\'' +
-//                ", stepStatus='" + stepStatus + '\'' +
+                ", orderStep='" + orderStep + '\'' +
+                ", stepStatus='" + stepStatus + '\'' +
                 '}';
     }
 }

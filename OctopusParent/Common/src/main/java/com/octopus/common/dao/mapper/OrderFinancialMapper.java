@@ -3,6 +3,7 @@ package com.octopus.common.dao.mapper;
 import com.octopus.common.dao.domain.OrderFinancialDto;
 import org.apache.ibatis.annotations.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -18,8 +19,9 @@ public interface OrderFinancialMapper {
      *
      * @param orderFinancialDto
      */
-    @Insert("INSERT INTO t_order_financial (order_seq, create_date, create_time, transcation_code, customer_id, product_id, transcation_amout, transcation_vol, order_status, capital_status) \n" +
-            "\tVALUES (#{orderSeq},#{createDate},#{createTime},#{transcationCode},#{customerId},#{productId},#{transcationAmout},#{transcationVol},#{orderStatus},#{capitalStatus})")
+    @Options(useGeneratedKeys=true, keyProperty="orderSeq", keyColumn="order_seq")
+    @Insert("INSERT INTO t_order_financial (create_date, create_time, transaction_code, customer_id, product_id, transaction_amount, transaction_vol, order_status, capital_status) \n" +
+            "\tVALUES (#{createDate},#{createTime},#{transactionCode},#{customerId},#{productId},#{transactionAmount},#{transactionVol},#{orderStatus},#{capitalStatus})")
     public int insert(OrderFinancialDto orderFinancialDto);
 
     /**
@@ -28,7 +30,7 @@ public interface OrderFinancialMapper {
      * @param orderFinancialDto
      * @return 受影响的行数
      */
-    @Update("update t_control_order set create_date=#{createDate},create_time=#{createTime},transcation_code=#{transcationCode},customer_id=#{customerId},product_id=#{productId},transcation_amout=#{transcationAmout},transcation_vol=#{transcationVol},order_status=#{orderStatus},capital_status=#{capitalStatus} where order_seq= #{orderSeq}")
+    @Update("update t_order_financial set create_date=#{createDate},create_time=#{createTime},transaction_code=#{transactionCode},customer_id=#{customerId},product_id=#{productId},transaction_amount=#{transactionAmount},transaction_vol=#{transactionVol},order_status=#{orderStatus},capital_status=#{capitalStatus} where order_seq= #{orderSeq}")
     public int update(OrderFinancialDto orderFinancialDto);
 
     /**
@@ -38,22 +40,23 @@ public interface OrderFinancialMapper {
      * @return 受影响的行数
      */
     @Delete("delete from t_order_financial where order_seq= #{orderSeq}")
-    public int delete(@Param("orderSeq") float orderSeq);
+    public int delete(@Param("orderSeq") BigInteger orderSeq);
 
     /**
      * 查询所有
      *
      * @return
      */
-    @Select("select order_seq, create_date, create_time, transcation_code, customer_id, product_id, transcation_amout, transcation_vol, order_status, capital_status from t_order_financial")
+    @Select("select order_seq, create_date, create_time, transaction_code, customer_id, product_id, transaction_amount, transaction_vol, order_status, capital_status from t_order_financial")
     @Results({
             @Result(property = "orderSeq",column = "order_seq"),
             @Result(property = "createDate",column = "create_date"),
             @Result(property = "createTime",column = "create_time"),
-            @Result(property = "transcationCode",column = "transcation_code"),
+            @Result(property = "transactionCode",column = "transaction_code"),
             @Result(property = "customerId",column = "customer_id"),
             @Result(property = "productId",column = "product_id"),
-            @Result(property = "transcationAmout",column = "transcation_amout"),
+            @Result(property = "transactionAmount",column = "transaction_amount"),
+            @Result(property = "transactionVol",column = "transaction_vol"),
             @Result(property = "orderStatus",column = "order_status"),
             @Result(property = "capitalStatus",column = "capital_status")
     })
@@ -65,19 +68,19 @@ public interface OrderFinancialMapper {
      * @param orderSeq
      * @return
      */
-    @Select("select order_seq, create_date, create_time, transcation_code, customer_id, product_id, transcation_amout, transcation_vol, order_status, capital_status from t_order_financial where order_seq=#{orderSeq}")
+    @Select("select order_seq, create_date, create_time, transaction_code, customer_id, product_id, transaction_amount, transaction_vol, order_status, capital_status from t_order_financial where order_seq=#{orderSeq}")
     @Results({
             @Result(property = "orderSeq",column = "order_seq"),
             @Result(property = "createDate",column = "create_date"),
             @Result(property = "createTime",column = "create_time"),
-            @Result(property = "transcationCode",column = "transcation_code"),
+            @Result(property = "transactionCode",column = "transaction_code"),
             @Result(property = "customerId",column = "customer_id"),
             @Result(property = "productId",column = "product_id"),
-            @Result(property = "transcationAmout",column = "transcation_amout"),
-            @Result(property = "transcationVol",column = "transcation_vol"),
+            @Result(property = "transactionAmount",column = "transaction_amount"),
+            @Result(property = "transactionVol",column = "transaction_vol"),
             @Result(property = "orderStatus",column = "order_status"),
             @Result(property = "capitalStatus",column = "capital_status")
     })
-    public OrderFinancialDto selectById(@Param("orderSeq") float orderSeq);
+    public OrderFinancialDto selectById(@Param("orderSeq") BigInteger orderSeq);
 
 }

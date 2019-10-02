@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -57,7 +58,7 @@ public class OrderController {
     }
 
     @RequestMapping("/controlOrder/delete/{orderSeq}")
-    public int deleteControlOrder(@PathVariable("orderSeq")  float orderSeq) {
+    public int deleteControlOrder(@PathVariable("orderSeq") BigInteger orderSeq) {
         logger.info("请求参数orderSeq："+ orderSeq);
         return controlOrderMapper.delete(orderSeq);
     }

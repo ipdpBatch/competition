@@ -21,11 +21,11 @@ public class BuyConsumer {
 
     public boolean buy(BuyBo buyBo){
         //1.建单
-        buyBo.setOrderStep("ESTB");
-        if(orderDispatcher.createOrder(buyBo)){
-            buyBo.setOrderStep("CHKC");
-            /*订单控制信息切换步骤*/
-        }
+//        buyBo.setOrderStep("ESTB");
+//        if(orderDispatcher.createOrder(buyBo)){
+//            buyBo.setOrderStep("CHKC");
+//            /*订单控制信息切换步骤*/
+//        }
         //2.客户预检查
 
         //3.产品预检查

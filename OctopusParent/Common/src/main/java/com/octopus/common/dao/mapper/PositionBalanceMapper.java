@@ -29,7 +29,7 @@ public interface PositionBalanceMapper {
      * @param positionBalanceDto
      * @return 受影响的行数
      */
-    @Update("update t_position_balance set customer_id=#{customerId},product_id=#{productId},sign_status=#{signStatus},transcation_date=#{transcationDate},transcation_time=#{transcationTime},position_status=#{positionStatus}  where customer_id= #{customerId} and product_id= #{productId}")
+    @Update("update t_position_balance set customer_id=#{customerId},product_id=#{productId},sign_status=#{signStatus},transaction_date=#{transactionDate},transaction_time=#{transactionTime},position_status=#{positionStatus}  where customer_id= #{customerId} and product_id= #{productId}")
     int update(PositionBalanceDto positionBalanceDto);
 
     /**
