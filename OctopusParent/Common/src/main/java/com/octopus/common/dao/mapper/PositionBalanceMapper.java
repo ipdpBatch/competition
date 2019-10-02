@@ -20,8 +20,9 @@ public interface PositionBalanceMapper {
      *
      * @param positionBalanceDto
      */
+    @Options(useGeneratedKeys=true, keyProperty="customer_id, product_id", keyColumn="customer_id, product_id")
     @Insert("INSERT INTO t_position_balance ( customer_id, product_id, total_volume, on_the_way_vol, on_the_way_amt ,position_status) VALUES (#{customerId},#{productId},#{totalVolume},#{onTheWayVol},#{onTheWayAmt},#{positionStatus})")
-    int insert(PositionBalanceDto positionBalanceDto);
+    public int insert(PositionBalanceDto positionBalanceDto);
 
     /**
      * 更新操作
@@ -29,8 +30,8 @@ public interface PositionBalanceMapper {
      * @param positionBalanceDto
      * @return 受影响的行数
      */
-    @Update("update t_position_balance set customer_id=#{customerId},product_id=#{productId},sign_status=#{signStatus},transaction_date=#{transactionDate},transaction_time=#{transactionTime},position_status=#{positionStatus}  where customer_id= #{customerId} and product_id= #{productId}")
-    int update(PositionBalanceDto positionBalanceDto);
+    @Update("update t_position_balance set customer_id=#{customerId},product_id=#{productId},total_volume=#{totalVolume},on_the_way_vol=#{onTheWayVol},on_the_way_amt=#{onTheWayAmt},position_status=#{positionStatus}  where customer_id= #{customerId} and product_id= #{productId}")
+    public int update(PositionBalanceDto positionBalanceDto);
 
     /**
      * 删除操作
@@ -39,15 +40,23 @@ public interface PositionBalanceMapper {
      * @return 受影响的行数
      */
     @Delete("delete from t_position_balance where customer_id=#{customerId} and product_id=#{productId}")
-    Long delete(@Param("customerId") String customerId, @Param("productId") String productId);
+    public int delete(@Param("productId") String productId, @Param("customerId") String customerId);
 
     /**
      * 查询所有
      *
      * @return
      */
-    @Select("select * from t_position_balance")
-    List<PositionBalanceDto> selectAll();
+    @Select("select customer_id, product_id, total_volume, on_the_way_vol, on_the_way_amt, position_status from t_position_balance")
+    @Results({
+            @Result(property = "customerId",column = "customer_id"),
+            @Result(property = "productId",column = "product_id"),
+            @Result(property = "totalVolume",column = "total_volume"),
+            @Result(property = "onTheWayVol",column = "on_the_way_vol"),
+            @Result(property = "onTheWayAmt",column = "on_the_way_amt"),
+            @Result(property = "positionStatus",column = "position_status")
+    })
+    public List<PositionBalanceDto> selectAll();
 
     /**
      * 根据主键查询单个
@@ -55,6 +64,14 @@ public interface PositionBalanceMapper {
      * @param customerId,productId
      * @return
      */
-    @Select("select * from t_position_balance where customer_id=#{customerId} and product_id=#{productId}")
-    PositionBalanceDto selectById(@Param("customerId") String customerId, @Param("productId") String productId);
+    @Select("select customer_id, product_id, total_volume, on_the_way_vol, on_the_way_amt, position_status from t_position_balance where customer_id=#{customerId} and product_id=#{productId}")
+    @Results({
+            @Result(property = "customerId",column = "customer_id"),
+            @Result(property = "productId",column = "product_id"),
+            @Result(property = "totalVolume",column = "total_volume"),
+            @Result(property = "onTheWayVol",column = "on_the_way_vol"),
+            @Result(property = "onTheWayAmt",column = "on_the_way_amt"),
+            @Result(property = "positionStatus",column = "position_status")
+    })
+    public PositionBalanceDto selectById(@Param("productId") String productId, @Param("customerId") String customerId);
 }

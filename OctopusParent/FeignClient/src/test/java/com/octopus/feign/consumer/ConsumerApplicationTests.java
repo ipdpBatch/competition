@@ -2,6 +2,7 @@ package com.octopus.feign.consumer;
 
 import com.octopus.common.bo.BuyBo;
 import com.octopus.common.dao.domain.OrderFinancialDto;
+import com.octopus.common.dao.domain.PositionBalanceDto;
 import com.octopus.common.dao.domain.ProductBaseInfoDto;
 import org.junit.Test;
 import com.octopus.common.dao.domain.ControlOrderDto;
@@ -34,6 +35,9 @@ public class ConsumerApplicationTests {
 
     @Autowired
     private Receiver receiver;
+
+    @Autowired
+    private UserDispatcher userDispatcher;
 
 //    @Autowired
 //    private RabbitTemplate rabbitTemplate;
@@ -155,5 +159,35 @@ public class ConsumerApplicationTests {
         buyBo.setProductId("033315");
         OrderFinancialDto order = orderDispatcher.createOrder(buyBo);
         logger.info("创建的订单为："+order);
+    }
+
+    @Test
+    public void testPosition(){
+        //查询所有
+        List<PositionBalanceDto> positionList = userDispatcher.getPositionList();
+        logger.info("查询结果："+positionList.toString());
+        //根据id查询
+        PositionBalanceDto position = userDispatcher.getPosition("232143","aaa12242");
+        logger.info("查询结果：" + position.toString());
+
+        //新增
+        PositionBalanceDto positionDTO = new PositionBalanceDto();
+        positionDTO.setProductId("000539");
+        positionDTO.setCustomerId("4742668");
+        positionDTO.setPositionStatus("N");
+        logger.info("新建positionDto记录："+positionDTO.toString());
+        int result = userDispatcher.addPosition(positionDTO);
+        logger.info("插入后的positionDto："+result);
+        logger.info("插入条数：" + result);
+
+        //修改
+        positionDTO.setCustomerId("4742668");
+        positionDTO.setProductId("000539");
+        positionDTO.setPositionStatus("Y");
+        logger.info("修改DTO：" + positionDTO.toString());
+        int result2 = userDispatcher.updatePosition(positionDTO);
+        logger.info("更新条数：" + result2);
+        int result3 = userDispatcher.deletePosition("000539", "4742668");
+        logger.info("删除条数：" + result3);
     }
 }

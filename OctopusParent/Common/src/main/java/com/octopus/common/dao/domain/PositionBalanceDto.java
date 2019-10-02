@@ -18,15 +18,6 @@ public class PositionBalanceDto implements Serializable {
     private BigDecimal onTheWayAmt;
     private String positionStatus;
 
-    public PositionBalanceDto(String customerId, String productId, BigDecimal totalVolume, BigDecimal onTheWayVol, BigDecimal onTheWayAmt, String positionStatus) {
-        this.customerId = customerId;
-        this.productId = productId;
-        this.totalVolume = totalVolume;
-        this.onTheWayVol = onTheWayVol;
-        this.onTheWayAmt = onTheWayAmt;
-        this.positionStatus = positionStatus;
-    }
-
     public String getCustomerId() {
         return customerId;
     }
@@ -73,5 +64,17 @@ public class PositionBalanceDto implements Serializable {
 
     public void setPositionStatus(String positionStatus) {
         this.positionStatus = positionStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "PositionBalanceDto{" +
+                "customerId='" + customerId + '\'' +
+                ", productId='" + productId + '\'' +
+                ", totalVolume=" + totalVolume +
+                ", onTheWayVol=" + onTheWayVol +
+                ", onTheWayAmt=" + onTheWayAmt +
+                ", positionStatus='" + positionStatus + '\'' +
+                '}';
     }
 }
