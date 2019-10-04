@@ -1,11 +1,8 @@
 package com.octopus.feign.consumer;
 
 import com.octopus.common.bo.BuyBo;
-import com.octopus.common.dao.domain.OrderFinancialDto;
-import com.octopus.common.dao.domain.PositionBalanceDto;
-import com.octopus.common.dao.domain.ProductBaseInfoDto;
+import com.octopus.common.dao.domain.*;
 import org.junit.Test;
-import com.octopus.common.dao.domain.ControlOrderDto;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +14,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
+
+import static com.octopus.common.utils.DateUtil.formatTime;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes= ConsumerApplication.class)
@@ -92,6 +93,41 @@ public class ConsumerApplicationTests {
     }
 
     @Test
+    public void testControlProduct(){
+
+//        List<ControlProductDto> controlProductDtoList = productDispatcher.getControlProductList();
+//        logger.info("列表："+controlProductDtoList.toString());
+//        ControlProductDto controlProductDto = productDispatcher.getControlProduct(BigInteger.valueOf(00000000000000000001));
+//        logger.info("主键："+controlProductDto.toString());
+//
+        ControlProductDto controlProductDto =new ControlProductDto();
+//        controlProductDto.setOrderSeq(BigInteger.valueOf(1));
+        controlProductDto.setStepStatus("PCSC");
+        controlProductDto.setOrderStep("INIT");
+        controlProductDto.setRequestTime(formatTime(new Date()));
+        controlProductDto.setUpdateTime(formatTime(new Date()));
+        logger.info("新建产品控制表记录："+controlProductDto.toString());
+        System.out.println("产品控制表"+controlProductDto.toString());
+        int i=productDispatcher.addControlProduct(controlProductDto);
+        logger.info("插入后的controlProductDto："+i);
+
+//        int j=productDispatcher.deleteControlProduct(BigInteger.valueOf(1));
+//        logger.info("删除结果："+j);
+
+
+//        ControlProductDto controlProductDto =new ControlProductDto();
+//        controlProductDto.setOrderSeq(BigInteger.valueOf(1));
+//        controlProductDto.setStepStatus("PCSC");
+//        controlProductDto.setOrderStep("INIT");
+//        controlProductDto.setRequestTime(formatTime(new Date()));
+//        controlProductDto.setUpdateTime(formatTime(new Date()));
+//        int k=productDispatcher.updateControlProduct(controlProductDto);
+//        logger.info("修改结果："+k);
+
+
+    }
+
+    @Test
     public void testControlOrder() {
        List<ControlOrderDto> controlOrderList = orderDispatcher.getControlOrderList();
         logger.info("查询结果："+controlOrderList.toString());
@@ -128,7 +164,7 @@ public class ConsumerApplicationTests {
         List<OrderFinancialDto> orderList = orderDispatcher.getOrderList();
         logger.info("查询结果："+orderList.toString());
         //根据id查询
-        OrderFinancialDto order = orderDispatcher.getOrder(12344455);
+//        OrderFinancialDto order = orderDispatcher.getOrder(12344455);
         logger.info("查询结果：" + orderList.toString());
         //新增
         OrderFinancialDto orderDto = new OrderFinancialDto();
@@ -140,7 +176,7 @@ public class ConsumerApplicationTests {
         logger.info("插入后的controlOrderDto："+result);
         logger.info("插入条数：" + result);
         //修改
-        orderDto.setOrderSeq(123);
+//        orderDto.setOrderSeq(123);
         orderDto.setProductId("000539");
         orderDto.setCustomerId("2222222");
         logger.info("修改DTO：" + orderDto.toString());

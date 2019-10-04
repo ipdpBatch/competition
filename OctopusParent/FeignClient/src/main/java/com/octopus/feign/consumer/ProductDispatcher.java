@@ -1,11 +1,12 @@
 package com.octopus.feign.consumer;
 
-import com.octopus.common.dao.domain.ControlOrderDto;
+import com.octopus.common.dao.domain.ControlProductDto;
 import com.octopus.common.dao.domain.ProductBaseInfoDto;
 import com.octopus.feign.consumer.provider.ProductClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigInteger;
 import java.util.List;
 
 
@@ -34,26 +35,26 @@ public class ProductDispatcher {
 //    }
 
 
-//    //订单控制表
-//    public List<ControlOrderDto> getControlOrderList(){
-//        return  productClient;
-//    }
-//
-//    public ControlOrderDto getControlOrder(String orderSeq) {
-//        return productClient.getControlOrder(orderSeq);
-//    }
-//
-//    public int deleteControlOrder(String orderSeq){
-//        return  productClient.deleteControlOrder(orderSeq);
-//    }
-//    public int updateControlOrder(ControlOrderDto controlOrderDto){
-//        return productClient.updateControlOrder(controlOrderDto);
-//    }
-//    public int addControlOrder(ControlOrderDto controlOrderDto){
-//        return productClient.addControlOrder(controlOrderDto);
-//    }
+    //产品控制表
+    public List<ControlProductDto> getControlProductList(){
+        return  productClient.getControlProductList();
+    }
 
-    //订单表
+    public ControlProductDto getControlProduct(BigInteger orderSeq) {
+        return productClient.getControlProduct(orderSeq);
+    }
+
+    public int deleteControlProduct(BigInteger orderSeq){
+        return  productClient.deleteControlProduct(orderSeq);
+    }
+    public int updateControlProduct(ControlProductDto controlProductDto){
+        return productClient.updateControlProduct(controlProductDto);
+    }
+    public int addControlProduct(ControlProductDto controlProductDto){
+        return productClient.addControlProduct(controlProductDto);
+    }
+
+    //产品信息表
     public List<ProductBaseInfoDto> selectAll(){
         return productClient.selectAll();
     }
@@ -66,7 +67,7 @@ public class ProductDispatcher {
     public int updateProduct(ProductBaseInfoDto productBaseInfoDto){
         return productClient.updateProduct(productBaseInfoDto);
     }
-//    update不通
+
     public int insertProduct(ProductBaseInfoDto productBaseInfoDto){
         return productClient.insertProduct(productBaseInfoDto);
     }

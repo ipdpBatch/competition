@@ -22,7 +22,7 @@ public interface ProductBaseInfoMapper {
      * @param productBaseInfoDto
      * @return 受影响的行数
      */
-    @Update("update t_product_base_info set product_id=#{productId},product_risk_level=#{productRiskLevel},product_type=#{productType},product_raise_amount=#{productRaiseAmount},product_remain_amount=#{productRemainAmount},product_name={productName},registar_code={registarCode},registar_name={registarName}  where product_id= #{productId}")
+    @Update("update t_product_base_info set product_id=#{productId},product_risk_level=#{productRiskLevel},product_type=#{productType},product_raise_amount=#{productRaiseAmount},product_remain_amount=#{productRemainAmount},product_name=#{productName},registar_code=#{registarCode},registar_name=#{registarName}  where product_id= #{productId}")
     int update(ProductBaseInfoDto productBaseInfoDto);
 
     /**

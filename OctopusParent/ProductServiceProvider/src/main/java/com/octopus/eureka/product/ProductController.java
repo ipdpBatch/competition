@@ -1,58 +1,64 @@
 package com.octopus.eureka.product;
 
-import com.octopus.common.dao.domain.ProductBaseInfoDto;
-import com.octopus.common.dao.mapper.ProductBaseInfoMapper;
+import com.octopus.common.dao.domain.ControlProductDto;
+import com.octopus.common.dao.mapper.ControlProductMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.math.BigInteger;
 import java.util.List;
 
 /**
- * 文件创建时写入注释内容
  *
- * @author zp3778
+ * @author lyn
  * @version 1.0.0
- * @date Created in 17:08 2019/9/23
+ * @date 
  */
 @RestController
 public class ProductController {
-    @Resource
-    private ProductBaseInfoMapper productBaseInfoMapper;
+
+    private final static Logger logger = LoggerFactory.getLogger(ProductController.class);
+
     @Value("${server.port}")
     String port;
-    @RequestMapping("/product")
+
+    @Resource
+    private ControlProductMapper controlProductMapper;
+
+    @RequestMapping("/home")
     public String home() {
         return "Hello world ,port:" + port +". This is " + this.getClass().getName();
     }
 
-    @GetMapping("/product/{id}")
-    public ProductBaseInfoDto findById(@PathVariable String id) {
-        ProductBaseInfoDto productBaseInfoDto = productBaseInfoMapper.selectById(id);
-        if (productBaseInfoDto != null) {
-            return productBaseInfoDto;
-        } else {
-            return null;
-        }
+    @GetMapping("/controlProduct/{orderSeq}")
+    public ControlProductDto getControlProduct(@PathVariable("orderSeq") BigInteger orderSeq) {
+        logger.info("请求参数orderSeq："+ orderSeq);
+        return controlProductMapper.selectById(orderSeq);
     }
 
-    @GetMapping("/product/all")
-    public List<ProductBaseInfoDto> findAll() {
-        return productBaseInfoMapper.selectAll();
+    @GetMapping("/controlProduct/all")
+    public List<ControlProductDto> getControlProductList() {
+        return controlProductMapper.selectAll();
     }
 
-    @RequestMapping("/product/delete/{productId}")
-    public Long deleteProduct(@PathVariable("productId") String productId){
-        return productBaseInfoMapper.delete(productId);
-    }
-//update 未通
-    @RequestMapping("/product/update")
-    public int updateProduct(@RequestBody ProductBaseInfoDto productBaseInfoDto){
-        return productBaseInfoMapper.update(productBaseInfoDto);
+    @RequestMapping("/controlProduct/update")
+    public int updateControlProduct(@RequestBody ControlProductDto controlProductDto) {
+        return controlProductMapper.update(controlProductDto);
     }
 
-    @RequestMapping("/product/insert")
-    public int insertProduct(@RequestBody ProductBaseInfoDto productBaseInfoDto) {
-        return productBaseInfoMapper.insert(productBaseInfoDto);
+    @RequestMapping("/controlProduct/add")
+    public int addControlProduct(@RequestBody ControlProductDto controlProductDto) {
+        int result = controlProductMapper.insert(controlProductDto);
+        logger.info("order层，插入后主键seq为："+controlProductDto.getOrderSeq());
+        return result;
+    }
+
+    @RequestMapping("/controlProduct/delete/{orderSeq}")
+    public int deleteControlProduct(@PathVariable("orderSeq") BigInteger orderSeq) {
+        logger.info("请求参数orderSeq："+ orderSeq);
+        return controlProductMapper.delete(orderSeq);
     }
 }
