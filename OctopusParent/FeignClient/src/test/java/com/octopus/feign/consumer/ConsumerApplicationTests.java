@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import static com.octopus.common.utils.DateUtil.formatTime;
 
@@ -124,6 +125,23 @@ public class ConsumerApplicationTests {
 //        int k=productDispatcher.updateControlProduct(controlProductDto);
 //        logger.info("修改结果："+k);
 
+
+    }
+    @Test
+    public void testCheckProduct(){
+        BuyBo buyBo = new BuyBo();
+        buyBo.setOrderSeq(BigInteger.valueOf(13));
+        buyBo.setBusinessCode("022");
+        buyBo.setCustomerId("abc");
+        buyBo.setTransactionAmount(new BigDecimal(1000000000));
+        buyBo.setProductId("11111111");
+        buyBo.setOrderStep("CHKP");
+        Map product = productDispatcher.checkProduct(buyBo);
+        logger.info("检查结果为："+product.toString());
+        Object checkResult=product.get("checkResult");
+        Object reason=product.get("reason");
+        logger.info("结果："+checkResult);
+        logger.info("原因："+reason);
 
     }
 
