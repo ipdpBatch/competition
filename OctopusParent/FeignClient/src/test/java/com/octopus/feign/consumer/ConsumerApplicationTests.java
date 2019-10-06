@@ -270,4 +270,17 @@ public class ConsumerApplicationTests {
         int result3 = userDispatcher.deleteControlUser(BigInteger.valueOf(1234567));
         logger.info("删除条数：" + result3);
     }
+
+    @Test
+    public void testDescPosition(){
+        BuyBo buyBo = new BuyBo();
+        buyBo.setOrderSeq(BigInteger.valueOf(121));
+        buyBo.setBusinessCode("024");
+        buyBo.setCustomerId("aaa12242");
+        buyBo.setTransactionAmount(new BigDecimal(1101.00));
+        buyBo.setProductId("232143");
+        buyBo.setOrderStep("POSI");
+        PositionBalanceDto positionBalanceDto = userDispatcher.descPosition(buyBo);
+        logger.info("持仓信息为："+positionBalanceDto.toString());
+    }
 }
