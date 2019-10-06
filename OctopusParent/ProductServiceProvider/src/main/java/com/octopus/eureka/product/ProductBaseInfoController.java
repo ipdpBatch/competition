@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -56,5 +57,59 @@ public class ProductBaseInfoController {
     @RequestMapping("/product/insert")
     public int insertProduct(@RequestBody ProductBaseInfoDto productBaseInfoDto) {
         return productBaseInfoMapper.insert(productBaseInfoDto);
+    }
+//    String productId;
+//    String productRiskLevel;
+//    String productType;
+//    BigDecimal productRaiseAmount;
+//    BigDecimal productRemainAmount;
+//    String productName;
+//    String registarCode;
+//    String registarName;
+    @RequestMapping("/product/insertNew")
+    public int insertProduct2(@RequestParam(value = "productId", required = false) String productId,
+                              @RequestParam(value = "productRiskLevel", required = false) String productRiskLevel,
+                              @RequestParam(value = "productType", required = false) String productType,
+                              @RequestParam(value = "productRaiseAmount", required = false) BigDecimal productRaiseAmount,
+                              @RequestParam(value = "productRemainAmount", required = false) BigDecimal productRemainAmount,
+                              @RequestParam(value = "productName", required = false) String productName,
+                              @RequestParam(value = "registarCode", required = false) String registarCode,
+                              @RequestParam(value = "registarName", required = false) String registarName) {
+        ProductBaseInfoDto productBaseInfoDto=new ProductBaseInfoDto();
+        productBaseInfoDto.setProductId(productId);
+        productBaseInfoDto.setProductRiskLevel(productRiskLevel);
+        productBaseInfoDto.setProductType(productType);
+        productBaseInfoDto.setProductRaiseAmount(productRaiseAmount);
+        productBaseInfoDto.setProductRemainAmount(productRemainAmount);
+        productBaseInfoDto.setProductName(productName);
+        productBaseInfoDto.setRegistarCode(registarCode);
+        productBaseInfoDto.setRegistarName(registarName);
+        return productBaseInfoMapper.insert(productBaseInfoDto);
+    }
+
+    @RequestMapping("/product/updateNew")
+    public int updateProduct2(@RequestParam(value = "productId", required = false) String productId,
+                              @RequestParam(value = "productRiskLevel", required = false) String productRiskLevel,
+                              @RequestParam(value = "productType", required = false) String productType,
+                              @RequestParam(value = "productRaiseAmount", required = false) BigDecimal productRaiseAmount,
+                              @RequestParam(value = "productRemainAmount", required = false) BigDecimal productRemainAmount,
+                              @RequestParam(value = "productName", required = false) String productName,
+                              @RequestParam(value = "registarCode", required = false) String registarCode,
+                              @RequestParam(value = "registarName", required = false) String registarName){
+        ProductBaseInfoDto productBaseInfoDto=new ProductBaseInfoDto();
+        productBaseInfoDto.setProductId(productId);
+        productBaseInfoDto.setProductRiskLevel(productRiskLevel);
+        productBaseInfoDto.setProductType(productType);
+        productBaseInfoDto.setProductRaiseAmount(productRaiseAmount);
+        productBaseInfoDto.setProductRemainAmount(productRemainAmount);
+        productBaseInfoDto.setProductName(productName);
+        productBaseInfoDto.setRegistarCode(registarCode);
+        productBaseInfoDto.setRegistarName(registarName);
+        return productBaseInfoMapper.update(productBaseInfoDto);
+    }
+
+    @RequestMapping("/product/deleteNew")
+    public Long deleteProduct2(@RequestParam(value = "productId", required = false) String productId){
+        return productBaseInfoMapper.delete(productId);
     }
 }

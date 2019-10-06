@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script>
+        function findAll()
+        {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    obj = JSON.parse(this.responseText);
+                    var str = "";
+                    for(i = 0; i < obj.length; i++){
+
+                        str += "<tr>" +
+                            "<td>"+obj[i].productId+"</td>" +
+                            "<td>"+obj[i].productRiskLevel+"</td>" +
+                            "<td>"+obj[i].productType+"</td>" +
+                            "<td>"+obj[i].productRaiseAmount+"</td>" +
+                            "<td>"+obj[i].productRemainAmount+"</td>" +
+                            "<td>"+obj[i].productName+"</td>" +
+                            "<td>"+obj[i].registarCode+"</td>" +
+                            "<td>"+obj[i].registarName+"</td>" +
+                            // "<td>"<a th:href="@{'/delete/'+${obj[i].id}}">删除</a>"</td>" +
+                            // "<td>"<a th:href="@{'/updateById/'+${obj[i].id}}">修改</a></td>
+                            "</tr>";
+                    };
+                    document.getElementById("mesContent").innerHTML = str;
+                }
+            };
+            xmlhttp.open("GET", "/product/all", true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<style type="text/css">
+    .left-side{ float:left;width:20%;height:500px;}
+    .content-side{ float:left;width:76%;height:500px;margin-left: 4px;}
+    .form-control{width: 180px}
+    .nav-item{width:80%}
+    body{
+        font-size:12px;
+        font-family:"宋体";
+        background-image:url(timg.jpg);
+        background-repeat:repeat-x;
+        background-attachment: fixed;
+        COLOR: #ffffff;
+    }
+</style>
+<body>
+<div class="container-fluid">
+
+    <div class="left-side">
+        <!-- Nav pills -->
+        <ul class="nav nav-pills" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="pill" href="#read" onclick="findAll()">产品列表</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#create">新增产品</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#update">更新产品信息</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#delete">删除产品</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content-side">
+        <!-- Tab panes -->
+        <div class="tab-content">
+
+            <div id="read" class="container-fluid tab-pane active"><br>
+                <h3>产品列表</h3>
+                <div >
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>产品代码</th>
+                            <th>产品风险等级</th>
+                            <th>产品类型</th>
+                            <th>产品募集总额</th>
+                            <th>产品剩余额度</th>
+                            <th>产品名称</th>
+                            <th>产品所属公司代码</th>
+                            <th>产品所属公司名称</th>
+                        </tr>
+                        </thead>
+                        <tbody id="mesContent">
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" onclick="findAll()" class="btn btn-primary">查询</button>
+<!--                <button type="submit" class="btn btn-primary">更新</button>-->
+            </div>
+
+            <div id="create" class="container-fluid tab-pane fade"><br>
+                <h3>新增产品</h3>
+                <form action="/product/insertNew" method="post">
+                    <div class="form-group">
+                        <label for="productId">产品代码:(必输)</label>
+                        <input type="text" class="form-control" id="productId" name="productId" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="productRiskLevel">产品风险等级:</label>
+                        <input type="text" class="form-control" id="productRiskLevel" name="productRiskLevel" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="productType">产品类型:</label>
+                        <input type="text" class="form-control" id="productType" name="productType" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="productRaiseAmount">产品募集总额:</label>
+                        <input type="text" class="form-control" id="productRaiseAmount" name="productRaiseAmount" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="productRemainAmount">产品剩余额度:</label>
+                        <input type="text" class="form-control" id="productRemainAmount" name="productRemainAmount" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="productName">产品名称:</label>
+                        <input type="text" class="form-control" id="productName" name="productName" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="registarCode">所属公司代码:</label>
+                        <input type="text" class="form-control" id="registarCode" name="registarCode" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="registarName">所属公司名称:</label>
+                        <input type="text" class="form-control" id="registarName" name="registarName" value ="">
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="新增">新增</button>
+                    <button type="reset" class="btn btn-primary" name="清空">清空</button>
+                </form>
+            </div>
+            <div id="update" class="container-fluid tab-pane fade"><br>
+                <h3>更新产品信息</h3>
+                <form action="/product/updateNew" method="post">
+                    <div class="form-group">
+                        <label for="productId">产品代码:(必输)</label>
+                        <input type="text" class="form-control" id="productId1" name="productId" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="productRiskLevel">产品风险等级:</label>
+                        <input type="text" class="form-control" id="productRiskLevel1" name="productRiskLevel" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="productType">产品类型:</label>
+                        <input type="text" class="form-control" id="productType1" name="productType" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="productRaiseAmount">产品募集总额:</label>
+                        <input type="text" class="form-control" id="productRaiseAmount1" name="productRaiseAmount" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="productRemainAmount">产品剩余额度:</label>
+                        <input type="text" class="form-control" id="productRemainAmount1" name="productRemainAmount" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="productName">产品名称:</label>
+                        <input type="text" class="form-control" id="productName1" name="productName" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="registarCode">所属公司代码:</label>
+                        <input type="text" class="form-control" id="registarCode1" name="registarCode" value ="">
+                    </div>
+                    <div class="form-group">
+                        <label for="registarName">所属公司名称:</label>
+                        <input type="text" class="form-control" id="registarName1" name="registarName" value ="">
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="更新">更新</button>
+                    <button type="reset" class="btn btn-primary" name="清空">清空</button>
+                </form>
+            </div>
+
+            <div id="delete" class="container-fluid tab-pane fade"><br>
+                <h3>删除产品</h3>
+                <form action="/product/deleteNew" method="post">
+                    <div class="form-group">
+                        <label for="productId">产品代码: (必输)</label>
+                        <input type="text" class="form-control" id="productId2" name="productId" value ="">
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="删除">删除</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
