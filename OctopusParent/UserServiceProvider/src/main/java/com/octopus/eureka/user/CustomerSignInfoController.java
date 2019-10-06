@@ -22,7 +22,7 @@ public class CustomerSignInfoController {
 
     @RequestMapping("/user/customerSignInfo/{customerId}/{productId}")
     public CustomerSignInfoDto getCustomerSignInfo(@PathVariable String customerId,@PathVariable String productId) {
-        return customerSignInfoMapper.selectById(customerId,productId);
+        return customerSignInfoMapper.selectByPrimaryKey(customerId,productId);
     }
 
     @RequestMapping("/user/customerSignInfo/all")

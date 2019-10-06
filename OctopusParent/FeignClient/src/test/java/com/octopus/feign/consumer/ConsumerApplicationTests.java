@@ -244,4 +244,30 @@ public class ConsumerApplicationTests {
         int result3 = userDispatcher.deletePosition("000539", "4742668");
         logger.info("删除条数：" + result3);
     }
+
+    @Test
+    public void testControlUser() {
+        //新增
+        ControlUserDto addUserDto = new ControlUserDto();
+        addUserDto.setOrderSeq(BigInteger.valueOf(1234568));
+        addUserDto.setRequestTime("20191006");
+        addUserDto.setOrderStep("INIT");
+        logger.info("新建controlUserDto记录："+addUserDto.toString());
+        int result = userDispatcher.addControlUser(addUserDto);
+        logger.info("插入后的controlUserDto："+result);
+        logger.info("插入条数：" + result);
+        //查询所有
+        List<ControlUserDto> userDtoList = userDispatcher.getControlUserList();
+        logger.info("查询结果："+userDtoList.toString());
+        //根据id查询
+        ControlUserDto user = userDispatcher.getControlUser(BigInteger.valueOf(1234567));
+        logger.info("查询结果：" + user.toString());
+        //修改
+        user.setRequestTime("20190111");
+        logger.info("修改DTO：" + user.toString());
+        int result2 = userDispatcher.updateControlUser(user);
+        logger.info("更新条数：" + result2);
+        int result3 = userDispatcher.deleteControlUser(BigInteger.valueOf(1234567));
+        logger.info("删除条数：" + result3);
+    }
 }

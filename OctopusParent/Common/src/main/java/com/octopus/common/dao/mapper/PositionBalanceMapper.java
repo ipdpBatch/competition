@@ -36,7 +36,7 @@ public interface PositionBalanceMapper {
     /**
      * 删除操作
      *
-     * @param customerId,productId
+     * @param productId,customerId
      * @return 受影响的行数
      */
     @Delete("delete from t_position_balance where customer_id=#{customerId} and product_id=#{productId}")
@@ -61,7 +61,7 @@ public interface PositionBalanceMapper {
     /**
      * 根据主键查询单个
      *
-     * @param customerId,productId
+     * @param productId,customerId
      * @return
      */
     @Select("select customer_id, product_id, total_volume, on_the_way_vol, on_the_way_amt, position_status from t_position_balance where customer_id=#{customerId} and product_id=#{productId}")

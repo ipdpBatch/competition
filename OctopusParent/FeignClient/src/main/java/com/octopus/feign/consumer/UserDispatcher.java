@@ -1,11 +1,13 @@
 package com.octopus.feign.consumer;
 
 import com.octopus.common.bo.BuyBo;
+import com.octopus.common.dao.domain.ControlUserDto;
 import com.octopus.common.dao.domain.PositionBalanceDto;
 import com.octopus.feign.consumer.provider.UserClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @RestController
@@ -14,6 +16,27 @@ public class UserDispatcher {
     UserClient userClient;
     public int precheck(BuyBo buybo){
         return userClient.preCheck(buybo);
+    }
+
+    //控制表
+    public List<ControlUserDto> getControlUserList() {
+        return userClient.getControlUserList();
+    }
+
+    public ControlUserDto getControlUser(BigInteger orderSeq) {
+        return userClient.getControlUser(orderSeq);
+    }
+
+    public int deleteControlUser(BigInteger orderSeq) {
+        return userClient.deleteControlUser(orderSeq);
+    }
+
+    public int updateControlUser(ControlUserDto controlUserDto) {
+        return userClient.updateControlUser(controlUserDto);
+    }
+
+    public int addControlUser(ControlUserDto controlUserDto) {
+        return userClient.addControlUser(controlUserDto);
     }
 
     //持仓表
