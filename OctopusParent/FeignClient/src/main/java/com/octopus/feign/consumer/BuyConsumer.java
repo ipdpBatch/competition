@@ -18,6 +18,8 @@ import java.util.Date;
 public class BuyConsumer {
     @Autowired
     private  OrderDispatcher orderDispatcher;
+    @Autowired
+    private  ProductDispatcher productDispatcher;
 
     public boolean buy(BuyBo buyBo){
         //1.建单
@@ -29,8 +31,12 @@ public class BuyConsumer {
         //2.客户预检查
 
         //3.产品预检查
+        productDispatcher.checkProduct(buyBo);
+
         //4.额度控销
+
         //5.支付
+
         //6.加仓
         //7.完成订单
      return  true;
