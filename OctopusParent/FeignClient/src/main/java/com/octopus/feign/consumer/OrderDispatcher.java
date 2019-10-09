@@ -72,7 +72,6 @@ public class OrderDispatcher {
         BuyResponseBo buyResponseBo = orderClient.createOrder(buyBo);
         if (!buyResponseBo.isOrderReturnCode()){
             logger.error("OrderDispatcher层创建订单结果失败" + buyResponseBo.getErrorDetail());
-            return null;
         }
         return buyResponseBo;
     }
