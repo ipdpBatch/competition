@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <h1>Test Page</h1>
+</head>
+<body>
+<!--/*@thymesVar id="name" type="java.lang.String"*/-->
+<p th:text="|Hello！ ${name}!|" >hello world</p>
+<p th:text="'You are the best, ' + ${name}" ></p>
+</body>
+</html>

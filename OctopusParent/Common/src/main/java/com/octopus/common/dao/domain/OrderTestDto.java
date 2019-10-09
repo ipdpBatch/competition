@@ -13,6 +13,10 @@ public class OrderTestDto implements Serializable{
     //
     private String orderName;
 
+    public OrderTestDto() {
+
+    }
+
     public OrderTestDto(String orderId, String orderName) {
         this.orderId = orderId;
         this.orderName = orderName;
