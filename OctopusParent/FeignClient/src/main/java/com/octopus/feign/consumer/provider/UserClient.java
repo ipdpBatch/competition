@@ -1,6 +1,7 @@
 package com.octopus.feign.consumer.provider;
 
 import com.octopus.common.bo.BuyBo;
+import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.ControlUserDto;
 import com.octopus.common.dao.domain.PositionBalanceDto;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -52,4 +53,10 @@ public interface UserClient {
 
     @RequestMapping(value ="/positionBalance/getAdd")
     PositionBalanceDto getAddPosition(@RequestBody PositionBalanceDto positionBalanceDto);
+
+    @RequestMapping(value = "/user/addPosition")
+    BuyResponseBo addPosition(@RequestBody BuyBo buybo);
+
+    @RequestMapping(value = "/user/descPosition")
+    BuyResponseBo descPosition(@RequestBody BuyBo buybo);
 }

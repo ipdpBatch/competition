@@ -1,6 +1,7 @@
 package com.octopus.feign.consumer;
 
 import com.octopus.common.bo.BuyBo;
+import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -274,13 +275,13 @@ public class ConsumerApplicationTests {
     @Test
     public void testDescPosition(){
         BuyBo buyBo = new BuyBo();
-        buyBo.setOrderSeq(BigInteger.valueOf(121));
+        buyBo.setOrderSeq(BigInteger.valueOf(20191113));
         buyBo.setBusinessCode("024");
-        buyBo.setCustomerId("aaa12242");
-        buyBo.setTransactionAmount(new BigDecimal(1101.00));
-        buyBo.setProductId("232143");
+        buyBo.setCustomerId("9876543");
+        buyBo.setTransactionAmount(new BigDecimal(5000));
+        buyBo.setProductId("9989879");
         buyBo.setOrderStep("POSI");
-        PositionBalanceDto positionBalanceDto = userDispatcher.descPosition(buyBo);
-        logger.info("持仓信息为："+positionBalanceDto.toString());
+        BuyResponseBo buyResponseBo = userDispatcher.descPosition(buyBo);
+        logger.info("返回信息为："+buyResponseBo.toString());
     }
 }
