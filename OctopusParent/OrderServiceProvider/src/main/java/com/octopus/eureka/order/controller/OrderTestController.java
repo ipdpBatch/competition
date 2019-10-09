@@ -1,4 +1,4 @@
-package com.octopus.eureka.order;
+package com.octopus.eureka.order.controller;
 
 import com.octopus.common.dao.domain.OrderTestDto;
 import com.octopus.common.dao.mapper.OrderTestMapper;

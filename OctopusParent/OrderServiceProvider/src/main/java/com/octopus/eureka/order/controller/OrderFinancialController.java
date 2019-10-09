@@ -1,7 +1,10 @@
-package com.octopus.eureka.order;
+package com.octopus.eureka.order.controller;
 
+import com.octopus.common.bo.BuyBo;
+import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.OrderFinancialDto;
 import com.octopus.common.dao.mapper.OrderFinancialMapper;
+import com.octopus.eureka.order.service.OrderFinancialService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,9 @@ public class OrderFinancialController {
     private final static Logger logger = LoggerFactory.getLogger(OrderFinancialController.class);
     @Autowired
     OrderFinancialMapper orderFinancialMapper;
+    @Autowired
+    private OrderFinancialService orderFinancialService;
+
 
     @RequestMapping("/order/{orderSeq}")
     public OrderFinancialDto getOrder(@PathVariable("orderSeq") BigInteger orderSeq) {
@@ -52,15 +58,10 @@ public class OrderFinancialController {
         return orderFinancialMapper.delete(orderSeq);
     }
 
-    @RequestMapping("/order/getAdd")
-    public OrderFinancialDto getAddOrder(@RequestBody  OrderFinancialDto orderFinancialDto) {
-        int insert = orderFinancialMapper.insert(orderFinancialDto);
-        if(insert > 0){
-            BigInteger orderSeq = orderFinancialDto.getOrderSeq();
-            logger.info("插入订单的orderSeq："+ orderSeq);
-            return orderFinancialMapper.selectById(orderSeq);
-        }
-        return null;
+    @RequestMapping("/order/createOrder")
+    public BuyResponseBo createOrder(@RequestBody BuyBo buyBo) {
+        logger.info("OrderFinancialController层请求创建订单服务：请求参数："+ buyBo.toString());
+        return orderFinancialService.createOrder(buyBo);
     }
 
 

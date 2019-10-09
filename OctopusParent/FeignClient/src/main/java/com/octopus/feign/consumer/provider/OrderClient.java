@@ -1,8 +1,11 @@
 package com.octopus.feign.consumer.provider;
 
+import com.octopus.common.bo.BuyBo;
+import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.ControlOrderDto;
 import com.octopus.common.dao.domain.OrderFinancialDto;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
@@ -49,7 +52,7 @@ public interface OrderClient {
     @RequestMapping(value ="/order/add",method = RequestMethod.POST)
     int addOrder(@RequestBody OrderFinancialDto orderFinancialDto);
 
-    @RequestMapping(value ="/order/getAdd")
-    OrderFinancialDto getAddOrder(@RequestBody OrderFinancialDto orderFinancialDto);
+    @RequestMapping(value ="/order/createOrder")
+    BuyResponseBo createOrder(@RequestBody BuyBo buyBo);
 
 }

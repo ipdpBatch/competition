@@ -1,9 +1,13 @@
 package com.octopus.feign.consumer;
 
 import com.octopus.common.bo.BuyBo;
+import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.ControlOrderDto;
 import com.octopus.common.dao.domain.OrderFinancialDto;
 import com.octopus.feign.consumer.provider.OrderClient;
+import org.hibernate.validator.internal.util.logging.Log_$logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,8 +17,10 @@ import java.util.List;
 
 @RestController
 public class OrderDispatcher {
+
+    private final static Logger logger = LoggerFactory.getLogger(OrderDispatcher.class);
     //    @Autowired
-//    private HomeClient homeClient;
+    //    private HomeClient homeClient;
     @Autowired
     private OrderClient orderClient;
 
@@ -61,14 +67,13 @@ public class OrderDispatcher {
     }
 
     /*订单建单服务*/
-    public OrderFinancialDto createOrder(BuyBo buyBo) {
-        OrderFinancialDto orderFinancialDto = new OrderFinancialDto();
-        orderFinancialDto.setCustomerId(buyBo.getCustomerId());
-        orderFinancialDto.setTransactionAmount(buyBo.getTransactionAmount());
-        orderFinancialDto.setTransactionCode(buyBo.getBusinessCode());
-        orderFinancialDto.setProductId(buyBo.getProductId());
-        OrderFinancialDto order = orderClient.getAddOrder(orderFinancialDto);
-
-        return order;
+    public BuyResponseBo createOrder(BuyBo buyBo) {
+        logger.info("OrderDispatcher层请求创建订单，请求参数：" + buyBo.toString());
+        BuyResponseBo buyResponseBo = orderClient.createOrder(buyBo);
+        if (!buyResponseBo.isOrderReturnCode()){
+            logger.error("OrderDispatcher层创建订单结果失败" + buyResponseBo.getErrorDetail());
+            return null;
+        }
+        return buyResponseBo;
     }
 }

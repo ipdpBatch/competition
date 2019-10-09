@@ -1,6 +1,7 @@
 package com.octopus.feign.consumer;
 
 import com.octopus.common.bo.BuyBo;
+import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -207,11 +208,12 @@ public class ConsumerApplicationTests {
     @Test
     public void testCreateOrder(){
         BuyBo buyBo = new BuyBo();
-        buyBo.setBusinessCode("022");
-        buyBo.setCustomerId("dongjl");
+        buyBo.setOrderSeq(BigInteger.valueOf(2019100906));
+        buyBo.setBusinessCode("024");
+        buyBo.setCustomerId("11111111");
         buyBo.setTransactionAmount(new BigDecimal(10000000));
         buyBo.setProductId("033315");
-        OrderFinancialDto order = orderDispatcher.createOrder(buyBo);
+        BuyResponseBo order = orderDispatcher.createOrder(buyBo);
         logger.info("创建的订单为："+order);
     }
 
