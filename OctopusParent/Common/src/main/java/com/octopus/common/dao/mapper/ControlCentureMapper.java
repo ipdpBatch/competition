@@ -19,6 +19,7 @@ public interface ControlCentureMapper {
       */
 	 @Insert("INSERT INTO t_control_centure (order_seq,request_time, update_time,order_step, order_status, flag) VALUES (#{orderSeq},#{requestTime},#{updateTime},#{orderStep},#{orderStatus},#{flag})")
 	 public int insert(ControlCentureDto controlCentureDto);
+	 
 	 /**
 	  * 更新
 	  * @param controlCentureDto
@@ -26,6 +27,7 @@ public interface ControlCentureMapper {
 	  */
 	 @Update("update t_control_centure set request_time=#{requestTime},update_time=#{updateTime}, order_step=#{orderStep},order_status=#{orderStatus}, flag=#{flag} where order_seq= #{orderSeq}")
 	 public int update(ControlCentureDto controlCentureDto);
+	 
 	 /**
 	  * 删除
 	  * @param orderSeq
@@ -34,12 +36,14 @@ public interface ControlCentureMapper {
 	 @Delete("delete from t_control_centure where order_seq= #{orderSeq}")
 	 public int delete(@Param("orderSeq") String orderSeq);
 	 
+	 
 	 /**
 	  * 查询所有
 	  * @return
 	  */
 	 @Select("select * from t_control_centure")
 	 public List<ControlCentureDto> selectAll();
+	 
 	 
 	 /**
 	  * 查询单条
