@@ -1,17 +1,3 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-#defaultZone是一个魔术字符串后备值，为任何不表示首选项的客户端提供服务URL（即它是有用的默认值）
 spring:
-  application:
-    name: eureka-provider-user
-  datasource:
-    url: jdbc:mysql://mysql.ipdp.top/competition-user?useUnicode=true&characterEncoding=UTF-8&
-    username: root
-    password: ipdp@ipdp
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
-#指定微服务的名称后续在调用的时候只需要使用该名称就可以进行服务的访问
-server:
-  port: 8086
+  profiles:
+    active: dev
