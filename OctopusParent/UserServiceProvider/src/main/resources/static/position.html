@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Position</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script>
+        function findAll()
+        {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    obj = JSON.parse(this.responseText);
+                    console.log(obj)
+                    var str = "";
+                    for(i = 0; i < obj.length; i++){
+                        str += "<tr>" +
+                            "<td>"+obj[i].customerId+"</td>" +
+                            "<td>"+obj[i].productId+"</td>" +
+                            "<td>"+obj[i].totalVolume+"</td>" +
+                            "<td>"+obj[i].onTheWayVol+"</td>" +
+                            "<td>"+obj[i].onTheWayAmt+"</td>" +
+                            "<td>"+obj[i].positionStatus+"</td>" +
+                            "</tr>";
+                    };
+                    console.log(str);
+                    document.getElementById("mesContent").innerHTML = str;
+                }
+            };
+            xmlhttp.open("GET", "/positionBalance/all", true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<style type="text/css">
+    .left-side{ float:left;width:20%;height:500px;}
+    .content-side{ float:left;width:76%;height:500px;margin-left: 4px;}
+    .form-control{width: 180px}
+    .nav-item{width:80%}
+    body{
+        font-size:12px;
+        font-family:"宋体";
+        background-image:url(timg.jpg);
+        background-repeat:repeat-x;
+        background-attachment: fixed;
+        COLOR: #ffffff;
+    }
+    fieldset{
+        border: 1px solid silver;
+        margin: 0 2px;
+        padding: .35em .625em .75em;
+        min-width: 300px;
+    }
+</style>
+<body>
+<div class="container-fluid">
+
+    <div class="left-side">
+        <!-- Nav pills -->
+        <ul class="nav nav-pills" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="pill" href="#read" onclick="findAll()" style="background:#2F4F4F;border:1px solid #2F4F4F">客户持仓信息查询</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content-side">
+        <!-- Tab panes -->
+        <div class="tab-content">
+
+            <div id="read" class="container-fluid tab-pane active"><br>
+                <button type="button" onclick="findAll()" class="btn btn-primary" style="background:#2F4F4F;border:1px solid #2F4F4F">查询</button>
+                <fieldset class="fieldset">
+                <legend>客户持仓信息列表</legend>
+                <div >
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>客户号</th>
+                            <th>产品ID</th>
+                            <th>总持仓</th>
+                            <th>在途份额</th>
+                            <th>在途金额</th>
+                            <th>持仓状态</th>
+                        </tr>
+                        </thead>
+                        <tbody id="mesContent">
+                        </tbody>
+                    </table>
+                </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
