@@ -23,6 +23,7 @@
         <module>UserServiceProvider</module>
         <module>PayServiceProvider</module>
         <module>ProductServiceProvider</module>
+        <module>blitz</module>
         <module>FeignClient</module>
         <module>Common</module>
     </modules>
