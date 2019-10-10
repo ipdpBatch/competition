@@ -37,7 +37,7 @@ public interface ControlCentureMapper {
 	  * @return
 	  */
 	 @Delete("delete from t_control_centure where order_seq= #{orderSeq}")
-	 public int delete(@Param("orderSeq") String orderSeq);
+	 public int delete(@Param("orderSeq") BigInteger orderSeq);
 	 
 	 
 	 /**

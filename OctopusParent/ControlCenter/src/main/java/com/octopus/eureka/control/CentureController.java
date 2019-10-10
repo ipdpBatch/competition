@@ -1,5 +1,6 @@
 package com.octopus.eureka.control;
 
+import java.math.BigInteger;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +26,7 @@ public class CentureController {
     ControlCentureMapper controlCentureMapper;
     
     @GetMapping("/controlCentrue/{orderSeq}")
-    public ControlCentureDto getControlCenture(@PathVariable("orderSeq") String orderSeq) {
+    public ControlCentureDto getControlCenture(@PathVariable("orderSeq") BigInteger orderSeq) {
         logger.info("请求参数orderSeq："+ orderSeq);
         return controlCentureMapper.selectById(orderSeq);
     }
@@ -48,7 +49,7 @@ public class CentureController {
     }
 
     @RequestMapping("/controlCentrue/delete/{orderSeq}")
-    public int deleteControlCentrue(@PathVariable("orderSeq") String orderSeq) {
+    public int deleteControlCentrue(@PathVariable("orderSeq") BigInteger orderSeq) {
         logger.info("请求参数orderSeq："+ orderSeq);
         return controlCentureMapper.delete(orderSeq);
     }
