@@ -1,6 +1,7 @@
 package com.octopus.feign.consumer;
 
 import com.octopus.common.bo.BuyBo;
+import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -130,18 +131,14 @@ public class ConsumerApplicationTests {
     @Test
     public void testCheckProduct(){
         BuyBo buyBo = new BuyBo();
-        buyBo.setOrderSeq(BigInteger.valueOf(13));
+        buyBo.setOrderSeq(BigInteger.valueOf(15));
         buyBo.setBusinessCode("022");
         buyBo.setCustomerId("abc");
         buyBo.setTransactionAmount(new BigDecimal(1000000000));
         buyBo.setProductId("11111111");
         buyBo.setOrderStep("CHKP");
-        Map product = productDispatcher.checkProduct(buyBo);
+        BuyResponseBo product = productDispatcher.checkProduct(buyBo);
         logger.info("检查结果为："+product.toString());
-        Object checkResult=product.get("checkResult");
-        Object reason=product.get("reason");
-        logger.info("结果："+checkResult);
-        logger.info("原因："+reason);
 
     }
 
@@ -207,11 +204,12 @@ public class ConsumerApplicationTests {
     @Test
     public void testCreateOrder(){
         BuyBo buyBo = new BuyBo();
-        buyBo.setBusinessCode("022");
-        buyBo.setCustomerId("dongjl");
+        buyBo.setOrderSeq(BigInteger.valueOf(2019100906));
+        buyBo.setBusinessCode("024");
+        buyBo.setCustomerId("11111111");
         buyBo.setTransactionAmount(new BigDecimal(10000000));
         buyBo.setProductId("033315");
-        OrderFinancialDto order = orderDispatcher.createOrder(buyBo);
+        BuyResponseBo order = orderDispatcher.createOrder(buyBo);
         logger.info("创建的订单为："+order);
     }
 
@@ -274,13 +272,13 @@ public class ConsumerApplicationTests {
     @Test
     public void testDescPosition(){
         BuyBo buyBo = new BuyBo();
-        buyBo.setOrderSeq(BigInteger.valueOf(121));
+        buyBo.setOrderSeq(BigInteger.valueOf(20191113));
         buyBo.setBusinessCode("024");
-        buyBo.setCustomerId("aaa12242");
-        buyBo.setTransactionAmount(new BigDecimal(1101.00));
-        buyBo.setProductId("232143");
+        buyBo.setCustomerId("9876543");
+        buyBo.setTransactionAmount(new BigDecimal(5000));
+        buyBo.setProductId("9989879");
         buyBo.setOrderStep("POSI");
-        PositionBalanceDto positionBalanceDto = userDispatcher.descPosition(buyBo);
-        logger.info("持仓信息为："+positionBalanceDto.toString());
+        BuyResponseBo buyResponseBo = userDispatcher.descPosition(buyBo);
+        logger.info("返回信息为："+buyResponseBo.toString());
     }
 }

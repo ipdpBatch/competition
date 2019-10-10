@@ -53,4 +53,10 @@ public interface UserClient {
 
     @RequestMapping(value ="/positionBalance/getAdd")
     PositionBalanceDto getAddPosition(@RequestBody PositionBalanceDto positionBalanceDto);
+
+    @RequestMapping(value = "/user/addPosition")
+    BuyResponseBo addPosition(@RequestBody BuyBo buybo);
+
+    @RequestMapping(value = "/user/descPosition")
+    BuyResponseBo descPosition(@RequestBody BuyBo buybo);
 }

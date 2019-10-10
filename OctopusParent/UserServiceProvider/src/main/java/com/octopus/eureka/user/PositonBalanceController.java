@@ -1,5 +1,7 @@
 package com.octopus.eureka.user;
 
+import com.octopus.common.bo.BuyBo;
+import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.PositionBalanceDto;
 import com.octopus.common.dao.mapper.PositionBalanceMapper;
 import org.slf4j.Logger;
@@ -23,6 +25,9 @@ public class PositonBalanceController {
 
     @Resource
     private PositionBalanceMapper positionBalanceMapper;
+
+    @Resource
+    private PositionService positionService;
 
     @Value("${server.port}")
     String port;
@@ -68,5 +73,15 @@ public class PositonBalanceController {
             return positionBalanceMapper.selectById(productId, customerId);
         }
         return null;
+    }
+
+    @RequestMapping("/user/addPosition")
+    public BuyResponseBo addPosition(@RequestBody BuyBo buybo){
+        return positionService.addPosition(buybo);
+    }
+
+    @RequestMapping("/user/descPosition")
+    public BuyResponseBo descPosition(@RequestBody BuyBo buybo){
+        return positionService.descPosition(buybo);
     }
 }

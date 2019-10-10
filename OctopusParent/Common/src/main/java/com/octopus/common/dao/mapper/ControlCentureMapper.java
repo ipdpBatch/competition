@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -17,6 +18,7 @@ public interface ControlCentureMapper {
       * @param controlCentureDto
       * @return
       */
+	 @Options(useGeneratedKeys=true, keyProperty="orderSeq", keyColumn="order_seq")
 	 @Insert("INSERT INTO t_control_centure (order_seq,request_time, update_time,order_step, order_status, flag) VALUES (#{orderSeq},#{requestTime},#{updateTime},#{orderStep},#{orderStatus},#{flag})")
 	 public int insert(ControlCentureDto controlCentureDto);
 	 

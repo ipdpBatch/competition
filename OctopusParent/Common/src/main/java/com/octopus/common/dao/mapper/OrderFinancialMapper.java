@@ -2,6 +2,7 @@ package com.octopus.common.dao.mapper;
 
 import com.octopus.common.dao.domain.OrderFinancialDto;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Component;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -19,9 +20,9 @@ public interface OrderFinancialMapper {
      *
      * @param orderFinancialDto
      */
-    @Options(useGeneratedKeys=true, keyProperty="orderSeq", keyColumn="order_seq")
-    @Insert("INSERT INTO t_order_financial (create_date, create_time, transaction_code, customer_id, product_id, transaction_amount, transaction_vol, order_status, capital_status) \n" +
-            "\tVALUES (#{createDate},#{createTime},#{transactionCode},#{customerId},#{productId},#{transactionAmount},#{transactionVol},#{orderStatus},#{capitalStatus})")
+//    @Options(useGeneratedKeys=true, keyProperty="orderSeq", keyColumn="order_seq")
+    @Insert("INSERT  INTO t_order_financial (order_seq, create_date, create_time, transaction_code, customer_id, product_id, transaction_amount, transaction_vol, order_status, capital_status) \n" +
+            "\tVALUES (#{orderSeq},#{createDate},#{createTime},#{transactionCode},#{customerId},#{productId},#{transactionAmount},#{transactionVol},#{orderStatus},#{capitalStatus})")
     public int insert(OrderFinancialDto orderFinancialDto);
 
     /**
