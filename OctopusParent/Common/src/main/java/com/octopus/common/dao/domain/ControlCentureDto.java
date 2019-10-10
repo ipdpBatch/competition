@@ -29,7 +29,12 @@ public class ControlCentureDto implements Serializable{
 		this.orderStatus = orderStatus;
 		this.flag = flag;
 	}
-	@Override
+
+    public ControlCentureDto() {
+
+    }
+
+    @Override
 	public String toString() {
 		return "ControlCentureDto [orderSeq=" + orderSeq + ", requestTime=" + requestTime + ", updateTime=" + updateTime
 				+ ", orderStep=" + orderStep + ", orderStatus=" + orderStatus + ", flag=" + flag + "]";

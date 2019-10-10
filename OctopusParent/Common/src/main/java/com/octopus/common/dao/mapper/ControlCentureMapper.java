@@ -1,5 +1,6 @@
 package com.octopus.common.dao.mapper;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -53,6 +54,6 @@ public interface ControlCentureMapper {
 	  * @return
 	  */
 	 @Select("select * from t_control_centure where order_seq=#{orderSeq}")
-	 public ControlCentureDto selectById(@Param("orderSeq") String orderSeq);
+	 public ControlCentureDto selectById(@Param("orderSeq") BigInteger orderSeq);
 	
 }
