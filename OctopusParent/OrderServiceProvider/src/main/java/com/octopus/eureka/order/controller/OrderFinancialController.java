@@ -42,11 +42,6 @@ public class OrderFinancialController {
         return orderFinancialMapper.selectAll();
     }
 
-    @RequestMapping("/order/update")
-    public int updateOrder(@RequestBody OrderFinancialDto orderFinancialDto) {
-        return orderFinancialMapper.update(orderFinancialDto);
-    }
-
     @RequestMapping("/order/add")
     public int addOrder(@RequestBody  OrderFinancialDto orderFinancialDto) {
         return orderFinancialMapper.insert(orderFinancialDto);
@@ -64,5 +59,10 @@ public class OrderFinancialController {
         return orderFinancialService.createOrder(buyBo);
     }
 
+    @RequestMapping("/order/finishOrder")
+    public BuyResponseBo updateOrder(@RequestBody BuyBo buyBo) {
+        logger.info("OrderFinancialController层请求更新订单服务：请求参数："+ buyBo.toString());
+        return orderFinancialService.finishOrder(buyBo);
+    }
 
 }
