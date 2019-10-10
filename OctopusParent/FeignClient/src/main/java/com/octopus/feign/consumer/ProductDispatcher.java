@@ -4,7 +4,6 @@ import com.octopus.common.bo.BuyBo;
 import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.ControlProductDto;
 import com.octopus.common.dao.domain.ProductBaseInfoDto;
-import com.octopus.eureka.product.ProductService;
 import com.octopus.feign.consumer.provider.ProductClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

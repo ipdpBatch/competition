@@ -4,7 +4,6 @@ import com.octopus.common.bo.BuyBo;
 import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.ControlProductDto;
 import com.octopus.common.dao.domain.ProductBaseInfoDto;
-import com.octopus.eureka.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
