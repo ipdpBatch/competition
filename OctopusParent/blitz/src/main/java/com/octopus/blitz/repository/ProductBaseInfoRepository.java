@@ -9,6 +9,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface ProductBaseInfoRepository extends JpaRepository<ProductBaseInfo, String> {
     String CACHE_KEY = "product-quota-cache";
 
-    @Cacheable(cacheNames = CACHE_KEY)
+    @Cacheable(cacheNames = CACHE_KEY, key = "#productId")
     ProductBaseInfo getByProductId(String productId);
 }

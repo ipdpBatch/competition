@@ -4,6 +4,7 @@ import com.octopus.blitz.dto.ProductBaseInfo;
 import com.octopus.blitz.dto.ProductQuotaInfo;
 import com.octopus.blitz.repository.ProductBaseInfoRepository;
 import com.octopus.blitz.repository.ProductQuotaInfoRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import javax.transaction.Transactional;
 import java.math.BigDecimal;
 
 
-
+@Slf4j
 @RestController
 @RequestMapping(value = "quota")
 public class ProductQuotaController {
@@ -25,9 +26,23 @@ public class ProductQuotaController {
     @Autowired
     private ProductBaseInfoRepository productBaseInfoRepository;
 
+    @RequestMapping(value = "/{productId}/{volume}")
+    @Transactional
+    public ProductQuotaInfo checkQuota(@PathVariable String productId, @PathVariable BigDecimal volume) throws InterruptedException {
+        // STEP 1: 读取产品基本信息
+        ProductBaseInfo productBaseInfo = productBaseInfoRepository.getOne(productId);
+        logger.info(productBaseInfo.toString());
+
+        ProductQuotaInfo productQuotaInfo = productQuotaInfoRepository.getOne(productId);
+
+        logger.info(productQuotaInfo.toString());
+        return productQuotaInfo;
+    }
+
+
     @RequestMapping(value = "/v1/{productId}/{volume}")
     @Transactional
-    public ProductQuotaInfo buyWithoutTransaction(@PathVariable String productId, @PathVariable BigDecimal volume) throws InterruptedException {
+    public ProductQuotaInfo checkQuotaWithoutTransaction(@PathVariable String productId, @PathVariable BigDecimal volume) throws InterruptedException {
         // STEP 1: 读取产品基本信息
         ProductBaseInfo productBaseInfo = productBaseInfoRepository.getOne(productId);
         logger.info(productBaseInfo.toString());
@@ -44,7 +59,7 @@ public class ProductQuotaController {
 
     @RequestMapping(value = "/v2/{productId}/{volume}")
     @Transactional
-    public ProductQuotaInfo buyWithTransactionAndGetForUpdate(@PathVariable String productId, @PathVariable BigDecimal volume) throws InterruptedException {
+    public ProductQuotaInfo checkQuotaWithTransactionAndGetForUpdate(@PathVariable String productId, @PathVariable BigDecimal volume) throws InterruptedException {
         // STEP 1: 读取产品基本信息
         ProductBaseInfo productBaseInfo = productBaseInfoRepository.getOne(productId);
         logger.info(productBaseInfo.toString());
@@ -62,7 +77,7 @@ public class ProductQuotaController {
 
     @RequestMapping(value = "/v3/{productId}/{volume}")
     @Transactional
-    public ProductQuotaInfo buyWithTransactionAndUpdateFirst(@PathVariable String productId, @PathVariable BigDecimal volume) throws InterruptedException {
+    public ProductQuotaInfo checkQuotaWithTransactionAndUpdateFirst(@PathVariable String productId, @PathVariable BigDecimal volume) throws InterruptedException {
         // STEP 1: 读取产品基本信息
         ProductBaseInfo productBaseInfo = productBaseInfoRepository.getOne(productId);
         logger.info(productBaseInfo.toString());
@@ -76,7 +91,7 @@ public class ProductQuotaController {
 
     @RequestMapping(value = "/v4/{productId}/{volume}")
     @Transactional
-    public ProductQuotaInfo buyWithTransactionAndUpdateFirstWithCache(@PathVariable String productId, @PathVariable BigDecimal volume) throws InterruptedException {
+    public ProductQuotaInfo checkQuotaWithTransactionAndUpdateFirstWithCache(@PathVariable String productId, @PathVariable BigDecimal volume) throws InterruptedException {
         // STEP 1: 读取产品基本信息
         ProductBaseInfo productBaseInfo = productBaseInfoRepository.getByProductId(productId);
         logger.info(productBaseInfo.toString());
