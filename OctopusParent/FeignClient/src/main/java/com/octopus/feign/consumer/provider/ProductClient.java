@@ -1,13 +1,18 @@
 package com.octopus.feign.consumer.provider;
 
+import com.octopus.common.bo.BuyBo;
+import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.ControlProductDto;
 import com.octopus.common.dao.domain.ProductBaseInfoDto;
+import com.octopus.eureka.product.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.annotation.Resource;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -50,5 +55,8 @@ public interface ProductClient {
 
     @RequestMapping(value = "/product/insert",method = RequestMethod.POST)
     int insertProduct(@RequestBody ProductBaseInfoDto productBaseInfoDto);
+
+    @RequestMapping(value = "/product/checkProduct",method = RequestMethod.GET)
+    BuyResponseBo checkProduct(@RequestBody BuyBo buyBo);
 
 }

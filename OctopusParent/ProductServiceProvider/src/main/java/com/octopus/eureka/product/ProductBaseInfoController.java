@@ -1,5 +1,7 @@
 package com.octopus.eureka.product;
 
+import com.octopus.common.bo.BuyBo;
+import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.ProductBaseInfoDto;
 import com.octopus.common.dao.mapper.ProductBaseInfoMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +21,9 @@ import java.util.List;
 public class ProductBaseInfoController {
     @Resource
     private ProductBaseInfoMapper productBaseInfoMapper;
+
+    @Resource
+    private ProductService productService;
     @Value("${server.port}")
     String port;
     @RequestMapping("/product")
@@ -111,5 +116,10 @@ public class ProductBaseInfoController {
     @RequestMapping("/product/deleteNew")
     public Long deleteProduct2(@RequestParam(value = "productId", required = false) String productId){
         return productBaseInfoMapper.delete(productId);
+    }
+
+    @RequestMapping("/product/checkProduct")
+    public BuyResponseBo checkProduct(@RequestBody BuyBo buyBo){
+        return productService.checkProduct(buyBo);
     }
 }

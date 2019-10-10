@@ -17,13 +17,22 @@ public class ControlCentureDto implements Serializable{
     //开关
     private String flag;
     
+    
+    
+	public ControlCentureDto(String orderSeq, String requestTime, String updateTime, String orderStep,
+			String orderStatus, String flag) {
+		super();
+		this.orderSeq = orderSeq;
+		this.requestTime = requestTime;
+		this.updateTime = updateTime;
+		this.orderStep = orderStep;
+		this.orderStatus = orderStatus;
+		this.flag = flag;
+	}
 	@Override
 	public String toString() {
 		return "ControlCentureDto [orderSeq=" + orderSeq + ", requestTime=" + requestTime + ", updateTime=" + updateTime
-				+ ", orderStep=" + orderStep + ", orderStatus=" + orderStatus + ", flag=" + flag + ", getOrderSeq()="
-				+ getOrderSeq() + ", getRequestTime()=" + getRequestTime() + ", getUpdateTime()=" + getUpdateTime()
-				+ ", getOrderStep()=" + getOrderStep() + ", getOrderStatus()=" + getOrderStatus() + ", getFlag()="
-				+ getFlag() + "]";
+				+ ", orderStep=" + orderStep + ", orderStatus=" + orderStatus + ", flag=" + flag + "]";
 	}
 	public String getOrderSeq() {
 		return orderSeq;

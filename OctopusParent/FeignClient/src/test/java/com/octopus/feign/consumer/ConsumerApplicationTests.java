@@ -131,18 +131,14 @@ public class ConsumerApplicationTests {
     @Test
     public void testCheckProduct(){
         BuyBo buyBo = new BuyBo();
-        buyBo.setOrderSeq(BigInteger.valueOf(13));
+        buyBo.setOrderSeq(BigInteger.valueOf(15));
         buyBo.setBusinessCode("022");
         buyBo.setCustomerId("abc");
         buyBo.setTransactionAmount(new BigDecimal(1000000000));
         buyBo.setProductId("11111111");
         buyBo.setOrderStep("CHKP");
-        Map product = productDispatcher.checkProduct(buyBo);
+        BuyResponseBo product = productDispatcher.checkProduct(buyBo);
         logger.info("检查结果为："+product.toString());
-        Object checkResult=product.get("checkResult");
-        Object reason=product.get("reason");
-        logger.info("结果："+checkResult);
-        logger.info("原因："+reason);
 
     }
 
