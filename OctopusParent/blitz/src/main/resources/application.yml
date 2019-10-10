@@ -1,9 +1,14 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
 server:
   #配置端口号
   port: 8099
 spring:
   application:
-    name: seckill
+    name: eureka-provider-blitz
   jpa:
     show-sql: true
   datasource:
