@@ -195,8 +195,8 @@ public class ConsumerApplicationTests {
         orderDto.setProductId("000539");
         orderDto.setCustomerId("2222222");
         logger.info("修改DTO：" + orderDto.toString());
-        int result2 = orderDispatcher.updateOrder(orderDto);
-        logger.info("更新条数：" + result2);
+//        int result2 = orderDispatcher.updateOrder(orderDto);
+//        logger.info("更新条数：" + result2);
 //        int result3 = orderDispatcher.deleteOrder(1);
 //        logger.info("删除条数：" + result3);
     }
@@ -209,7 +209,8 @@ public class ConsumerApplicationTests {
         buyBo.setCustomerId("11111111");
         buyBo.setTransactionAmount(new BigDecimal(10000000));
         buyBo.setProductId("033315");
-        BuyResponseBo order = orderDispatcher.createOrder(buyBo);
+//        BuyResponseBo order = orderDispatcher.createOrder(buyBo);
+        BuyResponseBo order = orderDispatcher.finishOrder(buyBo);
         logger.info("创建的订单为："+order);
     }
 

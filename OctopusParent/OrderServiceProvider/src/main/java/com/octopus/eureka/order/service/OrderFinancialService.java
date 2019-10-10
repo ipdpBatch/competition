@@ -87,4 +87,67 @@ public class OrderFinancialService {
             return buyResponseBo;
         }
     }
+
+    public BuyResponseBo finishOrder(BuyBo buyBo){
+        //封装返回Bo
+        BuyResponseBo buyResponseBo = new BuyResponseBo();
+        buyResponseBo.setBusinessCode(buyBo.getBusinessCode());
+        buyResponseBo.setCustomerId(buyBo.getCustomerId());
+        buyResponseBo.setDestiny(buyBo.getDestiny());
+        buyResponseBo.setOrderSeq(buyBo.getOrderSeq());
+        buyResponseBo.setProductId(buyBo.getProductId());
+        buyResponseBo.setTransactionAmount(buyBo.getTransactionAmount());
+        buyResponseBo.setOrderStep(buyBo.getOrderStep());
+        //
+        OrderFinancialDto order = new OrderFinancialDto();
+        //订单编号
+        order.setOrderSeq(buyBo.getOrderSeq());
+        //客户号
+        order.setCustomerId(buyBo.getCustomerId());
+        //产品码
+        order.setProductId(buyBo.getProductId());
+        //交易码
+        order.setTransactionCode(buyBo.getBusinessCode());
+        switch (order.getTransactionCode()){
+            case "020":
+                //认购-赋值交易金额
+                order.setTransactionAmount(buyBo.getTransactionAmount());
+            case "022":
+                //申购-赋值交易金额
+                order.setTransactionAmount(buyBo.getTransactionAmount());
+            case "024":
+                //赎回-赋值交易份额
+                order.setTransactionVol(buyBo.getTransactionAmount());
+            default:
+                //赋值交易金额
+                order.setTransactionAmount(buyBo.getTransactionAmount());
+        }
+        DateFormat format = new SimpleDateFormat("yyyyMMdd HHmmss");
+        Date date = new Date();
+        String dateFormate = format.format(date);
+        String[] datelist = dateFormate.split(" ");
+        //建单日期
+        order.setCreateDate(datelist[0]);
+        //建单时间
+        order.setCreateTime(datelist[1]);
+
+        //订单初始状态
+        order.setOrderStatus("AOSC");
+        //订单
+        order.setCapitalStatus("PCSC");
+        //插入订单
+        try{
+            int insertResult = orderFinancialMapper.update(order);
+            if(insertResult == 1){
+                buyResponseBo.setOrderReturnCode(true);
+            }else {
+                buyResponseBo.setOrderReturnCode(false);
+            }
+            return buyResponseBo;
+        }catch (Exception e){
+            buyResponseBo.setOrderReturnCode(false);
+            buyResponseBo.setErrorDetail(e.getMessage());
+            return buyResponseBo;
+        }
+    }
 }
