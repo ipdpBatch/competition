@@ -8,7 +8,7 @@ server:
   port: 8099
 spring:
   application:
-    name: seckill
+    name: eureka-provider-blitz
   jpa:
     show-sql: true
   datasource:
