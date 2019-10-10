@@ -30,10 +30,10 @@ public interface OrderClient {
     @RequestMapping(value ="/controlOrder/delete/{orderSeq}",method = RequestMethod.DELETE)
     int deleteControlOrder(@PathVariable("orderSeq") String orderSeq);
 
-    @RequestMapping(value ="/controlOrder/update/",method = RequestMethod.POST)
+    @RequestMapping(value ="/controlOrder/update",method = RequestMethod.POST)
     int updateControlOrder(@RequestBody ControlOrderDto controlOrderDto);
 
-    @RequestMapping(value ="/controlOrder/add/",method = RequestMethod.POST)
+    @RequestMapping(value ="/controlOrder/add",method = RequestMethod.POST)
     int addControlOrder(@RequestBody ControlOrderDto controlOrderDto);
 
     //订单表
