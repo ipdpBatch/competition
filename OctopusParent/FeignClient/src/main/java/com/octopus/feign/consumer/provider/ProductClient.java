@@ -1,12 +1,8 @@
 package com.octopus.feign.consumer.provider;
 
-import com.octopus.common.bo.BuyBo;
-import com.octopus.common.bo.BuyResponseBo;
-import com.octopus.common.dao.domain.ControlProductDto;
-import com.octopus.common.dao.domain.ProductBaseInfoDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import java.math.BigInteger;
 import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
