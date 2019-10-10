@@ -31,7 +31,17 @@ public interface OrderFinancialMapper {
      * @param orderFinancialDto
      * @return 受影响的行数
      */
-    @Update("update t_order_financial set create_date=#{createDate},create_time=#{createTime},transaction_code=#{transactionCode},customer_id=#{customerId},product_id=#{productId},transaction_amount=#{transactionAmount},transaction_vol=#{transactionVol},order_status=#{orderStatus},capital_status=#{capitalStatus} where order_seq= #{orderSeq}")
+    @Update("<script>" + " update t_order_financial set " +
+            "<if test='createDate != null'>create_date = #{createDate},</if>"+
+            "<if test='createTime != null'>create_time = #{createTime},</if>" +
+            "<if test='transactionCode != null'>transaction_code = #{transactionCode},</if>" +
+            "<if test='customerId != null'>customer_id = #{customerId},</if>" +
+            "<if test='productId != null'>product_id = #{productId},</if>" +
+            "<if test='transactionAmount != null'>transaction_amount = #{transactionAmount},</if>" +
+            "<if test='transactionVol != null'>transaction_vol = #{transactionVol},</if>" +
+            "<if test='orderStatus != null'>order_status = #{orderStatus},</if>" +
+            "<if test='capitalStatus != null'>capital_status = #{capitalStatus}</if>" +
+            " where order_seq= #{orderSeq} </script>")
     public int update(OrderFinancialDto orderFinancialDto);
 
     /**
