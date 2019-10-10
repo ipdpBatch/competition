@@ -1,15 +1,18 @@
 package com.octopus.feign.consumer.provider;
 
+import java.math.BigInteger;
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.octopus.common.bo.BuyBo;
 import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.ControlOrderDto;
 import com.octopus.common.dao.domain.OrderFinancialDto;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.*;
-
-import java.math.BigInteger;
-import java.util.List;
 
 /**
  * @Author dongjiale
