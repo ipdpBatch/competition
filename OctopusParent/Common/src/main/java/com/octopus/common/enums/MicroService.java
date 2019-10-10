@@ -61,7 +61,7 @@ public enum MicroService {
     String mark;
 
 
-    public String getOrderStep(MicroService microService){
+    public static String getOrderStep(MicroService microService){
         return microService.getOrderStep();
     }
 }

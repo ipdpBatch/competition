@@ -1,12 +1,9 @@
 package com.octopus.feign.consumer;
 
-import com.netflix.discovery.converters.Auto;
 import com.octopus.common.bo.BuyBo;
-import com.octopus.common.dao.domain.OrderFinancialDto;
-import com.octopus.common.utils.DateUtil;
+import com.octopus.common.bo.BuyResponseBo;
+import com.octopus.common.enums.MicroService;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.Date;
 
 /**
  * 文件创建时写入注释内容
@@ -17,32 +14,54 @@ import java.util.Date;
  */
 public class BuyConsumer {
     @Autowired
-    private  OrderDispatcher orderDispatcher;
+    private OrderDispatcher orderDispatcher;
     @Autowired
-    private  ProductDispatcher productDispatcher;
+    private ProductDispatcher productDispatcher;
+    @Autowired
+    private UserDispatcher userDispatcher;
 
-    public boolean buy(BuyBo buyBo){
+    public boolean buy(BuyBo buyBo) {
+        BuyResponseBo buyResponseBo = new BuyResponseBo();
         //1.建单
-//        buyBo.setOrderStep("ESTB");
-//        if(orderDispatcher.createOrder(buyBo)){
-//            buyBo.setOrderStep("CHKC");
-//            /*订单控制信息切换步骤*/
-//        }
+        buyBo.setOrderStep(MicroService.getOrderStep(MicroService.ORDER_ESTBLISH));
+        buyResponseBo = orderDispatcher.createOrder(buyBo);
+        if (buyResponseBo.isOrderReturnCode()) {
+            buyBo.setOrderStep(MicroService.getOrderStep(MicroService.CUSTOMER_CHECK));
+        }
+
         //2.客户预检查
-
+        buyResponseBo= null;
+        //buyResponseBo = userDispatcher.precheck(buyBo); todo
+        if (buyResponseBo.isOrderReturnCode()) {
+            buyBo.setOrderStep(MicroService.getOrderStep(MicroService.PRODUCT_CHECK));
+        }
         //3.产品预检查
-        productDispatcher.checkProduct(buyBo);
-
+        buyResponseBo= null;
+        buyResponseBo =productDispatcher.checkProduct(buyBo);
+        if (buyResponseBo.isOrderReturnCode()) {
+            buyBo.setOrderStep(MicroService.getOrderStep(MicroService.VOLUME_FROZON));
+        }
         //4.额度控销
-
-        //5.支付
+        buyResponseBo= null;
+        buyResponseBo =productDispatcher.checkProduct(buyBo);//todo
+        if (buyResponseBo.isOrderReturnCode()) {
+            buyBo.setOrderStep(MicroService.getOrderStep(MicroService.PAY_BILL));
+        }
+        //5.支付  todo
 
         //6.加仓
+        buyResponseBo= null;
+        buyResponseBo =userDispatcher.addPosition(buyBo);
+        if (buyResponseBo.isOrderReturnCode()) {
+            buyBo.setOrderStep(MicroService.getOrderStep(MicroService.PAY_BILL));
+        }
+
         //7.完成订单
-     return  true;
 
 
 
+
+        return true;
 
 
     }

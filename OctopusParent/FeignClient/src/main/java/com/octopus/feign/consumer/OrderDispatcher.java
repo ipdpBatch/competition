@@ -57,10 +57,9 @@ public class OrderDispatcher {
     public int deleteOrder(BigInteger orderSeq) {
         return orderClient.deleteOrder(orderSeq);
     }
-
-    public int updateOrder(OrderFinancialDto orderFinancialDto) {
-        return orderClient.updateOrder(orderFinancialDto);
-    }
+    //public int updateOrder(OrderFinancialDto orderFinancialDto) {
+    //    return orderClient.updateOrder(orderFinancialDto);
+    //}
 
     public int addOrder(OrderFinancialDto orderFinancialDto) {
         return orderClient.addOrder(orderFinancialDto);
@@ -72,6 +71,16 @@ public class OrderDispatcher {
         BuyResponseBo buyResponseBo = orderClient.createOrder(buyBo);
         if (!buyResponseBo.isOrderReturnCode()){
             logger.error("OrderDispatcher层创建订单结果失败" + buyResponseBo.getErrorDetail());
+        }
+        return buyResponseBo;
+    }
+
+    /*订单完成服务*/
+    public BuyResponseBo finishOrder(BuyBo buyBo) {
+        logger.info("OrderDispatcher层请求更新订单，请求参数：" + buyBo.toString());
+        BuyResponseBo buyResponseBo = orderClient.finishOrder(buyBo);
+        if (!buyResponseBo.isOrderReturnCode()){
+            logger.error("OrderDispatcher层更新订单结果失败" + buyResponseBo.getErrorDetail());
         }
         return buyResponseBo;
     }
