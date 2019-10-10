@@ -20,19 +20,18 @@ public class PreCheckService {
     public int  doProcess(BuyBo buyBo){
         String customerId = buyBo.getCustomerId();
         CustomerCifInfoDto customerCifInfoDto = userController.findById(customerId);
-        int cifFlag = 0;
+        int resFlag = 0;
         if(customerCifInfoDto == null){
-            cifFlag = 0;
+            resFlag = 0;
+
         }else{
-            cifFlag = 1;
+            CustomerSignInfoDto customerSignInfoDto  = userController.getSignInfoById(customerId);
+            if(customerSignInfoDto == null){
+                resFlag = 10;
+            }else{
+                resFlag = 11;
+            }
         }
-        CustomerSignInfoDto customerSignInfoDto  = userController.getSignInfoById(customerId);
-        int signFlag = 0;
-        if(customerSignInfoDto == null){
-            signFlag = 0;
-        }else{
-            signFlag = 1;
-        }
-        return signFlag*cifFlag;
+        return resFlag;
     }
 }

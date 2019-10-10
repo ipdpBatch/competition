@@ -16,8 +16,8 @@ import java.util.List;
 @FeignClient("eureka-provider-user")
 public interface UserClient {
 
-    @RequestMapping(value = "/user/precheck/{buybo}", method = RequestMethod.GET)
-    int preCheck(@PathVariable("buybo")BuyBo buybo);
+    @RequestMapping(value = "/user/precheck", method = RequestMethod.POST)
+    BuyResponseBo preCheck(@RequestBody BuyBo buybo);
 
     //控制表
     @RequestMapping(value = "/controlUser/all", method = RequestMethod.GET)

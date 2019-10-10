@@ -1,16 +1,15 @@
 package com.octopus.eureka.user;
 
 import com.octopus.common.bo.BuyBo;
+import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.CustomerCifInfoDto;
 import com.octopus.common.dao.domain.CustomerSignInfoDto;
 import com.octopus.common.dao.mapper.CustomerCifInfoMapper;
 import com.octopus.common.dao.mapper.CustomerSignInfoMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -30,8 +29,8 @@ public class UserController {
     @Autowired
     private CustomerSignInfoMapper customerSignInfoMapper;
 
-/*    @Resource
-    PreCheckService preCheckService;*/
+   @Resource
+    PreCheckService preCheckService;
 
     @Value("${server.port}")
     String port;
@@ -62,9 +61,28 @@ public class UserController {
         return customerSignInfoDto;
     }
 
-   /* @GetMapping("/user/precheck/{buybo}")
-    public int preCheck(@PathVariable BuyBo buybo){
-        return preCheckService.doProcess(buybo);
-    }*/
+   @PostMapping("/user/precheck")
+    public BuyResponseBo preCheck(@RequestBody BuyBo buybo){
+        int result = preCheckService.doProcess(buybo);
+       BuyResponseBo buyResponseBo = new BuyResponseBo();
+       BeanUtils.copyProperties(buybo, buyResponseBo);
+        switch (result){
+            case 0:
+                buyResponseBo.setOrderReturnCode(false);
+                buyResponseBo.setErrorDetail("用户不存在");
+                break;
+            case 10:
+                buyResponseBo.setOrderReturnCode(false);
+                buyResponseBo.setErrorDetail("用户未签约");
+                break;
+            case 11:
+                buyResponseBo.setOrderReturnCode(true);
+                buyResponseBo.setErrorDetail("客户预检查成功");
+            default:
+                buyResponseBo.setOrderReturnCode(false);
+                buyResponseBo.setErrorDetail("返回值不合法");
+        }
+        return buyResponseBo;
+    }
 
 }

@@ -27,7 +27,8 @@ public class UserDispatcher {
 
     @Autowired
     UserClient userClient;
-    public int precheck(BuyBo buybo){
+
+    public BuyResponseBo precheck(BuyBo buybo){
         return userClient.preCheck(buybo);
     }
 
