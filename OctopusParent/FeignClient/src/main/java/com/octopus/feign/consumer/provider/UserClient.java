@@ -1,6 +1,7 @@
 package com.octopus.feign.consumer.provider;
 
 import com.octopus.common.bo.BuyBo;
+import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.ControlUserDto;
 import com.octopus.common.dao.domain.PositionBalanceDto;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -15,8 +16,8 @@ import java.util.List;
 @FeignClient("eureka-provider-user")
 public interface UserClient {
 
-    @RequestMapping(value = "/user/precheck/{buybo}", method = RequestMethod.GET)
-    int preCheck(@PathVariable("buybo")BuyBo buybo);
+    @RequestMapping(value = "/user/precheck", method = RequestMethod.POST)
+    BuyResponseBo preCheck(@RequestBody BuyBo buybo);
 
     //控制表
     @RequestMapping(value = "/controlUser/all", method = RequestMethod.GET)

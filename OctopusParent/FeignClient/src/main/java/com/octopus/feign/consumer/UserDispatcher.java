@@ -1,6 +1,7 @@
 package com.octopus.feign.consumer;
 
 import com.octopus.common.bo.BuyBo;
+import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.ControlUserDto;
 import com.octopus.common.dao.domain.PositionBalanceDto;
 import com.octopus.feign.consumer.provider.UserClient;
@@ -26,7 +27,8 @@ public class UserDispatcher {
 
     @Autowired
     UserClient userClient;
-    public int precheck(BuyBo buybo){
+
+    public BuyResponseBo precheck(BuyBo buybo){
         return userClient.preCheck(buybo);
     }
 
