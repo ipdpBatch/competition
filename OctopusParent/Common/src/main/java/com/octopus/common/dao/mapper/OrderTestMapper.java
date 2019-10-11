@@ -3,10 +3,7 @@ package com.octopus.common.dao.mapper;
 
 import com.octopus.common.dao.domain.ControlOrderDto;
 import com.octopus.common.dao.domain.OrderTestDto;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -20,6 +17,10 @@ public interface OrderTestMapper {
      * @return
      */
     @Select("select * from t_order_test")
+    @Results({
+            @Result(property = "orderId",column = "order_id"),
+            @Result(property = "orderName",column = "order_name"),
+    })
     List<OrderTestDto> selectAll();
 
     /**
