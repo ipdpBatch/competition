@@ -2,6 +2,7 @@ package com.octopus.eureka.order.controller;
 
 import com.octopus.common.bo.BuyBo;
 import com.octopus.common.bo.BuyResponseBo;
+import com.octopus.common.dao.domain.ControlOrderDto;
 import com.octopus.common.dao.domain.OrderFinancialDto;
 import com.octopus.common.dao.mapper.OrderFinancialMapper;
 import com.octopus.eureka.order.service.OrderFinancialService;
@@ -47,6 +48,11 @@ public class OrderFinancialController {
         return orderFinancialMapper.insert(orderFinancialDto);
     }
 
+    @RequestMapping("/order/update/")
+    public int updateOrder(@RequestBody OrderFinancialDto orderFinancialDto) {
+        return orderFinancialMapper.update(orderFinancialDto);
+    }
+
     @RequestMapping("/order/delete/{orderSeq}")
     public int deleteOrder(@PathVariable("orderSeq") BigInteger orderSeq) {
         logger.info("请求参数orderSeq："+ orderSeq);
@@ -60,7 +66,7 @@ public class OrderFinancialController {
     }
 
     @RequestMapping("/order/finishOrder")
-    public BuyResponseBo updateOrder(@RequestBody BuyBo buyBo) {
+    public BuyResponseBo finishOrder(@RequestBody BuyBo buyBo) {
         logger.info("OrderFinancialController层请求更新订单服务：请求参数："+ buyBo.toString());
         return orderFinancialService.finishOrder(buyBo);
     }
