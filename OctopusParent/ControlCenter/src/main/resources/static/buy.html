@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>OrderFinancial</title>
+    <title>基金申购页面</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
@@ -52,7 +52,6 @@
         font-family:"宋体";
         background-image:url(timg.jpg);
         background-repeat:no-repeat;
-        background-size: 100% 100%;
         background-attachment: fixed;
         COLOR: #ffffff;
     }
@@ -63,9 +62,9 @@
     <div class="left-side">
         <!-- Nav pills -->
         <ul class="nav nav-pills" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" data-toggle="pill" href="#read" onclick="findAll()">订单查询</a>
-            </li>
+            <!--<li class="nav-item">-->
+                <!--<a class="nav-link active" data-toggle="pill" href="#read" onclick="findAll()">订单查询</a>-->
+            <!--</li>-->
             <li class="nav-item">
                 <a class="nav-link" data-toggle="pill" href="#create">创建订单</a>
             </li>
@@ -85,31 +84,31 @@
         <div class="tab-content">
             <button type="button" onclick="findAll()" class="btn btn-primary">查询</button>
             <!--                <button type="submit" class="btn btn-primary">更新</button>-->
-            <div id="read" class="container-fluid tab-pane active"><br>
-                <h3>订单列表</h3>
-                <div>
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>订单编号</th>
-                            <th>建单日期</th>
-                            <th>建单时间</th>
-                            <th>交易码</th>
-                            <th>客户编号</th>
-                            <th>产品编号</th>
-                            <th>交易金额</th>
-                            <th>交易份额</th>
-                            <th>订单状态</th>
-                            <th>资金状态</th>
+            <!--<div id="read" class="container-fluid tab-pane active"><br>-->
+                <!--<h3></h3>-->
+                <!--<div>-->
+                    <!--<table class="table">-->
+                        <!--<thead>-->
+                        <!--<tr>-->
+                            <!--<th>订单编号</th>-->
+                            <!--<th>建单日期</th>-->
+                            <!--<th>建单时间</th>-->
+                            <!--<th>交易码</th>-->
+                            <!--<th>客户编号</th>-->
+                            <!--<th>产品编号</th>-->
+                            <!--<th>交易金额</th>-->
+                            <!--<th>交易份额</th>-->
+                            <!--<th>订单状态</th>-->
+                            <!--<th>资金状态</th>-->
 
-                        </tr>
-                        </thead>
-                        <tbody id="mesContent">
-                        </tbody>
-                    </table>
-                </div>
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody id="mesContent">-->
+                        <!--</tbody>-->
+                    <!--</table>-->
+                <!--</div>-->
 
-            </div>
+            <!--</div>-->
 
             <div id="create" class="container-fluid tab-pane fade"><br>
                 <h3>创建订单</h3>
