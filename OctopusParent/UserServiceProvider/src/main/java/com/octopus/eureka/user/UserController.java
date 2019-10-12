@@ -55,7 +55,7 @@ public class UserController {
         return customerCifInfoMapper.selectAll();
     }
 
-    @GetMapping("/user/sign/{id}")
+    @GetMapping("/user/sign/{customerId}")
     public CustomerSignInfoDto getSignInfoById(@PathVariable String customerId){
         CustomerSignInfoDto  customerSignInfoDto = customerSignInfoMapper.selectByCusid(customerId);
         return customerSignInfoDto;
@@ -78,6 +78,7 @@ public class UserController {
             case 11:
                 buyResponseBo.setOrderReturnCode(true);
                 buyResponseBo.setErrorDetail("客户预检查成功");
+                break;
             default:
                 buyResponseBo.setOrderReturnCode(false);
                 buyResponseBo.setErrorDetail("返回值不合法");

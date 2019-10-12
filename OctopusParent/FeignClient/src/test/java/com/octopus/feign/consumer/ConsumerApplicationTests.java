@@ -46,6 +46,9 @@ public class ConsumerApplicationTests {
     @Autowired
     ControlCenterMapper controlCenterMapper;
 
+    @Autowired
+    private BuyConsumer buyConsumer;
+
 //    @Autowired
 //    private RabbitTemplate rabbitTemplate;
 
@@ -300,5 +303,21 @@ public class ConsumerApplicationTests {
         p.setCustomerId("4742667");
         List<PositionBalanceDto> position = userDispatcher.getPositionDynamic(p);
         logger.info("返回信息为："+position.toString());
+    }
+
+
+    @Test
+    public void buyTest(){
+        BuyBo buyBo = new BuyBo();
+        buyBo.setOrderSeq(BigInteger.valueOf(1026));
+        buyBo.setBusinessCode("022");
+        buyBo.setOrderStep("INIT");
+        buyBo.setCustomerId("a219391");
+        buyBo.setProductId("000539");
+        buyBo.setTransactionAmount(BigDecimal.valueOf(123456));
+        //userDispatcher.precheck(buyBo);
+        boolean res = buyConsumer.buy(buyBo);
+        System.out.println("执行结果为："+res);
+
     }
 }

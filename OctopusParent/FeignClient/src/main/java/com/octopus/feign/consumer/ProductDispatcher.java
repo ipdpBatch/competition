@@ -65,4 +65,9 @@ public class ProductDispatcher {
     public BuyResponseBo checkProduct(BuyBo buyBo) {
         return productClient.checkProduct(buyBo);
     }
+
+    //田密写在这里  todo
+    public BuyResponseBo checkQuota(BuyBo buyBo) {
+        return null;
+    }
 }

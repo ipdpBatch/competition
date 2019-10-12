@@ -3,12 +3,7 @@ package com.octopus.common.dao.mapper;
 import java.util.List;
 
 import com.octopus.common.dao.domain.CustomerSignInfoDto;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface CustomerSignInfoMapper {
@@ -29,5 +24,12 @@ public interface CustomerSignInfoMapper {
     CustomerSignInfoDto selectByPrimaryKey(@Param("customerId") String customerId, @Param("productId") String productId);
 
     @Select("select * from t_customer_sign_info where customer_id=#{customerId}")
+    @Results({
+            @Result(property = "customerId",column = "customer_id"),
+            @Result(property = "productId",column = "product_id"),
+            @Result(property = "signStatus",column = "sign_status"),
+            @Result(property = "transactionDate",column = "transaction_date"),
+            @Result(property = "transactionTime",column = "transaction_time"),
+    })
     CustomerSignInfoDto selectByCusid(@Param("customerId") String customerId);
 }
