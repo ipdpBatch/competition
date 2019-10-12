@@ -21,6 +21,7 @@ public class ProductQuotaController {
     private static final Logger logger = LoggerFactory.getLogger(ProductQuotaController.class);
     private static final int SLEEP_MILLIS = 10;
 
+
     @Autowired
     private ProductQuotaInfoRepository productQuotaInfoRepository;
     @Autowired
@@ -29,14 +30,7 @@ public class ProductQuotaController {
     @RequestMapping(value = "/{productId}/{volume}")
     @Transactional
     public ProductQuotaInfo checkQuota(@PathVariable String productId, @PathVariable BigDecimal volume) throws InterruptedException {
-        // STEP 1: 读取产品基本信息
-        ProductBaseInfo productBaseInfo = productBaseInfoRepository.getOne(productId);
-        logger.info(productBaseInfo.toString());
-
-        ProductQuotaInfo productQuotaInfo = productQuotaInfoRepository.getOne(productId);
-
-        logger.info(productQuotaInfo.toString());
-        return productQuotaInfo;
+        return checkQuotaWithTransactionAndUpdateFirstWithCache(productId, volume);
     }
 
 
@@ -103,5 +97,21 @@ public class ProductQuotaController {
         return productQuotaInfo;
     }
 
+    @RequestMapping(value = "/v5/{productId}/{volume}")
+    @Transactional
+    public ProductQuotaInfo checkQuotaWithTransactionAndUpdateFirstWithCacheAndUsingZookeeper(@PathVariable String productId, @PathVariable BigDecimal volume) throws InterruptedException {
+//        boolean isSoldOut = SoldOutWatcher.isSoldOut(productId);
+//        if (isSoldOut) {
+//            return productQuotaInfoRepository.getOne(productId);
+//        }
+        // STEP 1: 读取产品基本信息
+        ProductBaseInfo productBaseInfo = productBaseInfoRepository.getByProductId(productId);
+        logger.info(productBaseInfo.toString());
 
+        productQuotaInfoRepository.substractSurplusVolume(productId, volume);
+        Thread.sleep(SLEEP_MILLIS);
+        ProductQuotaInfo productQuotaInfo = productQuotaInfoRepository.getOne(productId);
+        logger.info(productQuotaInfo.toString());
+        return productQuotaInfo;
+    }
 }
