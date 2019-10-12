@@ -11,6 +11,7 @@
         <td th:text="${user.orderId}"/>
         <td th:text="${user.orderName}"/>
         <td><input type="button" value="买入"></input></td>
+        <td><a th:href="/ordertest/input?orderId=${user.orderId}&orderName=${user.orderName}">BUY</a></td>
     </tr>
 </table>
 <style>

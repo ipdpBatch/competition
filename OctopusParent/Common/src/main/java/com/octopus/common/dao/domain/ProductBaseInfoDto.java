@@ -17,20 +17,20 @@ public class ProductBaseInfoDto implements Serializable {
     BigDecimal productRaiseAmount;
     BigDecimal productRemainAmount;
     String productName;
-    String registarCode;
-    String registarName;
+    String registrarCode;
+    String registrarName;
 
 
     public ProductBaseInfoDto(String productId, String productRiskLevel, String productType, BigDecimal productRaiseAmount,
-                              BigDecimal productRemainAmount, String productName, String registarCode, String registarName) {
+                              BigDecimal productRemainAmount, String productName, String registrarCode, String registrarName) {
         this.productId = productId;
         this.productRiskLevel = productRiskLevel;
         this.productType = productType;
         this.productRaiseAmount = productRaiseAmount;
         this.productRemainAmount = productRemainAmount;
         this.productName = productName;
-        this.registarCode = registarCode;
-        this.registarName = registarName;
+        this.registrarCode = registrarCode;
+        this.registrarName = registrarName;
     }
 
     public ProductBaseInfoDto() {
@@ -85,20 +85,20 @@ public class ProductBaseInfoDto implements Serializable {
         this.productName = productName;
     }
 
-    public String getRegistarCode() {
-        return registarCode;
+    public String getRegistrarCode() {
+        return registrarCode;
     }
 
-    public void setRegistarCode(String registarCode) {
-        this.registarCode = registarCode;
+    public void setRegistrarCode(String registrarCode) {
+        this.registrarCode = registrarCode;
     }
 
-    public String getRegistarName() {
-        return registarName;
+    public String getRegistrarName() {
+        return registrarName;
     }
 
-    public void setRegistarName(String registarName) {
-        this.registarName = registarName;
+    public void setRegistrarName(String registrarName) {
+        this.registrarName = registrarName;
     }
 
     @Override
@@ -110,8 +110,8 @@ public class ProductBaseInfoDto implements Serializable {
                 ", productRaiseAmount=" + productRaiseAmount +
                 ", productRemainAmount=" + productRemainAmount +
                 ", productName='" + productName + '\'' +
-                ", registarCode='" + registarCode + '\'' +
-                ", registarName='" + registarName + '\'' +
+                ", registrarCode='" + registrarCode + '\'' +
+                ", registrarName='" + registrarName + '\'' +
                 '}';
     }
 }

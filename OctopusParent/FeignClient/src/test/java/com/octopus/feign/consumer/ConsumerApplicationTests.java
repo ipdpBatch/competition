@@ -65,8 +65,8 @@ public class ConsumerApplicationTests {
 //        productBaseInfoDto.setProductType("01");
 //        productBaseInfoDto.setProductRemainAmount(200000);
 //        productBaseInfoDto.setProductRaiseAmount(300000);
-//        productBaseInfoDto.setRegistarCode("98");
-//        productBaseInfoDto.setRegistarName("ABC");
+//        productBaseInfoDto.setRegistrarCode("98");
+//        productBaseInfoDto.setRegistrarName("ABC");
 //        logger.info("新建产品记录："+productBaseInfoDto.toString());
 //        System.out.println("产品"+productBaseInfoDto.toString());
 //        int i=productDispatcher.insertProduct(productBaseInfoDto);
@@ -83,8 +83,8 @@ public class ConsumerApplicationTests {
         productBaseInfoDto.setProductType("01");
 //        productBaseInfoDto.setProductRemainAmount(200000);
 //        productBaseInfoDto.setProductRaiseAmount(300000);
-//        productBaseInfoDto.setRegistarCode("98");
-//        productBaseInfoDto.setRegistarName("ABC");
+//        productBaseInfoDto.setRegistrarCode("98");
+//        productBaseInfoDto.setRegistrarName("ABC");
         int k=productDispatcher.updateProduct(productBaseInfoDto);
         logger.info("修改结果："+k);
 

@@ -13,7 +13,7 @@ public interface ProductBaseInfoMapper {
      *
      * @param productBaseInfoDto
      */
-    @Insert("INSERT INTO t_product_base_info ( product_id, product_risk_level, product_type, product_raise_amount, product_remain_amount, product_name, registar_code, registar_name) VALUES (#{productId},#{productRiskLevel},#{productType},#{productRaiseAmount},#{productRemainAmount},#{productName},#{registarCode},#{registarName})")
+    @Insert("INSERT INTO t_product_base_info ( product_id, product_risk_level, product_type, product_raise_amount, product_remain_amount, product_name, registrar_code, registrar_name) VALUES (#{productId},#{productRiskLevel},#{productType},#{productRaiseAmount},#{productRemainAmount},#{productName},#{registrarCode},#{registrarName})")
     public int insert(ProductBaseInfoDto productBaseInfoDto);
 
     /**
@@ -22,7 +22,7 @@ public interface ProductBaseInfoMapper {
      * @param productBaseInfoDto
      * @return 受影响的行数
      */
-    @Update("update t_product_base_info set product_id=#{productId},product_risk_level=#{productRiskLevel},product_type=#{productType},product_raise_amount=#{productRaiseAmount},product_remain_amount=#{productRemainAmount},product_name=#{productName},registar_code=#{registarCode},registar_name=#{registarName}  where product_id= #{productId}")
+    @Update("update t_product_base_info set product_id=#{productId},product_risk_level=#{productRiskLevel},product_type=#{productType},product_raise_amount=#{productRaiseAmount},product_remain_amount=#{productRemainAmount},product_name=#{productName},registrar_code=#{registrarCode},registrar_name=#{registrarName}  where product_id= #{productId}")
     public int update(ProductBaseInfoDto productBaseInfoDto);
 
     /**
@@ -47,8 +47,8 @@ public interface ProductBaseInfoMapper {
             @Result(property = "productRaiseAmount",column = "product_raise_amount"),
             @Result(property = "productRemainAmount",column = "product_remain_amount"),
             @Result(property = "productName",column = "product_name"),
-            @Result(property = "registarCode",column = "registar_code"),
-            @Result(property = "registarName",column = "registar_name")
+            @Result(property = "registrarCode",column = "registrar_code"),
+            @Result(property = "registrarName",column = "registrar_name")
     })
     public List<ProductBaseInfoDto> selectAll();
 
@@ -66,8 +66,8 @@ public interface ProductBaseInfoMapper {
             @Result(property = "productRaiseAmount",column = "product_raise_amount"),
             @Result(property = "productRemainAmount",column = "product_remain_amount"),
             @Result(property = "productName",column = "product_name"),
-            @Result(property = "registarCode",column = "registar_code"),
-            @Result(property = "registarName",column = "registar_name")
+            @Result(property = "registrarCode",column = "registrar_code"),
+            @Result(property = "registrarName",column = "registrar_name")
     })
     public ProductBaseInfoDto selectById(@Param("productId") String id);
 
