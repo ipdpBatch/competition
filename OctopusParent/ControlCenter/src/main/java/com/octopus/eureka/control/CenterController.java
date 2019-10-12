@@ -42,10 +42,13 @@ public class CenterController {
     }
 
     @RequestMapping("/controlCenter/add")
-    public int addControlCenter(@RequestBody ControlCenterDto controlCenterDto) {
+    public BigInteger addControlCenter(@RequestBody ControlCenterDto controlCenterDto) {
         int result = controlCenterMapper.insert(controlCenterDto);
-        logger.info("插入后主键seq为："+ controlCenterDto.getOrderSeq());
-        return result;
+        if (result==1) {
+            logger.info("插入后主键seq为："+ controlCenterDto.getOrderSeq());
+            return controlCenterDto.getOrderSeq();
+        }
+        return BigInteger.valueOf(0);
     }
 
     @RequestMapping("/controlCenter/delete/{orderSeq}")

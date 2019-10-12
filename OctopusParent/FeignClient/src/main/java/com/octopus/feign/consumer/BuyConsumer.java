@@ -31,7 +31,6 @@ public class BuyConsumer {
         //获取订单编号，获取控制表的dto
         ControlCenterDto controlCenterDto = new ControlCenterDto();
         controlCenterDto = controlCenterMapper.selectById(buyBo.getOrderSeq());
-
         controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.ORDER_ESTBLISH));
         controlCenterMapper.update(controlCenterDto);
 
