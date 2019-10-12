@@ -26,6 +26,7 @@
         <module>blitz</module>
         <module>FeignClient</module>
         <module>Common</module>
+        <module>zuul</module>
     </modules>
 
     <dependencies>
