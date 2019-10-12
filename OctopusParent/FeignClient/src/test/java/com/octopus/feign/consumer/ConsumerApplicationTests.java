@@ -3,6 +3,7 @@ package com.octopus.feign.consumer;
 import com.octopus.common.bo.BuyBo;
 import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.*;
+import com.octopus.common.dao.mapper.ControlCenterMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -41,6 +42,9 @@ public class ConsumerApplicationTests {
 
     @Autowired
     private UserDispatcher userDispatcher;
+
+    @Autowired
+    ControlCenterMapper controlCenterMapper;
 
 //    @Autowired
 //    private RabbitTemplate rabbitTemplate;
@@ -281,5 +285,12 @@ public class ConsumerApplicationTests {
         buyBo.setOrderStep("POSI");
         BuyResponseBo buyResponseBo = userDispatcher.descPosition(buyBo);
         logger.info("返回信息为："+buyResponseBo.toString());
+    }
+
+    @Test
+    public void selectById(){
+        ControlCenterDto controlCenterDto = new ControlCenterDto();
+        controlCenterDto = controlCenterMapper.selectById(BigInteger.valueOf(1));
+        System.out.println(controlCenterDto.toString());
     }
 }

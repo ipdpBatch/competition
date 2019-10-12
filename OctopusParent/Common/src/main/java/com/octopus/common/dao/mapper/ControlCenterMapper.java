@@ -3,13 +3,7 @@ package com.octopus.common.dao.mapper;
 import java.math.BigInteger;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import com.octopus.common.dao.domain.ControlCenterDto;
 
 @Mapper
@@ -45,6 +39,14 @@ public interface ControlCenterMapper {
 	  * @return
 	  */
 	 @Select("select * from t_control_center")
+	 @Results({
+			 @Result(property = "orderSeq",column = "order_seq"),
+			 @Result(property = "requestTime",column = "request_time"),
+			 @Result(property = "updateTime",column = "update_time"),
+			 @Result(property = "orderStep",column = "order_step"),
+			 @Result(property = "orderStatus",column = "order_status"),
+			 @Result(property = "flag",column = "flag"),
+	 })
 	 public List<ControlCenterDto> selectAll();
 	 
 	 
@@ -54,6 +56,14 @@ public interface ControlCenterMapper {
 	  * @return
 	  */
 	 @Select("select * from t_control_center where order_seq=#{orderSeq}")
+	 @Results({
+			 @Result(property = "orderSeq",column = "order_seq"),
+			 @Result(property = "requestTime",column = "request_time"),
+			 @Result(property = "updateTime",column = "update_time"),
+			 @Result(property = "orderStep",column = "order_step"),
+			 @Result(property = "orderStatus",column = "order_status"),
+			 @Result(property = "flag",column = "flag"),
+	 })
 	 public ControlCenterDto selectById(@Param("orderSeq") BigInteger orderSeq);
 	
 }

@@ -1,5 +1,6 @@
 package com.octopus.eureka.control;
 
+import com.octopus.common.dao.domain.ControlCenterDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
@@ -13,15 +14,16 @@ import java.math.BigInteger;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = ControlCenterServiceTest.class)
-@MapperScan("com.octopus.common.dao")
+@SpringBootTest(classes = ControlCenterApplication.class)
 public class ControlCenterServiceTest {
 	@Autowired
 	ControlCenterMapper controlCenterMapper;
 	
 	@Test
      public void selectById(){
-		controlCenterMapper.selectById(BigInteger.valueOf(1));
+		ControlCenterDto controlCenterDto = new ControlCenterDto();
+		controlCenterDto = controlCenterMapper.selectById(BigInteger.valueOf(1));
+		System.out.println(controlCenterDto.toString());
 	}
 	
 }

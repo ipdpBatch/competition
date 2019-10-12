@@ -25,31 +25,31 @@ public class CenterController {
     @Autowired
     ControlCenterMapper controlCenterMapper;
     
-    @GetMapping("/controlCentrue/{orderSeq}")
-    public ControlCenterDto getControlCenture(@PathVariable("orderSeq") BigInteger orderSeq) {
+    @GetMapping("/controlCenter/{orderSeq}")
+    public ControlCenterDto getControlCenter(@PathVariable("orderSeq") BigInteger orderSeq) {
         logger.info("请求参数orderSeq："+ orderSeq);
         return controlCenterMapper.selectById(orderSeq);
     }
     
-    @GetMapping("/controlCentrue/all")
-    public List<ControlCenterDto> getControlCentureList() {
+    @GetMapping("/controlCenter/all")
+    public List<ControlCenterDto> getControlCenterList() {
         return controlCenterMapper.selectAll();
     }
     
-    @RequestMapping("/controlCentrue/update")
-    public int updateControlCentrue(@RequestBody ControlCenterDto controlCenterDto) {
+    @RequestMapping("/controlCenter/update")
+    public int updateControlCenter(@RequestBody ControlCenterDto controlCenterDto) {
         return controlCenterMapper.update(controlCenterDto);
     }
 
-    @RequestMapping("/controlCentrue/add")
-    public int addControlCentrue(@RequestBody ControlCenterDto controlCenterDto) {
+    @RequestMapping("/controlCenter/add")
+    public int addControlCenter(@RequestBody ControlCenterDto controlCenterDto) {
         int result = controlCenterMapper.insert(controlCenterDto);
         logger.info("插入后主键seq为："+ controlCenterDto.getOrderSeq());
         return result;
     }
 
-    @RequestMapping("/controlCentrue/delete/{orderSeq}")
-    public int deleteControlCentrue(@PathVariable("orderSeq") BigInteger orderSeq) {
+    @RequestMapping("/controlCenter/delete/{orderSeq}")
+    public int deleteControlCenter(@PathVariable("orderSeq") BigInteger orderSeq) {
         logger.info("请求参数orderSeq："+ orderSeq);
         return controlCenterMapper.delete(orderSeq);
     }

@@ -37,7 +37,7 @@ public class ControlCenterDto implements Serializable{
 
     @Override
 	public String toString() {
-		return "ControlCentureDto [orderSeq=" + orderSeq + ", requestTime=" + requestTime + ", updateTime=" + updateTime
+		return "ControlCenterDto [orderSeq=" + orderSeq + ", requestTime=" + requestTime + ", updateTime=" + updateTime
 				+ ", orderStep=" + orderStep + ", orderStatus=" + orderStatus + ", flag=" + flag + "]";
 	}
 	
