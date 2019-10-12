@@ -69,8 +69,8 @@ public class ProductBaseInfoController {
 //    BigDecimal productRaiseAmount;
 //    BigDecimal productRemainAmount;
 //    String productName;
-//    String registarCode;
-//    String registarName;
+//    String registrarCode;
+//    String registrarName;
     @RequestMapping("/product/insertNew")
     public int insertProduct2(@RequestParam(value = "productId", required = false) String productId,
                               @RequestParam(value = "productRiskLevel", required = false) String productRiskLevel,
@@ -78,8 +78,8 @@ public class ProductBaseInfoController {
                               @RequestParam(value = "productRaiseAmount", required = false) BigDecimal productRaiseAmount,
                               @RequestParam(value = "productRemainAmount", required = false) BigDecimal productRemainAmount,
                               @RequestParam(value = "productName", required = false) String productName,
-                              @RequestParam(value = "registarCode", required = false) String registarCode,
-                              @RequestParam(value = "registarName", required = false) String registarName) {
+                              @RequestParam(value = "registrarCode", required = false) String registrarCode,
+                              @RequestParam(value = "registrarName", required = false) String registrarName) {
         ProductBaseInfoDto productBaseInfoDto=new ProductBaseInfoDto();
         productBaseInfoDto.setProductId(productId);
         productBaseInfoDto.setProductRiskLevel(productRiskLevel);
@@ -87,8 +87,8 @@ public class ProductBaseInfoController {
         productBaseInfoDto.setProductRaiseAmount(productRaiseAmount);
         productBaseInfoDto.setProductRemainAmount(productRemainAmount);
         productBaseInfoDto.setProductName(productName);
-        productBaseInfoDto.setRegistarCode(registarCode);
-        productBaseInfoDto.setRegistarName(registarName);
+        productBaseInfoDto.setRegistrarCode(registrarCode);
+        productBaseInfoDto.setRegistrarName(registrarName);
         return productBaseInfoMapper.insert(productBaseInfoDto);
     }
 
@@ -99,8 +99,8 @@ public class ProductBaseInfoController {
                               @RequestParam(value = "productRaiseAmount", required = false) BigDecimal productRaiseAmount,
                               @RequestParam(value = "productRemainAmount", required = false) BigDecimal productRemainAmount,
                               @RequestParam(value = "productName", required = false) String productName,
-                              @RequestParam(value = "registarCode", required = false) String registarCode,
-                              @RequestParam(value = "registarName", required = false) String registarName){
+                              @RequestParam(value = "registrarCode", required = false) String registrarCode,
+                              @RequestParam(value = "registrarName", required = false) String registrarName){
         ProductBaseInfoDto productBaseInfoDto=new ProductBaseInfoDto();
         productBaseInfoDto.setProductId(productId);
         productBaseInfoDto.setProductRiskLevel(productRiskLevel);
@@ -108,8 +108,8 @@ public class ProductBaseInfoController {
         productBaseInfoDto.setProductRaiseAmount(productRaiseAmount);
         productBaseInfoDto.setProductRemainAmount(productRemainAmount);
         productBaseInfoDto.setProductName(productName);
-        productBaseInfoDto.setRegistarCode(registarCode);
-        productBaseInfoDto.setRegistarName(registarName);
+        productBaseInfoDto.setRegistrarCode(registrarCode);
+        productBaseInfoDto.setRegistrarName(registrarName);
         return productBaseInfoMapper.update(productBaseInfoDto);
     }
 

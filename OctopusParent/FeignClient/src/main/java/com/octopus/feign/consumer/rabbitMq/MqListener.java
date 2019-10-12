@@ -22,9 +22,7 @@ public class MqListener {
 
     @Autowired
     UserDispatcher userDispatcher;
-    @Resource
-    MicroService microService;
-    @Resource
+    @Autowired
     BuyConsumer buyConsumer;
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Product</title>
+    <title>OrderFinancial</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
@@ -15,18 +15,21 @@
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     obj = JSON.parse(this.responseText);
+                    console.log(obj);
                     var str = "";
                     for(i = 0; i < obj.length; i++){
 
                         str += "<tr>" +
+                            "<td>"+obj[i].orderSeq+"</td>" +
+                            "<td>"+obj[i].createDate+"</td>" +
+                            "<td>"+obj[i].createTime+"</td>" +
+                            "<td>"+obj[i].transactionCode+"</td>" +
+                            "<td>"+obj[i].customerId+"</td>" +
                             "<td>"+obj[i].productId+"</td>" +
-                            "<td>"+obj[i].productRiskLevel+"</td>" +
-                            "<td>"+obj[i].productType+"</td>" +
-                            "<td>"+obj[i].productRaiseAmount+"</td>" +
-                            "<td>"+obj[i].productRemainAmount+"</td>" +
-                            "<td>"+obj[i].productName+"</td>" +
-                            "<td>"+obj[i].registrarCode+"</td>" +
-                            "<td>"+obj[i].registrarName+"</td>" +
+                            "<td>"+obj[i].transactionAmount+"</td>" +
+                            "<td>"+obj[i].transactionVol+"</td>" +
+                            "<td>"+obj[i].orderStatus+"</td>" +
+                            "<td>"+obj[i].capitalStatus+"</td>" +
                             // "<td>"<a th:href="@{'/delete/'+${obj[i].id}}">删除</a>"</td>" +
                             // "<td>"<a th:href="@{'/updateById/'+${obj[i].id}}">修改</a></td>
                             "</tr>";
@@ -34,7 +37,7 @@
                     document.getElementById("mesContent").innerHTML = str;
                 }
             };
-            xmlhttp.open("GET", "/product/all", true);
+            xmlhttp.open("GET", "/order/all", true);
             xmlhttp.send();
         }
     </script>
@@ -48,7 +51,8 @@
         font-size:12px;
         font-family:"宋体";
         background-image:url(timg.jpg);
-        background-repeat:repeat-x;
+        background-repeat:no-repeat;
+        background-size: 100% 100%;
         background-attachment: fixed;
         COLOR: #ffffff;
     }
@@ -60,50 +64,55 @@
         <!-- Nav pills -->
         <ul class="nav nav-pills" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="pill" href="#read" onclick="findAll()">产品列表</a>
+                <a class="nav-link active" data-toggle="pill" href="#read" onclick="findAll()">订单查询</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="pill" href="#create">新增产品</a>
+                <a class="nav-link" data-toggle="pill" href="#create">创建订单</a>
             </li>
+            <!--
             <li class="nav-item">
                 <a class="nav-link" data-toggle="pill" href="#update">更新产品信息</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="pill" href="#delete">删除产品</a>
             </li>
+            -->
         </ul>
     </div>
 
     <div class="content-side">
         <!-- Tab panes -->
         <div class="tab-content">
-
+            <button type="button" onclick="findAll()" class="btn btn-primary">查询</button>
+            <!--                <button type="submit" class="btn btn-primary">更新</button>-->
             <div id="read" class="container-fluid tab-pane active"><br>
-                <h3>产品列表</h3>
+                <h3>订单列表</h3>
                 <div >
-                    <table class="table table-bordered">
+                    <table class="table">
                         <thead>
                         <tr>
-                            <th>产品代码</th>
-                            <th>产品风险等级</th>
-                            <th>产品类型</th>
-                            <th>产品募集总额</th>
-                            <th>产品剩余额度</th>
-                            <th>产品名称</th>
-                            <th>产品所属公司代码</th>
-                            <th>产品所属公司名称</th>
+                            <th>订单编号</th>
+                            <th>建单日期</th>
+                            <th>建单时间</th>
+                            <th>交易码</th>
+                            <th>客户编号</th>
+                            <th>产品编号</th>
+                            <th>交易金额</th>
+                            <th>交易份额</th>
+                            <th>订单状态</th>
+                            <th>资金状态</th>
+
                         </tr>
                         </thead>
                         <tbody id="mesContent">
                         </tbody>
                     </table>
                 </div>
-                <button type="button" onclick="findAll()" class="btn btn-primary">查询</button>
-<!--                <button type="submit" class="btn btn-primary">更新</button>-->
+
             </div>
 
             <div id="create" class="container-fluid tab-pane fade"><br>
-                <h3>新增产品</h3>
+                <h3>创建订单</h3>
                 <form action="/product/insertNew" method="post">
                     <div class="form-group">
                         <label for="productId">产品代码:(必输)</label>
@@ -141,6 +150,7 @@
                     <button type="reset" class="btn btn-primary" name="清空">清空</button>
                 </form>
             </div>
+            <!--
             <div id="update" class="container-fluid tab-pane fade"><br>
                 <h3>更新产品信息</h3>
                 <form action="/product/updateNew" method="post">
@@ -180,7 +190,8 @@
                     <button type="reset" class="btn btn-primary" name="清空">清空</button>
                 </form>
             </div>
-
+            -->
+            <!--
             <div id="delete" class="container-fluid tab-pane fade"><br>
                 <h3>删除产品</h3>
                 <form action="/product/deleteNew" method="post">
@@ -191,7 +202,7 @@
                     <button type="submit" class="btn btn-primary" name="删除">删除</button>
                 </form>
             </div>
-
+            -->
         </div>
     </div>
 

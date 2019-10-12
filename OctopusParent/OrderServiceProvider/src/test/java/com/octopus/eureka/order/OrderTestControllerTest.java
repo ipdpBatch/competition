@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  * @date Created in 17:19 2019/9/29
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = OrderTestControllerTest.class)
+@SpringBootTest(classes = OrderServiceApplication.class)
 @MapperScan("com.octopus.common.dao")
 public class OrderTestControllerTest {
 

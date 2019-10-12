@@ -2,10 +2,11 @@ package com.octopus.feign.consumer;
 
 import com.octopus.common.bo.BuyBo;
 import com.octopus.common.bo.BuyResponseBo;
-import com.octopus.common.dao.domain.ControlCentureDto;
-import com.octopus.common.dao.mapper.ControlCentureMapper;
+import com.octopus.common.dao.domain.ControlCenterDto;
+import com.octopus.common.dao.mapper.ControlCenterMapper;
 import com.octopus.common.enums.MicroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * 文件创建时写入注释内容
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @version 1.0.0
  * @date Created in 18:56 2019/9/29
  */
+@Component
 public class BuyConsumer {
     @Autowired
     private OrderDispatcher orderDispatcher;
@@ -22,16 +24,15 @@ public class BuyConsumer {
     @Autowired
     private UserDispatcher userDispatcher;
     @Autowired
-    private ControlCentureMapper controlCentureMapper;
+    private ControlCenterMapper controlCenterMapper;
 
     public boolean buy(BuyBo buyBo) {
         BuyResponseBo buyResponseBo = new BuyResponseBo();
         //获取订单编号，获取控制表的dto
-        ControlCentureDto controlCentureDto = new ControlCentureDto();
-        controlCentureDto = controlCentureMapper.selectById(buyBo.getOrderSeq());
-
-        controlCentureDto.setOrderStep(MicroService.getOrderStep(MicroService.ORDER_ESTBLISH));
-        controlCentureMapper.update(controlCentureDto);
+        ControlCenterDto controlCenterDto = new ControlCenterDto();
+        controlCenterDto = controlCenterMapper.selectById(buyBo.getOrderSeq());
+        controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.ORDER_ESTBLISH));
+        controlCenterMapper.update(controlCenterDto);
 
         //1.建单
         buyBo.setOrderStep(MicroService.getOrderStep(MicroService.ORDER_ESTBLISH));
@@ -41,8 +42,8 @@ public class BuyConsumer {
         }
 
 
-        controlCentureDto.setOrderStep(MicroService.getOrderStep(MicroService.CUSTOMER_CHECK));
-        controlCentureMapper.update(controlCentureDto);
+        controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.CUSTOMER_CHECK));
+        controlCenterMapper.update(controlCenterDto);
         //2.客户预检查
         buyResponseBo= null;
         buyResponseBo = userDispatcher.precheck(buyBo);
@@ -50,8 +51,8 @@ public class BuyConsumer {
             buyBo.setOrderStep(MicroService.getOrderStep(MicroService.PRODUCT_CHECK));
         }
 
-        controlCentureDto.setOrderStep(MicroService.getOrderStep(MicroService.PRODUCT_CHECK));
-        controlCentureMapper.update(controlCentureDto);
+        controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.PRODUCT_CHECK));
+        controlCenterMapper.update(controlCenterDto);
         //3.产品预检查
         buyResponseBo= null;
         buyResponseBo =productDispatcher.checkProduct(buyBo);
@@ -59,8 +60,8 @@ public class BuyConsumer {
             buyBo.setOrderStep(MicroService.getOrderStep(MicroService.VOLUME_FROZON));
         }
 
-        controlCentureDto.setOrderStep(MicroService.getOrderStep(MicroService.VOLUME_FROZON));
-        controlCentureMapper.update(controlCentureDto);
+        controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.VOLUME_FROZON));
+        controlCenterMapper.update(controlCenterDto);
         //4.额度控销
         buyResponseBo= null;
         buyResponseBo =productDispatcher.checkProduct(buyBo);//todo
@@ -70,16 +71,16 @@ public class BuyConsumer {
 
 
 
-        controlCentureDto.setOrderStep(MicroService.getOrderStep(MicroService.PAY_BILL));
-        controlCentureMapper.update(controlCentureDto);
+        controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.PAY_BILL));
+        controlCenterMapper.update(controlCenterDto);
         //5.支付  todo
 
 
 
 
 
-        controlCentureDto.setOrderStep(MicroService.getOrderStep(MicroService.POSITION_INCREASE));
-        controlCentureMapper.update(controlCentureDto);
+        controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.POSITION_INCREASE));
+        controlCenterMapper.update(controlCenterDto);
         //6.加仓
         buyResponseBo= null;
         buyResponseBo =userDispatcher.addPosition(buyBo);
@@ -88,8 +89,8 @@ public class BuyConsumer {
         }
 
 
-        controlCentureDto.setOrderStep(MicroService.getOrderStep(MicroService.FINISH));
-        controlCentureMapper.update(controlCentureDto);
+        controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.FINISH));
+        controlCenterMapper.update(controlCenterDto);
         //7.完成订单
         buyResponseBo = orderDispatcher.createOrder(buyBo);
         if (buyResponseBo.isOrderReturnCode()) {

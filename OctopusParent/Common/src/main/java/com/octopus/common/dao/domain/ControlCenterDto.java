@@ -3,7 +3,7 @@ package com.octopus.common.dao.domain;
 import java.io.Serializable;
 import java.math.BigInteger;
 
-public class ControlCentureDto implements Serializable{
+public class ControlCenterDto implements Serializable{
     
 	//订单编号
     private BigInteger orderSeq;
@@ -20,8 +20,8 @@ public class ControlCentureDto implements Serializable{
     
     
     
-	public ControlCentureDto(BigInteger orderSeq, String requestTime, String updateTime, String orderStep,
-			String orderStatus, String flag) {
+	public ControlCenterDto(BigInteger orderSeq, String requestTime, String updateTime, String orderStep,
+                            String orderStatus, String flag) {
 		super();
 		this.orderSeq = orderSeq;
 		this.requestTime = requestTime;
@@ -31,13 +31,13 @@ public class ControlCentureDto implements Serializable{
 		this.flag = flag;
 	}
 
-    public ControlCentureDto() {
+    public ControlCenterDto() {
 
     }
 
     @Override
 	public String toString() {
-		return "ControlCentureDto [orderSeq=" + orderSeq + ", requestTime=" + requestTime + ", updateTime=" + updateTime
+		return "ControlCenterDto [orderSeq=" + orderSeq + ", requestTime=" + requestTime + ", updateTime=" + updateTime
 				+ ", orderStep=" + orderStep + ", orderStatus=" + orderStatus + ", flag=" + flag + "]";
 	}
 	

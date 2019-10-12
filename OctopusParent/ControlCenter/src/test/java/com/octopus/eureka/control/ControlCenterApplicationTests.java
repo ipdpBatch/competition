@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = ControlCenterApplication.class)
 public class ControlCenterApplicationTests {
     @Autowired
     OctopusEarController octopusEarController;

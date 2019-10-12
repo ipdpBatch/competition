@@ -1,6 +1,8 @@
 package com.octopus.eureka.order.controller;
 
+import com.octopus.common.dao.domain.CustomerCifInfoDto;
 import com.octopus.common.dao.domain.OrderTestDto;
+import com.octopus.common.dao.mapper.CustomerSignInfoMapper;
 import com.octopus.common.dao.mapper.OrderTestMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import java.util.*;
 
 /**
  * 文件创建时写入注释内容
@@ -67,5 +70,43 @@ public class OrderTestController {
         } else {
             return "ordertesterror";
         }
+    }
+
+    @RequestMapping(value = "/user/set", method = RequestMethod.GET)
+    public String set(Model model) {
+        Set<String> allNames = new HashSet<String>() ;
+        List<Integer> allIds = new ArrayList<Integer>() ;
+        for (int x = 0 ; x < 5 ; x ++) {
+            allNames.add("boot-" + x) ;
+            allIds.add(x) ;
+        }
+        model.addAttribute("names", allNames) ;
+        model.addAttribute("ids", allIds) ;
+        model.addAttribute("mydate", new java.util.Date()) ;
+        return "user_set" ;
+    }
+
+    @RequestMapping(value = "/inner", method = RequestMethod.GET)
+    public String inner(HttpServletRequest request, Model model) {
+        request.setAttribute("requestMessage", "springboot-request");
+        request.getSession().setAttribute("sessionMessage", "springboot-session");
+        request.getServletContext().setAttribute("applicationMessage",
+                "springboot-application");
+        model.addAttribute("url", "www.baidu.cn");
+        request.setAttribute("url2",
+                "<span style='color:red'>www.baidu.cn</span>");
+        return "show_inner";
+    }
+
+    @RequestMapping(value = "/user/list", method = RequestMethod.GET)
+    public String list(Model model) {
+        List<OrderTestDto> allMembers = new ArrayList<OrderTestDto>();
+        /*OrderTestDto dto = new OrderTestDto("dssf","121434");
+        OrderTestDto dto1 = new OrderTestDto("dssfdsfsdd","sfdsgs");
+        allMembers.add(dto);
+        allMembers.add(dto1);*/
+        allMembers = orderTestMapper.selectAll();
+        model.addAttribute("allUsers", allMembers);
+        return "order_list";
     }
 }
