@@ -5,11 +5,13 @@ import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.ControlProductDto;
 import com.octopus.common.dao.domain.ProductBaseInfoDto;
 import com.octopus.feign.consumer.provider.ProductClient;
+import com.octopus.feign.consumer.provider.QuotaClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -22,6 +24,9 @@ public class ProductDispatcher {
 
     @Autowired
     private ProductClient productClient;
+
+    @Autowired
+    private QuotaClient quotaClient;
 
 
     //产品控制表
@@ -68,6 +73,15 @@ public class ProductDispatcher {
 
     //田密写在这里  todo
     public BuyResponseBo checkQuota(BuyBo buyBo) {
-        return null;
+        BuyResponseBo buyResponseBo = new BuyResponseBo();
+        String productId = buyBo.getProductId();
+        BigDecimal transactionAmount = buyBo.getTransactionAmount();
+        try {
+            quotaClient.checkQuota(productId, transactionAmount);
+            buyResponseBo.setOrderReturnCode(true);
+        } catch (Exception e) {
+            buyResponseBo.setOrderReturnCode(false);
+        }
+        return buyResponseBo;
     }
 }
