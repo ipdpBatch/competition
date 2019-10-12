@@ -293,4 +293,12 @@ public class ConsumerApplicationTests {
         controlCenterDto = controlCenterMapper.selectById(BigInteger.valueOf(1));
         System.out.println(controlCenterDto.toString());
     }
+
+    @Test
+    public void testPostionSelect(){
+        PositionBalanceDto p = new PositionBalanceDto();
+        p.setCustomerId("4742667");
+        List<PositionBalanceDto> position = userDispatcher.getPositionDynamic(p);
+        logger.info("返回信息为："+position.toString());
+    }
 }

@@ -59,4 +59,8 @@ public interface UserClient {
 
     @RequestMapping(value = "/user/descPosition")
     BuyResponseBo descPosition(@RequestBody BuyBo buybo);
+
+    @RequestMapping(value ="/user/Position/selectDynamic", method = RequestMethod.GET)
+    List<PositionBalanceDto> getPositionDynamic(@RequestBody PositionBalanceDto positionBalanceDto);
+
 }

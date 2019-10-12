@@ -74,4 +74,26 @@ public interface PositionBalanceMapper {
             @Result(property = "positionStatus",column = "position_status")
     })
     public PositionBalanceDto selectById(@Param("productId") String productId, @Param("customerId") String customerId);
+
+    /**
+     * 动态查询
+     *
+     * @param positionBalanceDto
+     * @return
+     */
+    @Select("<script>"+
+            "select customer_id, product_id, total_volume, on_the_way_vol, on_the_way_amt, position_status " +
+            "from t_position_balance where 1=1 "+
+            "<if test='productId!=null'>and product_id=#{productId} </if>"+
+            "<if test='customerId!=null'>and customer_id=#{customerId}</if>"+
+            "</script>")
+    @Results({
+            @Result(property = "customerId",column = "customer_id"),
+            @Result(property = "productId",column = "product_id"),
+            @Result(property = "totalVolume",column = "total_volume"),
+            @Result(property = "onTheWayVol",column = "on_the_way_vol"),
+            @Result(property = "onTheWayAmt",column = "on_the_way_amt"),
+            @Result(property = "positionStatus",column = "position_status")
+    })
+    public List<PositionBalanceDto> selectDynamic(PositionBalanceDto positionBalanceDto);
 }

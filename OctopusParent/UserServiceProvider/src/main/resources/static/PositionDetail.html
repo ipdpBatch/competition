@@ -11,10 +11,16 @@
     <script>
         var pId = "";
         var cId = "";
+        function GetQueryString(name)
+        {
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)return  unescape(r[2]); return null;
+        }
+        pId = GetQueryString("productId");
+        cId = GetQueryString("customerId");
         function findAll()
         {
-            pId = document.getElementById("productId").value;
-            cId = document.getElementById("customerId").value;
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
@@ -23,7 +29,9 @@
                     var str = "";
                     for(i = 0; i < obj.length; i++){
                         str += "<tr>" +
-                            "<td>"+ "<a href=\"http://localhost:8086/PositionDetail.html?productId="+obj[i].productId+"&customerId="+obj[i].customerId+"\">" +"查看明细" + "</a>" +"</td>" +
+                            "<td>"+ "<a href=\"http://localhost:8084/order.html?productId="+obj[i].productId+"&customerId="+obj[i].customerId+"\">" +"买入" + "</a>" +
+                            "<a href=\"http://localhost:8086/position.html?productId="+obj[i].productId+"&customerId="+obj[i].customerId+"\">" +"返回" + "</a>"+
+                            "</td>" +
                             "<td>"+obj[i].customerId+"</td>" +
                             "<td>"+obj[i].productId+"</td>" +
                             "<td>"+obj[i].totalVolume+"</td>" +
@@ -36,8 +44,7 @@
                     document.getElementById("mesContent").innerHTML = str;
                 }
             };
-            // xmlhttp.open("GET", "/positionBalance/"+pId+"/"+cId, true);
-            xmlhttp.open("GET", "/positionBalance/all", true);
+            xmlhttp.open("GET", "/positionBalance/"+pId+"/"+cId, true);
             xmlhttp.send();
         }
     </script>
@@ -45,8 +52,6 @@
 <style type="text/css">
     /*.left-side{ float:left;width:20%;height:500px;}*/
     .content-side{width:76%;height:500px;margin:0px auto;}
-    /*.form-control{width: 180px}*/
-    /*.nav-item{width:80%}*/
     body{
         font-size:15px;
         font-family:"宋体";
@@ -73,38 +78,25 @@
             <br>
             <br>
             <div id="read" class="container-fluid tab-pane active"><br>
-                <div class="row">
-                    <div class="col-xs-6 col">
-                        <span>客户号  </span><input id="customerId" type="text" placeholder="请输入客户号">
-                    </div>
-                    <div class="col-xs-6 col">
-                        <span>产品代码  </span><input id="productId" type="text" placeholder="请输入产品代码">
-                    </div>
-                </div>
-                <br>
-                <br>
-                <br>
-                <center><button type="button" onclick="findAll()" class="btn btn-primary" style="background:#2F4F4F;border:1px solid #2F4F4F">查询</button></center>
-                <br>
                 <fieldset class="fieldset">
-                <legend style="font-size:12px" >客户持仓信息列表</legend>
-                <div >
-                    <table class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th>操作</th>
-                            <th>客户号</th>
-                            <th>产品ID</th>
-                            <th>总持仓</th>
-                            <th>在途份额</th>
-                            <th>在途金额</th>
-                            <th>持仓状态</th>
-                        </tr>
-                        </thead>
-                        <tbody id="mesContent">
-                        </tbody>
-                    </table>
-                </div>
+                    <legend style="font-size:12px" >客户持仓信息明细</legend>
+                    <div >
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>操作</th>
+                                <th>客户号</th>
+                                <th>产品ID</th>
+                                <th>总持仓</th>
+                                <th>在途份额</th>
+                                <th>在途金额</th>
+                                <th>持仓状态</th>
+                            </tr>
+                            </thead>
+                            <tbody id="mesContent">
+                            </tbody>
+                        </table>
+                    </div>
                 </fieldset>
             </div>
         </div>

@@ -84,4 +84,9 @@ public class PositonBalanceController {
     public BuyResponseBo descPosition(@RequestBody BuyBo buybo){
         return positionService.descPosition(buybo);
     }
+
+    @RequestMapping("/user/Position/selectDynamic")
+    public List<PositionBalanceDto> getPositionDynamic(@RequestBody PositionBalanceDto positionBalanceDto) {
+        return positionBalanceMapper.selectDynamic(positionBalanceDto);
+    }
 }

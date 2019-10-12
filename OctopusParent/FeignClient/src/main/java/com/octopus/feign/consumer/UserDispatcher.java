@@ -82,4 +82,8 @@ public class UserDispatcher {
     public BuyResponseBo descPosition(BuyBo buyBo){
         return userClient.descPosition(buyBo);
     }
+
+    public List<PositionBalanceDto> getPositionDynamic(PositionBalanceDto positionBalanceDto) {
+        return userClient.getPositionDynamic(positionBalanceDto);
+    }
 }
