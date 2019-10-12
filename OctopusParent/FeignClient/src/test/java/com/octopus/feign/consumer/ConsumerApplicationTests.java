@@ -48,6 +48,8 @@ public class ConsumerApplicationTests {
 
     @Autowired
     private BuyConsumer buyConsumer;
+    @Autowired
+    private PayDispatcher payDispatcher;
 
 //    @Autowired
 //    private RabbitTemplate rabbitTemplate;
@@ -309,7 +311,7 @@ public class ConsumerApplicationTests {
     @Test
     public void buyTest(){
         BuyBo buyBo = new BuyBo();
-        buyBo.setOrderSeq(BigInteger.valueOf(1026));
+        buyBo.setOrderSeq(BigInteger.valueOf(1031));
         buyBo.setBusinessCode("022");
         buyBo.setOrderStep("INIT");
         buyBo.setCustomerId("a219391");
@@ -317,6 +319,7 @@ public class ConsumerApplicationTests {
         buyBo.setTransactionAmount(BigDecimal.valueOf(123456));
         //userDispatcher.precheck(buyBo);
         boolean res = buyConsumer.buy(buyBo);
+        //payDispatcher.payProcess(buyBo);
         System.out.println("执行结果为："+res);
 
     }

@@ -90,8 +90,12 @@ public class PaymentInfoDto implements Serializable {
     String customerId;
     String accountNoOut;
     String accountNoIn;
+    BigDecimal payAmount;
+    String paySystem;
+    String returnCode;
+    String errorMessage;
 
-    public PaymentInfoDto(BigInteger orderSeq, String payType, String customerId, String accountNoOut, String accountNoIn, BigDecimal payAmount, String paySystem, String returnCode, String errorMessage) {
+    public PaymentInfoDto() {
         this.orderSeq = orderSeq;
         this.payType = payType;
         this.customerId = customerId;
@@ -103,9 +107,19 @@ public class PaymentInfoDto implements Serializable {
         this.errorMessage = errorMessage;
     }
 
-    BigDecimal payAmount;
-    String paySystem;
-    String returnCode;
-    String errorMessage;
+    @Override
+    public String toString() {
+        return "PaymentInfoDto{" +
+                "orderSeq='" + orderSeq + '\'' +
+                ", payType='" + payType + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", accountNoOut='" + accountNoOut + '\'' +
+                ", accountNoIn='" + accountNoIn + '\'' +
+                ", payAmount='" + payAmount + '\'' +
+                ", paySystem=" + paySystem +
+                ", returnCode=" + returnCode +
+                ", errorMessage='" + errorMessage + '\'' +
+                '}';
+    }
 
 }

@@ -17,5 +17,4 @@ public class ProductServiceApplication {
         SpringApplication.run(ProductServiceApplication.class, args);
         logger.info("产品微服务注册成功!!");
     }
-
 }

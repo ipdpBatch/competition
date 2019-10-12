@@ -50,15 +50,31 @@ public interface PaymentInfoMapper {
             "WHERE order_seq = #{orderSeq} " +
             "  AND pay_type = #{payType} " +
             " ")
-    Long delete(@Param("orderSeq") BigInteger orderSeq, @Param("payType")String payType);
+    int delete(@Param("orderSeq") BigInteger orderSeq, @Param("payType")String payType);
 
     /**
      * 查询所有
      *
      * @return
      */
-    @Select("select * from t_payment_info")
-    List<PaymentInfoDto> selectAll();
+    /**
+     * 查询所有
+     *
+     * @return
+     */
+    @Select("select order_seq, pay_type, customer_id, account_no_out, account_no_in, pay_amount, pay_system, return_code, error_message from t_payment_info")
+    @Results({
+            @Result(property = "orderSeq",column = "order_seq"),
+            @Result(property = "payType",column = "pay_type"),
+            @Result(property = "customerId",column = "customer_id"),
+            @Result(property = "accountNoOut",column = "account_no_out"),
+            @Result(property = "accountNoIn",column = "account_no_in"),
+            @Result(property = "payAmount",column = "pay_amount"),
+            @Result(property = "paySystem",column = "pay_system"),
+            @Result(property = "returnCode",column = "return_code"),
+            @Result(property = "errorMessage",column = "error_message")
+    })
+    public List<PaymentInfoDto> selectAll();
 
     /**
      * 根据主键查询单个
@@ -66,6 +82,17 @@ public interface PaymentInfoMapper {
      * @param id
      * @return
      */
-    @Select("select * from t_payment_info where  order_seq = #{orderSeq}  AND pay_type = #{payType}" )
+    @Select("select order_seq, pay_type, customer_id, account_no_out, account_no_in, pay_amount, pay_system, return_code, error_message from t_payment_info where  order_seq = #{orderSeq}  AND pay_type = #{payType}" )
+    @Results({
+            @Result(property = "orderSeq",column = "order_seq"),
+            @Result(property = "payType",column = "pay_type"),
+            @Result(property = "customerId",column = "customer_id"),
+            @Result(property = "accountNoOut",column = "account_no_out"),
+            @Result(property = "accountNoIn",column = "account_no_in"),
+            @Result(property = "payAmount",column = "pay_amount"),
+            @Result(property = "paySystem",column = "pay_system"),
+            @Result(property = "returnCode",column = "return_code"),
+            @Result(property = "errorMessage",column = "error_message")
+    })
     PaymentInfoDto selectById(@Param("orderSeq")BigInteger  orderSeq,@Param("payType")String payType);
 }

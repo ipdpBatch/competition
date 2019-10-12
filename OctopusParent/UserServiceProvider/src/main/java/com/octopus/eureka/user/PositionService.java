@@ -48,6 +48,8 @@ public class PositionService {
         controlUserDto.setStepStatus("INIT");
         int i = controlUserController.addControlUser(controlUserDto);
         if (i != 1) {
+            buyResponseBo.setOrderReturnCode(false);
+            buyResponseBo.setErrorDetail("插入用户控制表失败!!");
             controlUserDto.setUpdateTime(formatTime(new Date()));
             controlUserDto.setStepStatus("PCFL");
             int j=controlUserController.updateControlUser(controlUserDto);
@@ -62,6 +64,8 @@ public class PositionService {
                 positionBalanceDto.setPositionStatus("norm");
                 PositionBalanceDto newPosition = positonBalanceController.getAddPosition(positionBalanceDto);
                 logger.info("用户持仓信息为："+newPosition.toString());
+                buyResponseBo.setOrderReturnCode(true);
+                buyResponseBo.setErrorDetail("成功");
                 controlUserDto.setUpdateTime(formatTime(new Date()));
                 controlUserDto.setStepStatus("PCSC");
                 int j=controlUserController.updateControlUser(controlUserDto);
@@ -71,6 +75,8 @@ public class PositionService {
                 int update = positonBalanceController.updatePosition(position);
                 PositionBalanceDto newPosition = positonBalanceController.getPosition(buyBo.getProductId(), buyBo.getCustomerId());
                 logger.info("用户持仓信息为："+newPosition.toString());
+                buyResponseBo.setOrderReturnCode(true);
+                buyResponseBo.setErrorDetail("成功");
                 controlUserDto.setUpdateTime(formatTime(new Date()));
                 controlUserDto.setStepStatus("PCSC");
                 int j=controlUserController.updateControlUser(controlUserDto);

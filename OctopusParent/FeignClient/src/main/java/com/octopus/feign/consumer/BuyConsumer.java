@@ -31,6 +31,8 @@ public class BuyConsumer {
     private UserDispatcher userDispatcher;
     @Autowired
     private ControlCenterMapper controlCenterMapper;
+    @Autowired
+    private PayDispatcher payDispatcher;
 
     public boolean buy(BuyBo buyBo) {
         logger.info("输入买入请求参数:"+buyBo.toString());
@@ -48,6 +50,7 @@ public class BuyConsumer {
         buyResponseBo = orderDispatcher.createOrder(buyBo);
         if (buyResponseBo.isOrderReturnCode()) {
             //如果建单成功，切换buyBo的订单步骤为CHKC
+            logger.info("-------1.建单成功，切换buyBo的订单步骤为CHKC");
             buyBo.setOrderStep(MicroService.getOrderStep(MicroService.CUSTOMER_CHECK));
             controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.CUSTOMER_CHECK));
             controlCenterDto.setUpdateTime(DateUtil.formatTime(new Date()));
@@ -64,6 +67,7 @@ public class BuyConsumer {
         buyResponseBo = userDispatcher.precheck(buyBo);
         if (buyResponseBo.isOrderReturnCode()) {
             //如果客户预检查通过，切换订单步骤为CHKP
+            logger.info("-------2.客户预检查通过，切换订单步骤为CHKP");
             buyBo.setOrderStep(MicroService.getOrderStep(MicroService.PRODUCT_CHECK));
             controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.PRODUCT_CHECK));
             controlCenterDto.setUpdateTime(DateUtil.formatTime(new Date()));
@@ -80,6 +84,7 @@ public class BuyConsumer {
         buyResponseBo =productDispatcher.checkProduct(buyBo);
         if (buyResponseBo.isOrderReturnCode()) {
             //如果产品预检查通过，切换订单步骤为VOLF
+            logger.info("-------3.产品预检查通过，切换订单步骤为VOLF");
             buyBo.setOrderStep(MicroService.getOrderStep(MicroService.VOLUME_FROZON));
             controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.VOLUME_FROZON));
             controlCenterDto.setUpdateTime(DateUtil.formatTime(new Date()));
@@ -94,10 +99,10 @@ public class BuyConsumer {
         //4.额度控销
         buyResponseBo= null;
         buyResponseBo =productDispatcher.checkQuota(buyBo);//todo
-        buyResponseBo.setOrderReturnCode(true);
         logger.info("额度控销执行结果:"+buyResponseBo.isOrderReturnCode());
         if (buyResponseBo.isOrderReturnCode()) {
             //如果额度控销成功，切换订单步骤为PAYA
+            logger.info("-------4.额度控销成功，切换订单步骤为PAYA");
             buyBo.setOrderStep(MicroService.getOrderStep(MicroService.PAY_BILL));
             controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.PAY_BILL));
             controlCenterDto.setUpdateTime(DateUtil.formatTime(new Date()));
@@ -110,17 +115,27 @@ public class BuyConsumer {
         }
 
         //5.支付  todo
-
-        buyBo.setOrderStep(MicroService.getOrderStep(MicroService.POSITION_INCREASE));
-        controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.POSITION_INCREASE));
-        controlCenterDto.setUpdateTime(DateUtil.formatTime(new Date()));
-        controlCenterMapper.update(controlCenterDto);
+        buyResponseBo= null;
+        buyResponseBo =payDispatcher.payProcess(buyBo);//todo
+        if (buyResponseBo.isOrderReturnCode()) {
+            logger.info("-------5.申购扣款成功，切换订单步骤为PAYA");
+            buyBo.setOrderStep(MicroService.getOrderStep(MicroService.POSITION_INCREASE));
+            controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.POSITION_INCREASE));
+            controlCenterDto.setUpdateTime(DateUtil.formatTime(new Date()));
+            controlCenterMapper.update(controlCenterDto);
+        }else{
+            logger.info("申购扣款失败!"+buyResponseBo.getErrorDetail());
+            controlCenterDto.setOrderStatus("PCFL");
+            controlCenterMapper.update(controlCenterDto);
+            return false;
+        }
 
         //6.加仓
         buyResponseBo= null;
         buyResponseBo =userDispatcher.addPosition(buyBo);
         if (buyResponseBo.isOrderReturnCode()) {
             //如果加仓成功，切换订单步骤为FNSH
+            logger.info("-------6.加仓成功，切换订单步骤为FNSH");
             buyBo.setOrderStep(MicroService.getOrderStep(MicroService.FINISH));
             controlCenterDto.setOrderStep(MicroService.getOrderStep(MicroService.FINISH));
             controlCenterMapper.update(controlCenterDto);
@@ -133,9 +148,10 @@ public class BuyConsumer {
 
         //7.完成订单
         buyResponseBo= null;
-        buyResponseBo = orderDispatcher.createOrder(buyBo);
+        buyResponseBo = orderDispatcher.finishOrder(buyBo);
         if (buyResponseBo.isOrderReturnCode()) {
             //申购交易完成，终态标志置为Y
+            logger.info("-------7.申购交易完成，终态标志置为Y ~~~~~~~~~~~~~~~~~~~");
             controlCenterDto.setFlag("Y");
             controlCenterMapper.update(controlCenterDto);
             logger.info("申购订单已完成!!!");
