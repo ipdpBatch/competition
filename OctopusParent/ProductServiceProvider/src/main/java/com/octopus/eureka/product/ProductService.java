@@ -8,6 +8,7 @@ import com.octopus.common.dao.mapper.ProductBaseInfoMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -23,7 +24,7 @@ import static com.octopus.common.utils.DateUtil.formatTime;
  * @version 1.0.0
  * @date 2019-10-9
  */
-@RestController
+@Component("productService")
 public class ProductService {
     private final static Logger logger = LoggerFactory.getLogger(ProductService.class);
 
@@ -67,8 +68,8 @@ public class ProductService {
                 int j=productController.updateControlProduct(controlProductDto);
 
             }else{
-                BigDecimal raiseAmount=productBaseInfoDto.getProductRaiseAmount();
-                if(raiseAmount.compareTo(buyBo.getTransactionAmount())<0){//额度不足
+                BigDecimal remainAmount=productBaseInfoDto.getProductRemainAmount();
+                if(remainAmount.compareTo(buyBo.getTransactionAmount())<0){//额度不足
                     buyResponseBo.setOrderReturnCode(false);
                     buyResponseBo.setErrorDetail("产品额度不足");
 
