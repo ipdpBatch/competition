@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 public class CustomerSignService
 {
     @Resource
-    UserController userController;
+    CustomerSignInfoController customerSignInfoController;
 
     public boolean doProcess(String customerId) {
 
@@ -19,11 +19,11 @@ public class CustomerSignService
         customerSignInfoDto.setSignStatus("SUCC");
         customerSignInfoDto.setTransactionDate(DateUtil.getNowToday());
         customerSignInfoDto.setTransactionTime(DateUtil.getNowTime());
-        int resultInsert = userController.insertSignInfo(customerSignInfoDto);
+        int resultInsert = customerSignInfoController.insertSignInfo(customerSignInfoDto);
         if (resultInsert == 1) {
             return true;
         } else {
-            int resultUpdate = userController.updateSignInfo(customerSignInfoDto);
+            int resultUpdate = customerSignInfoController.updateSignInfo(customerSignInfoDto);
             return resultUpdate == 1;
         }
     }

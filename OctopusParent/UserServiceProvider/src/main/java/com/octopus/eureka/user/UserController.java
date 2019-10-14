@@ -32,6 +32,9 @@ public class UserController {
     @Resource
     PreCheckService preCheckService;
 
+    @Resource
+    CustomerSignService customerSignService;
+
     @Value("${server.port}")
     String port;
 
@@ -61,21 +64,11 @@ public class UserController {
         return customerSignInfoDto;
     }
 
-    @PostMapping("/user/sign/insert")
-    public int insertSignInfo(@RequestBody CustomerSignInfoDto customerSignInfoDto){
-        try{
-            int result = customerSignInfoMapper.insert(customerSignInfoDto);
-            return result;
-        }catch (Exception e){
-            return 0;
-        }
-
+    @GetMapping("/user/customerSign/{customerId}")
+    Boolean  customerSign(@PathVariable String customerId){
+        return customerSignService.doProcess(customerId);
     }
 
-    @PostMapping("/user/sign/updateByid")
-    public int updateSignInfo(@RequestBody CustomerSignInfoDto customerSignInfoDto){
-        return customerSignInfoMapper.update(customerSignInfoDto);
-    }
 
     @PostMapping("/user/precheck")
     public BuyResponseBo preCheck(@RequestBody BuyBo buybo){

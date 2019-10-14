@@ -14,7 +14,6 @@ public class CustomerSignInfoServiceTests {
 
     @Resource
     CustomerSignService customerSignService;
-    @Test
     public void test(){
         String customerId = "09275921";
         if(customerSignService.doProcess(customerId)){

@@ -19,6 +19,9 @@ public interface UserClient {
     @RequestMapping(value = "/user/precheck", method = RequestMethod.POST)
     BuyResponseBo preCheck(@RequestBody BuyBo buybo);
 
+    @RequestMapping(value = "/user/customerSign/{customerId}")
+    Boolean customerSignService(@PathVariable String customerId);
+
     //控制表
     @RequestMapping(value = "/controlUser/all", method = RequestMethod.GET)
     List<ControlUserDto> getControlUserList();
