@@ -52,7 +52,8 @@ public class ControlCenterServiceTest {
 	public void buy(){
 		BuyBo buyBo = new BuyBo();
 		buyBo.setProductId("000539");
-		buyBo.setCustomerId("dongjl");
+		buyBo.setCustomerId("a219391");
+		buyBo.setBusinessCode("022");
 		buyBo.setTransactionAmount(BigDecimal.valueOf(1000));
 		System.out.println("插入前dto:"+buyBo.toString());
 		BuyBo res = orderBuyService.orderBuy(buyBo);

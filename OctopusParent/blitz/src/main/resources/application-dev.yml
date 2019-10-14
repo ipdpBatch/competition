@@ -16,6 +16,12 @@ spring:
     username: root
     password: ipdp@ipdp
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      max-lifetime: 1200000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
   cache:
     # spring cache 缓存类型为redis  也可以是其他的实现
     type: redis
