@@ -28,7 +28,12 @@ public interface ControlOrderMapper {
      * @param controlOrderDto
      * @return 受影响的行数
      */
-    @Update("update t_control_order set request_time=#{requestTime},update_time=#{updateTime}, order_step=#{orderStep},step_status=#{stepStatus} where order_seq= #{orderSeq}")
+    @Update("<script>" + " update t_control_order set order_seq= #{orderSeq}  "
+            + "<if test = \" requestTime != null and requestTime != '' \"> , request_time=#{requestTime} </if>"
+            + "<if test = \" updateTime != null and updateTime != '' \"> , update_time=#{updateTime}</if>"
+            + "<if test = \" orderStep != null and orderStep != '' \"> , order_step=#{orderStep}</if>"
+            + "<if test = \" stepStatus != null and stepStatus != '' \"> , step_status=#{stepStatus} </if>"
+            +" where order_seq= #{orderSeq} </script>")
     public int update(ControlOrderDto controlOrderDto);
 
     /**
@@ -46,6 +51,13 @@ public interface ControlOrderMapper {
      * @return
      */
     @Select("select * from t_control_order")
+    @Results({
+            @Result(property = "orderSeq", column = "order_seq"),
+            @Result(property = "requestTime", column = "request_time"),
+            @Result(property = "updateTime", column = "update_time"),
+            @Result(property = "orderStep", column = "order_step"),
+            @Result(property = "stepStatus", column = "step_status")
+    })
     public List<ControlOrderDto> selectAll();
 
     /**
@@ -55,7 +67,14 @@ public interface ControlOrderMapper {
      * @return
      */
     @Select("select * from t_control_order where order_seq=#{orderSeq}")
-    public ControlOrderDto selectById(@Param("orderSeq") String orderSeq);
+    @Results({
+            @Result(property = "orderSeq", column = "order_seq"),
+            @Result(property = "requestTime", column = "request_time"),
+            @Result(property = "updateTime", column = "update_time"),
+            @Result(property = "orderStep", column = "order_step"),
+            @Result(property = "stepStatus", column = "step_status")
+    })
+    public ControlOrderDto selectById(@Param("orderSeq") BigInteger orderSeq);
 
 
 }

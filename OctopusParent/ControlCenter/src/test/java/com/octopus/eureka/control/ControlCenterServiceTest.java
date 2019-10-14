@@ -1,17 +1,19 @@
 package com.octopus.eureka.control;
 
+import com.octopus.common.bo.BuyBo;
 import com.octopus.common.dao.domain.ControlCenterDto;
 import com.octopus.common.utils.DateUtil;
-import org.apache.ibatis.session.SqlSessionFactory;
+import com.octopus.eureka.ControlCenterApplication;
+import com.octopus.eureka.service.OrderBuyService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.octopus.common.dao.mapper.ControlCenterMapper;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 
@@ -21,6 +23,9 @@ import java.util.Date;
 public class ControlCenterServiceTest {
 	@Autowired
 	ControlCenterMapper controlCenterMapper;
+
+	@Autowired
+	OrderBuyService orderBuyService;
 	
 	@Test
      public void selectById(){
@@ -41,6 +46,18 @@ public class ControlCenterServiceTest {
 		int res = controlCenterMapper.insert(controlCenterDto);
 		System.out.println("插入结果为:"+res);
 		System.out.println("插入后dto变为:"+controlCenterDto.toString());
+	}
+
+	@Test
+	public void buy(){
+		BuyBo buyBo = new BuyBo();
+		buyBo.setProductId("000539");
+		buyBo.setCustomerId("dongjl");
+		buyBo.setTransactionAmount(BigDecimal.valueOf(1000));
+		System.out.println("插入前dto:"+buyBo.toString());
+		BuyBo res = orderBuyService.orderBuy(buyBo);
+		System.out.println("插入结果为:"+res);
+		System.out.println("插入后dto变为:"+buyBo.toString());
 	}
 	
 }

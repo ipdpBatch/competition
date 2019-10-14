@@ -31,16 +31,16 @@ public interface OrderFinancialMapper {
      * @param orderFinancialDto
      * @return 受影响的行数
      */
-    @Update("<script>" + " update t_order_financial set " +
-            "<if test='createDate != null'>create_date = #{createDate},</if>"+
-            "<if test='createTime != null'>create_time = #{createTime},</if>" +
-            "<if test='transactionCode != null'>transaction_code = #{transactionCode},</if>" +
-            "<if test='customerId != null'>customer_id = #{customerId},</if>" +
-            "<if test='productId != null'>product_id = #{productId},</if>" +
-            "<if test='transactionAmount != null'>transaction_amount = #{transactionAmount},</if>" +
-            "<if test='transactionVol != null'>transaction_vol = #{transactionVol},</if>" +
-            "<if test='orderStatus != null'>order_status = #{orderStatus},</if>" +
-            "<if test='capitalStatus != null'>capital_status = #{capitalStatus}</if>" +
+    @Update("<script>" + " update t_order_financial set order_seq= #{orderSeq} " +
+            "<if test=\" createDate != null and createDate != '' \">, create_date = #{createDate}</if>"+
+            "<if test=\" createTime != null and createTime != '' \">, create_time = #{createTime}</if>" +
+            "<if test=\" transactionCode != null and transactionCode != '' \">, transaction_code = #{transactionCode}</if>" +
+            "<if test=\" customerId != null and customerId != '' \">, customer_id = #{customerId}</if>" +
+            "<if test=\" productId != null and productId != '' \">, product_id = #{productId}</if>" +
+            "<if test=\" transactionAmount != null and transactionAmount != '' \">, transaction_amount = #{transactionAmount}</if>" +
+            "<if test=\" transactionVol != null and transactionVol != '' \">, transaction_vol = #{transactionVol}</if>" +
+            "<if test=\" orderStatus != null and orderStatus != '' \">, order_status = #{orderStatus}</if>" +
+            "<if test=\" capitalStatus != null and capitalStatus != '' \">, capital_status = #{capitalStatus}</if>" +
             " where order_seq= #{orderSeq} </script>")
     public int update(OrderFinancialDto orderFinancialDto);
 
@@ -58,7 +58,8 @@ public interface OrderFinancialMapper {
      *
      * @return
      */
-    @Select("select order_seq, create_date, create_time, transaction_code, customer_id, product_id, transaction_amount, transaction_vol, order_status, capital_status from t_order_financial")
+    @Select("<script>" + "select order_seq, create_date, create_time, transaction_code, customer_id, product_id, transaction_amount, transaction_vol, order_status, capital_status from t_order_financial where 1=1 "
+            +"<if test=\" customerId != null and customerId != '' \"> AND customer_id = #{customerId} </if></script>")
     @Results({
             @Result(property = "orderSeq",column = "order_seq"),
             @Result(property = "createDate",column = "create_date"),
@@ -71,7 +72,7 @@ public interface OrderFinancialMapper {
             @Result(property = "orderStatus",column = "order_status"),
             @Result(property = "capitalStatus",column = "capital_status")
     })
-    public List<OrderFinancialDto> selectAll();
+    public List<OrderFinancialDto> selectAll(@Param("customerId") String customerId);
 
     /**
      * 根据主键查询单个

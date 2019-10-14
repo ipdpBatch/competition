@@ -115,5 +115,18 @@ public class BuyResponseBo implements Serializable {
         this.destiny = destiny;
     }
 
-
+    @Override
+    public String toString() {
+        return "BuyResponseBo{" +
+                "orderSeq=" + orderSeq +
+                ", businessCode='" + businessCode + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", productId='" + productId + '\'' +
+                ", transactionAmount=" + transactionAmount +
+                ", destiny='" + destiny + '\'' +
+                ", orderStep='" + orderStep + '\'' +
+                ", orderReturnCode=" + orderReturnCode +
+                ", errorDetail='" + errorDetail + '\'' +
+                '}';
+    }
 }

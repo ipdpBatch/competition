@@ -1,6 +1,7 @@
 package com.octopus.common.dao.domain;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Date;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Date;
  */
 public class ControlOrderDto implements Serializable{
     //订单编号
-    private String orderSeq;
+    private BigInteger orderSeq;
     //请求时间
     private String requestTime;
     //更新时间
@@ -20,8 +21,10 @@ public class ControlOrderDto implements Serializable{
 //    //订单状态
     private String stepStatus;
 
+    public ControlOrderDto() {
+    }
 
-    public ControlOrderDto(String orderSeq, String requestTime, String updateTime, String orderStep, String stepStatus) {
+    public ControlOrderDto(BigInteger orderSeq, String requestTime, String updateTime, String orderStep, String stepStatus) {
         this.orderSeq = orderSeq;
         this.requestTime = requestTime;
         this.updateTime = updateTime;
@@ -29,11 +32,11 @@ public class ControlOrderDto implements Serializable{
         this.stepStatus = stepStatus;
     }
 
-    public String getOrderSeq() {
+    public BigInteger getOrderSeq() {
         return orderSeq;
     }
 
-    public void setOrderSeq(String orderSeq) {
+    public void setOrderSeq(BigInteger orderSeq) {
         this.orderSeq = orderSeq;
     }
 

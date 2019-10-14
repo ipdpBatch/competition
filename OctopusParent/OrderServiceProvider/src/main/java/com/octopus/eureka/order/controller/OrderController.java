@@ -29,13 +29,13 @@ public class OrderController {
     @Autowired
     ControlOrderMapper controlOrderMapper;
 
-    @RequestMapping("/home")
-    public String home() {
-        return "Hello world ,port:" + port +". This is " + this.getClass().getName();
-    }
+//    @RequestMapping("/home")
+//    public String home() {
+//        return "Hello world ,port:" + port +". This is " + this.getClass().getName();
+//    }
 
     @GetMapping("/controlOrder/{orderSeq}")
-    public ControlOrderDto getControlOrder(@PathVariable("orderSeq") String orderSeq) {
+    public ControlOrderDto getControlOrder(@PathVariable("orderSeq") BigInteger orderSeq) {
         logger.info("请求参数orderSeq："+ orderSeq);
         return controlOrderMapper.selectById(orderSeq);
     }

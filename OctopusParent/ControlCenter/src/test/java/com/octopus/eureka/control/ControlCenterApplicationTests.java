@@ -2,6 +2,7 @@ package com.octopus.eureka.control;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.octopus.common.bo.BuyBo;
+import com.octopus.eureka.ControlCenterApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

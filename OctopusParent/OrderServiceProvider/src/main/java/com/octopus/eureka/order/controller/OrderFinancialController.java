@@ -9,10 +9,7 @@ import com.octopus.eureka.order.service.OrderFinancialService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -39,8 +36,9 @@ public class OrderFinancialController {
     }
 
     @RequestMapping("/order/all")
-    public List<OrderFinancialDto> getOrderList() {
-        return orderFinancialMapper.selectAll();
+    public List<OrderFinancialDto> getOrderList(@RequestParam(value = "customerId",required = false) String customerId) {
+        logger.info("请求参数customerId："+ customerId);
+        return orderFinancialMapper.selectAll(customerId);
     }
 
     @RequestMapping("/order/add")
@@ -48,7 +46,7 @@ public class OrderFinancialController {
         return orderFinancialMapper.insert(orderFinancialDto);
     }
 
-    @RequestMapping("/order/update/")
+    @RequestMapping("/order/update")
     public int updateOrder(@RequestBody OrderFinancialDto orderFinancialDto) {
         return orderFinancialMapper.update(orderFinancialDto);
     }

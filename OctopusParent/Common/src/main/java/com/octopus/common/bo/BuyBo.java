@@ -95,5 +95,16 @@ public class BuyBo implements Serializable {
         this.destiny = destiny;
     }
 
-
+    @Override
+    public String toString() {
+        return "BuyBo{" +
+                "orderSeq=" + orderSeq +
+                ", businessCode='" + businessCode + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", productId='" + productId + '\'' +
+                ", transactionAmount=" + transactionAmount +
+                ", destiny='" + destiny + '\'' +
+                ", orderStep='" + orderStep + '\'' +
+                '}';
+    }
 }

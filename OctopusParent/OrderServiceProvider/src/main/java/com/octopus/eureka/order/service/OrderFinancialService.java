@@ -4,6 +4,7 @@ import com.octopus.common.bo.BuyBo;
 import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.OrderFinancialDto;
 import com.octopus.common.dao.mapper.OrderFinancialMapper;
+import com.octopus.common.utils.DateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,14 +61,16 @@ public class OrderFinancialService {
                 //赋值交易金额
                 order.setTransactionAmount(buyBo.getTransactionAmount());
         }
-        DateFormat format = new SimpleDateFormat("yyyyMMdd HHmmss");
-        Date date = new Date();
-        String dateFormate = format.format(date);
-        String[] datelist = dateFormate.split(" ");
-        //建单日期
-        order.setCreateDate(datelist[0]);
-        //建单时间
-        order.setCreateTime(datelist[1]);
+//        DateFormat format = new SimpleDateFormat("yyyyMMdd HHmmss");
+//        Date date = new Date();
+//        String dateFormate = format.format(date);
+//        String[] datelist = dateFormate.split(" ");
+//        //建单日期
+//        order.setCreateDate(datelist[0]);
+//        //建单时间
+//        order.setCreateTime(datelist[1]);
+        order.setCreateDate(DateUtil.getNowToday());
+        order.setCreateTime(DateUtil.getNowTime());
         //订单初始状态
         order.setOrderStatus("INIT");
         //订单

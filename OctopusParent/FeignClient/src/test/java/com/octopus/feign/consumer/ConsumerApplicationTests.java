@@ -155,7 +155,7 @@ public class ConsumerApplicationTests {
     public void testControlOrder() {
        List<ControlOrderDto> controlOrderList = orderDispatcher.getControlOrderList();
         logger.info("查询结果："+controlOrderList.toString());
-        ControlOrderDto controlOrder = orderDispatcher.getControlOrder("1111");
+        ControlOrderDto controlOrder = orderDispatcher.getControlOrder(BigInteger.valueOf(1111));
         logger.info("查询结果：" + controlOrder.toString());
 //       ControlOrderDto controlOrderDto = new ControlOrderDto();
 //        controlOrderDto.setOrderSeq("1");
@@ -185,14 +185,14 @@ public class ConsumerApplicationTests {
     @Test
     public void testorder() {
         //查询所有
-        List<OrderFinancialDto> orderList = orderDispatcher.getOrderList();
-        logger.info("查询结果："+orderList.toString());
-        //根据id查询
-//        OrderFinancialDto order = orderDispatcher.getOrder(12344455);
-        logger.info("查询结果：" + orderList.toString());
+//        List<OrderFinancialDto> orderList = orderDispatcher.getOrderList();
+//        logger.info("查询结果："+orderList.toString());
+//        //根据id查询
+////        OrderFinancialDto order = orderDispatcher.getOrder(12344455);
+//        logger.info("查询结果：" + orderList.toString());
         //新增
         OrderFinancialDto orderDto = new OrderFinancialDto();
-//        orderDto.setOrderSeq(123);
+        orderDto.setOrderSeq(BigInteger.valueOf(1994));
         orderDto.setCreateDate("20190930");
         orderDto.setCreateTime("222222");
         logger.info("新建controlOrderDto记录："+orderDto.toString());
@@ -200,10 +200,10 @@ public class ConsumerApplicationTests {
         logger.info("插入后的controlOrderDto："+result);
         logger.info("插入条数：" + result);
         //修改
-//        orderDto.setOrderSeq(123);
-        orderDto.setProductId("000539");
-        orderDto.setCustomerId("2222222");
-        logger.info("修改DTO：" + orderDto.toString());
+////        orderDto.setOrderSeq(123);
+//        orderDto.setProductId("000539");
+//        orderDto.setCustomerId("2222222");
+//        logger.info("修改DTO：" + orderDto.toString());
 //        int result2 = orderDispatcher.updateOrder(orderDto);
 //        logger.info("更新条数：" + result2);
 //        int result3 = orderDispatcher.deleteOrder(1);
@@ -218,8 +218,8 @@ public class ConsumerApplicationTests {
         buyBo.setCustomerId("11111111");
         buyBo.setTransactionAmount(new BigDecimal(10000000));
         buyBo.setProductId("033315");
-//        BuyResponseBo order = orderDispatcher.createOrder(buyBo);
-        BuyResponseBo order = orderDispatcher.finishOrder(buyBo);
+        BuyResponseBo order = orderDispatcher.createOrder(buyBo);
+//        BuyResponseBo order = orderDispatcher.finishOrder(buyBo);
         logger.info("创建的订单为："+order);
     }
 

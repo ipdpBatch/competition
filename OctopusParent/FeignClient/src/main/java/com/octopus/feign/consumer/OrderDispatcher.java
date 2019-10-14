@@ -29,11 +29,11 @@ public class OrderDispatcher {
         return orderClient.getControlOrderList();
     }
 
-    public ControlOrderDto getControlOrder(String orderSeq) {
+    public ControlOrderDto getControlOrder(BigInteger orderSeq) {
         return orderClient.getControlOrder(orderSeq);
     }
 
-    public int deleteControlOrder(String orderSeq) {
+    public int deleteControlOrder(BigInteger orderSeq) {
         return orderClient.deleteControlOrder(orderSeq);
     }
 
@@ -46,8 +46,8 @@ public class OrderDispatcher {
     }
 
     //订单表
-    public List<OrderFinancialDto> getOrderList() {
-        return orderClient.getOrderList();
+    public List<OrderFinancialDto> getOrderList(String customerId) {
+        return orderClient.getOrderList(customerId);
     }
 
     public OrderFinancialDto getOrder(BigInteger orderSeq) {
@@ -57,9 +57,9 @@ public class OrderDispatcher {
     public int deleteOrder(BigInteger orderSeq) {
         return orderClient.deleteOrder(orderSeq);
     }
-    //public int updateOrder(OrderFinancialDto orderFinancialDto) {
-    //    return orderClient.updateOrder(orderFinancialDto);
-    //}
+    public int updateOrder(OrderFinancialDto orderFinancialDto) {
+        return orderClient.updateOrder(orderFinancialDto);
+    }
 
     public int addOrder(OrderFinancialDto orderFinancialDto) {
         return orderClient.addOrder(orderFinancialDto);
