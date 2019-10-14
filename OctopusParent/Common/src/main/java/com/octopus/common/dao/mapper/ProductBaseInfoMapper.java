@@ -39,7 +39,8 @@ public interface ProductBaseInfoMapper {
      *
      * @return
      */
-    @Select("select * from t_product_base_info")
+    @Select("<script>" + "select product_id, product_risk_level, product_type, product_raise_amount, product_remain_amount, product_name, registrar_code, registrar_name from t_product_base_info where 1=1 "
+            +"<if test=\" productId != null and productId != '' \"> AND product_id = #{productId} </if></script>")
     @Results({
             @Result(property = "productId",column = "product_id"),
             @Result(property = "productRiskLevel",column = "product_risk_level"),
@@ -50,7 +51,7 @@ public interface ProductBaseInfoMapper {
             @Result(property = "registrarCode",column = "registrar_code"),
             @Result(property = "registrarName",column = "registrar_name")
     })
-    public List<ProductBaseInfoDto> selectAll();
+    public List<ProductBaseInfoDto> selectAll(ProductBaseInfoDto productBaseInfoDto);
 
     /**
      * 根据主键查询单个

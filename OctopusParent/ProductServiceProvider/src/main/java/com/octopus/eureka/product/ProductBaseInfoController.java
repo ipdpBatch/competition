@@ -44,9 +44,9 @@ public class ProductBaseInfoController {
         }
     }
 
-    @GetMapping("/product/all")
-    public List<ProductBaseInfoDto> findAll() {
-        return productBaseInfoMapper.selectAll();
+    @RequestMapping("/product/all")
+    public List<ProductBaseInfoDto> findAll(@RequestBody ProductBaseInfoDto productBaseInfoDto) {
+        return productBaseInfoMapper.selectAll(productBaseInfoDto);
     }
 
     @RequestMapping("/product/delete/{productId}")
