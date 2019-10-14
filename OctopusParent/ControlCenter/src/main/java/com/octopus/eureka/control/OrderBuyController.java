@@ -43,10 +43,13 @@ public class OrderBuyController {
             logger.error("custormerId请求参数为空!");
         }
         if (buyBo.getProductId() == null | "".equals(buyBo.getProductId())){
-            logger.error("ProductId请求参数为空!");
+            logger.error("productId请求参数为空!");
         }
         if (buyBo.getTransactionAmount() == null | "".equals(buyBo.getTransactionAmount())){
-            logger.error("TransactionAmount请求参数为空!");
+            logger.error("transactionAmount请求参数为空!");
+        }
+        if (buyBo.getBusinessCode() == null | "".equals(buyBo.getBusinessCode())){
+            logger.error("businessCode请求参数为空!");
         }
         orderBuyService.orderBuy(buyBo);
         return "orderlist";

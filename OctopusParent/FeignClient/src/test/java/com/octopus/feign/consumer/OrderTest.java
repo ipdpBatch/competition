@@ -59,25 +59,27 @@ public class OrderTest {
     @Test
     public void testorder() {
         //查询所有
-        String custmerId = null;
-        List<OrderFinancialDto> orderList1 = orderDispatcher.getOrderList(custmerId);
-        logger.info("查询所有订单："+orderList1.toString());
-        //查询dongjl
-        custmerId="dongjl";
-        List<OrderFinancialDto> orderList2 = orderDispatcher.getOrderList(custmerId);
-        logger.info("查询每个客户所有订单："+orderList2.toString());
-        //根据id查询
-        OrderFinancialDto order = orderDispatcher.getOrder(BigInteger.valueOf(2019100906));
-        logger.info("根据id查询订单：" + order.toString());
+//        String custmerId = null;
+//        List<OrderFinancialDto> orderList1 = orderDispatcher.getOrderList(custmerId);
+//        logger.info("查询所有订单："+orderList1.toString());
+//        //查询dongjl
+//        custmerId="dongjl";
+//        List<OrderFinancialDto> orderList2 = orderDispatcher.getOrderList(custmerId);
+//        logger.info("查询每个客户所有订单："+orderList2.toString());
+//        //根据id查询
+//        OrderFinancialDto order = orderDispatcher.getOrder(BigInteger.valueOf(2019100906));
+//        logger.info("根据id查询订单：" + order.toString());
 //        新增
-//        OrderFinancialDto orderDto = new OrderFinancialDto();
-//        orderDto.setOrderSeq(BigInteger.valueOf(19942222));
-//        orderDto.setCreateDate("20190930");
-//        orderDto.setCreateTime("222222");
-//        logger.info("新建controlOrderDto记录："+orderDto.toString());
-////        int result = orderDispatcher.addOrder(orderDto);
-////        logger.info("插入后的controlOrderDto："+result);
-////        logger.info("插入条数：" + result);
+        OrderFinancialDto orderDto = new OrderFinancialDto();
+        orderDto.setOrderSeq(BigInteger.valueOf(1073));
+        orderDto.setCreateDate("20190930");
+        orderDto.setCreateTime("222222");
+        orderDto.setTransactionVol(BigDecimal.valueOf(1000));
+        orderDto.setTransactionCode("022");
+        logger.info("新建controlOrderDto记录："+orderDto.toString());
+        int result = orderDispatcher.addOrder(orderDto);
+        logger.info("插入后的controlOrderDto："+result);
+        logger.info("插入条数：" + result);
 ////        修改
 ////        orderDto.setOrderSeq(123);
 ////        orderDto.setProductId("000539");
