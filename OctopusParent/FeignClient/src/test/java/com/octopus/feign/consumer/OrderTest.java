@@ -71,7 +71,7 @@ public class OrderTest {
 //        logger.info("根据id查询订单：" + order.toString());
 //        新增
         OrderFinancialDto orderDto = new OrderFinancialDto();
-        orderDto.setOrderSeq(BigInteger.valueOf(1073));
+        orderDto.setOrderSeq(BigInteger.valueOf(20191013));
         orderDto.setCreateDate("20190930");
         orderDto.setCreateTime("222222");
         orderDto.setTransactionVol(BigDecimal.valueOf(1000));
@@ -94,13 +94,13 @@ public class OrderTest {
     @Test
     public void testCreateOrder(){
         BuyBo buyBo = new BuyBo();
-        buyBo.setOrderSeq(BigInteger.valueOf(201912122));
+        buyBo.setOrderSeq(BigInteger.valueOf(201912123));
         buyBo.setBusinessCode("024");
         buyBo.setCustomerId("11111111");
-        buyBo.setTransactionAmount(new BigDecimal(10000000));
+        buyBo.setTransactionAmount(new BigDecimal(1000));
         buyBo.setProductId("033315");
-//        BuyResponseBo order = orderDispatcher.createOrder(buyBo);
-        BuyResponseBo order = orderDispatcher.finishOrder(buyBo);
+        BuyResponseBo order = orderDispatcher.createOrder(buyBo);
+//        BuyResponseBo order = orderDispatcher.finishOrder(buyBo);
         logger.info("创建的订单为："+order);
     }
 

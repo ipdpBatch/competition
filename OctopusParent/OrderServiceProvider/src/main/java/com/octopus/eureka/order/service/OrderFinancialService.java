@@ -44,9 +44,11 @@ public class OrderFinancialService {
         controlOrderDto.setOrderStep("ESTB");
         controlOrderDto.setStepStatus("INIT");
         int insertResult1 = controlOrderMapper.insert(controlOrderDto);
+
         if (insertResult1 != 1) {
             logger.error("订单控制表初始化插入失败：" + controlOrderDto.toString());
         }
+        logger.info("订单控制表初始化插入成功：" + controlOrderDto.toString());
         //创建订单
         OrderFinancialDto order = new OrderFinancialDto();
         //订单编号
@@ -92,21 +94,23 @@ public class OrderFinancialService {
         //更新订单控制表状态
         if(insertResult2 == 1){
             logger.error("订单表插入成功：" + order.toString());
-            controlOrderDto.setUpdateTime(DateUtil.getNowTime());
+            controlOrderDto.setUpdateTime(DateUtil.getNowToday());
             controlOrderDto.setStepStatus("PCSC");
             int updateResult1 = controlOrderMapper.update(controlOrderDto);
             if (updateResult1 != 1) {
                 logger.error("订单控制表更新失败：" + controlOrderDto.toString());
             }
+            logger.info("订单控制表初始化更新成功：" + controlOrderDto.toString());
             buyResponseBo.setOrderReturnCode(true);
         }else {
             logger.error("订单表插入失败：" + order.toString());
-            controlOrderDto.setUpdateTime(DateUtil.getNowTime());
+            controlOrderDto.setUpdateTime(DateUtil.getNowToday());
             controlOrderDto.setStepStatus("PCFL");
             int updateResult2 = controlOrderMapper.update(controlOrderDto);
             if (updateResult2 != 1) {
                 logger.error("订单控制表更新失败：" + controlOrderDto.toString());
             }
+            logger.info("订单控制表初始化更新成功：" + controlOrderDto.toString());
             buyResponseBo.setOrderReturnCode(false);
         }
         return buyResponseBo;
@@ -125,6 +129,7 @@ public class OrderFinancialService {
         if (insertResult1 != 1) {
             logger.error("订单控制表初始化插入失败：" + controlOrderDto.toString());
         }
+        logger.info("订单控制表初始化插入成功：" + controlOrderDto.toString());
         OrderFinancialDto order = new OrderFinancialDto();
         //订单编号
         order.setOrderSeq(buyBo.getOrderSeq());
@@ -168,22 +173,24 @@ public class OrderFinancialService {
         if(updateResult1 == 1){
             logger.error("订单完成时更新订单状态成功：" + order.toString());
             //更新订单控制表状态
-            controlOrderDto.setUpdateTime(DateUtil.getNowTime());
+            controlOrderDto.setUpdateTime(DateUtil.getNowToday());
             controlOrderDto.setStepStatus("PCSC");
             int updateResult2 = controlOrderMapper.update(controlOrderDto);
             if (updateResult2 != 1) {
                 logger.error("订单控制表更新失败：" + controlOrderDto.toString());
             }
+            logger.info("订单控制表初始化更新成功：" + controlOrderDto.toString());
             buyResponseBo.setOrderReturnCode(true);
         }else {
             logger.error("订单完成时更新订单状态失败：" + order.toString());
             //更新订单控制表状态
-            controlOrderDto.setUpdateTime(DateUtil.getNowTime());
+            controlOrderDto.setUpdateTime(DateUtil.getNowToday());
             controlOrderDto.setStepStatus("PCFL");
             int updateResult3 = controlOrderMapper.update(controlOrderDto);
             if (updateResult3 != 1) {
                 logger.error("订单控制表更新失败：" + controlOrderDto.toString());
             }
+            logger.info("订单控制表初始化更新成功：" + controlOrderDto.toString());
             buyResponseBo.setOrderReturnCode(false);
         }
         return buyResponseBo;
