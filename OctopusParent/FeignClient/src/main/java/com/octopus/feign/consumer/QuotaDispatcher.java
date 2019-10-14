@@ -26,7 +26,7 @@ public class QuotaDispatcher {
     @Autowired
     private QuotaClient quotaClient;
 
-    ProductQuotaInfo checkQuota(String productId, BigDecimal volume) {
-        return quotaClient.checkQuota(productId, volume);
+    ProductQuotaInfo checkQuota(BuyBo buyBo) {
+        return quotaClient.checkQuota(buyBo);
     }
 }
