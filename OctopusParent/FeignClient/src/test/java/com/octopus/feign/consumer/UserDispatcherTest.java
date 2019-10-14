@@ -31,4 +31,17 @@ public class UserDispatcherTest {
         System.out.println(uuyResponseBo.getErrorDetail());
     }
 
+    @Test
+    public void signtest(){
+        BuyBo buybo = new BuyBo();
+        buybo.setBusinessCode("110");
+        buybo.setCustomerId("1111111");
+        buybo.setOrderSeq(BigInteger.valueOf(100));
+        buybo.setProductId("01000");
+        buybo.setTransactionAmount(new BigDecimal(100.00));
+        buybo.setDestiny("order");
+        buybo.setOrderStep("SIGN");
+        userDispatcher.customerSignService(buybo);
+    }
+
 }
