@@ -23,7 +23,7 @@ import java.util.List;
 @FeignClient("eureka-provider-blitz")
 public interface QuotaClient {
 
-    @RequestMapping(value = "/quota/{productId}/{volume}", method = RequestMethod.GET)
-    ProductQuotaInfo checkQuota(@PathVariable String productId, @PathVariable BigDecimal volume);
+    @RequestMapping(value = "/quota/process", method = RequestMethod.POST)
+    ProductQuotaInfo checkQuota(@RequestBody BuyBo buyBo);
 
 }

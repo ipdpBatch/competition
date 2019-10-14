@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class CustomerSignInfoDto implements Serializable{
     String customerId;
-    String productId;
     String signStatus;
     String transactionDate;
     String transactionTime;
@@ -14,12 +13,6 @@ public class CustomerSignInfoDto implements Serializable{
 	}
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
-	}
-	public String getProductId() {
-		return productId;
-	}
-	public void setProductId(String productId) {
-		this.productId = productId;
 	}
 	public String getSignStatus() {
 		return signStatus;

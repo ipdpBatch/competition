@@ -1,5 +1,6 @@
 package com.octopus.feign.consumer;
 
+import com.octopus.common.bo.BuyBo;
 import com.octopus.common.dao.domain.ProductQuotaInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +20,11 @@ public class QuotaDispatcherTest {
     public void checkQuota() {
         String productId = "000539";
         BigDecimal volume = new BigDecimal("0.01");
-        ProductQuotaInfo productQuotaInfo = quotaDispatcher.checkQuota(productId, volume);
+        BuyBo buyBo = new BuyBo();
+        buyBo.setProductId(productId);
+        buyBo.setTransactionAmount(volume);
+        ProductQuotaInfo productQuotaInfo = quotaDispatcher.checkQuota(buyBo);
         System.out.println(productQuotaInfo.toString());
+        assert true;
     }
 }

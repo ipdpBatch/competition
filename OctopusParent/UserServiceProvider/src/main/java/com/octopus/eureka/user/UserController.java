@@ -29,8 +29,11 @@ public class UserController {
     @Autowired
     private CustomerSignInfoMapper customerSignInfoMapper;
 
-   @Resource
+    @Resource
     PreCheckService preCheckService;
+
+    @Resource
+    CustomerSignService customerSignService;
 
     @Value("${server.port}")
     String port;
@@ -61,11 +64,17 @@ public class UserController {
         return customerSignInfoDto;
     }
 
-   @PostMapping("/user/precheck")
+    @GetMapping("/user/customerSign/{customerId}")
+    Boolean  customerSign(@PathVariable String customerId){
+        return customerSignService.doProcess(customerId);
+    }
+
+
+    @PostMapping("/user/precheck")
     public BuyResponseBo preCheck(@RequestBody BuyBo buybo){
         int result = preCheckService.doProcess(buybo);
-       BuyResponseBo buyResponseBo = new BuyResponseBo();
-       BeanUtils.copyProperties(buybo, buyResponseBo);
+        BuyResponseBo buyResponseBo = new BuyResponseBo();
+        BeanUtils.copyProperties(buybo, buyResponseBo);
         switch (result){
             case 0:
                 buyResponseBo.setOrderReturnCode(false);

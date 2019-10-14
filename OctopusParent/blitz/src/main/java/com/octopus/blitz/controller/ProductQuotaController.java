@@ -4,6 +4,7 @@ import com.octopus.blitz.dto.ProductBaseInfo;
 import com.octopus.blitz.dto.ProductQuotaInfo;
 import com.octopus.blitz.repository.ProductBaseInfoRepository;
 import com.octopus.blitz.repository.ProductQuotaInfoRepository;
+import com.octopus.common.bo.BuyBo;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 
 @Slf4j
@@ -27,10 +29,10 @@ public class ProductQuotaController {
     @Autowired
     private ProductBaseInfoRepository productBaseInfoRepository;
 
-    @RequestMapping(value = "/{productId}/{volume}")
+    @RequestMapping(value = "/process")
     @Transactional
-    public ProductQuotaInfo checkQuota(@PathVariable String productId, @PathVariable BigDecimal volume) throws InterruptedException {
-        return checkQuotaWithTransactionAndUpdateFirstWithCache(productId, volume);
+    public ProductQuotaInfo checkQuota(@RequestBody BuyBo buyBo) throws InterruptedException {
+        return checkQuotaWithTransactionAndUpdateFirstWithCache(buyBo.getProductId(), buyBo.getTransactionAmount());
     }
 
 

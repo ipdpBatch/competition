@@ -3,10 +3,7 @@ package com.octopus.eureka.user;
 import com.octopus.common.dao.domain.CustomerSignInfoDto;
 import com.octopus.common.dao.mapper.CustomerSignInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,9 +17,9 @@ public class CustomerSignInfoController {
     @Autowired
     CustomerSignInfoMapper customerSignInfoMapper;
 
-    @RequestMapping("/user/customerSignInfo/{customerId}/{productId}")
-    public CustomerSignInfoDto getCustomerSignInfo(@PathVariable String customerId,@PathVariable String productId) {
-        return customerSignInfoMapper.selectByPrimaryKey(customerId,productId);
+    @RequestMapping("/user/customerSignInfo/{customerId}")
+    public CustomerSignInfoDto getCustomerSignInfo(@PathVariable String customerId) {
+        return customerSignInfoMapper.selectByPrimaryKey(customerId);
     }
 
     @RequestMapping("/user/customerSignInfo/all")
@@ -40,9 +37,25 @@ public class CustomerSignInfoController {
         return customerSignInfoMapper.insert(customerSignInfoDto);
     }
 
-    @RequestMapping("/user/customerSignInfo/delete/{customerId}/{productId}")
-    public Long deleteCustomerSignInfo(@PathVariable String customerId, @PathVariable String productId) {
-        return customerSignInfoMapper.delete(customerId,productId);
+    @RequestMapping("/user/customerSignInfo/delete/{customerId}")
+    public Long deleteCustomerSignInfo(@PathVariable String customerId) {
+        return customerSignInfoMapper.delete(customerId);
+    }
+
+    @PostMapping("/user/sign/insert")
+    public int insertSignInfo(@RequestBody CustomerSignInfoDto customerSignInfoDto){
+        try{
+            int result = customerSignInfoMapper.insert(customerSignInfoDto);
+            return result;
+        }catch (Exception e){
+            return 0;
+        }
+
+    }
+
+    @PostMapping("/user/sign/updateByid")
+    public int updateSignInfo(@RequestBody CustomerSignInfoDto customerSignInfoDto){
+        return customerSignInfoMapper.update(customerSignInfoDto);
     }
 
 }

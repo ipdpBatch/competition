@@ -4,6 +4,7 @@ import com.octopus.common.bo.BuyBo;
 import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.ControlUserDto;
 import com.octopus.common.dao.domain.PositionBalanceDto;
+import com.octopus.common.utils.DateUtil;
 import com.octopus.feign.consumer.provider.UserClient;
 import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
@@ -30,6 +31,23 @@ public class UserDispatcher {
 
     public BuyResponseBo precheck(BuyBo buybo){
         return userClient.preCheck(buybo);
+    }
+
+    //客户签约交易
+    public Boolean customerSignService(BuyBo buyBo){
+        ControlUserDto controlUserDto = new ControlUserDto();
+        controlUserDto.setOrderSeq(buyBo.getOrderSeq());
+        controlUserDto.setOrderStep(buyBo.getOrderStep());
+        controlUserDto.setUpdateTime(DateUtil.getNowTime());
+        controlUserDto.setUpdateTime(DateUtil.getNowTime());
+        Boolean signFlag = userClient.customerSignService(buyBo.getCustomerId());
+        if(signFlag){
+            controlUserDto.setStepStatus("PCSC");
+        }else{
+            controlUserDto.setStepStatus("PCFL");
+        }
+        int result = userClient.addControlUser(controlUserDto);
+        return signFlag;
     }
 
     //控制表

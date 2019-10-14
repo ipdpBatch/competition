@@ -74,10 +74,8 @@ public class ProductDispatcher {
     //田密写在这里  todo
     public BuyResponseBo checkQuota(BuyBo buyBo) {
         BuyResponseBo buyResponseBo = new BuyResponseBo();
-        String productId = buyBo.getProductId();
-        BigDecimal transactionAmount = buyBo.getTransactionAmount();
         try {
-            quotaClient.checkQuota(productId, transactionAmount);
+            quotaClient.checkQuota(buyBo);
             buyResponseBo.setOrderReturnCode(true);
         } catch (Exception e) {
             buyResponseBo.setOrderReturnCode(false);
