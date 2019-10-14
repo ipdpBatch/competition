@@ -20,9 +20,9 @@ public class CustomerSignInfoController {
     @Autowired
     CustomerSignInfoMapper customerSignInfoMapper;
 
-    @RequestMapping("/user/customerSignInfo/{customerId}/{productId}")
-    public CustomerSignInfoDto getCustomerSignInfo(@PathVariable String customerId,@PathVariable String productId) {
-        return customerSignInfoMapper.selectByPrimaryKey(customerId,productId);
+    @RequestMapping("/user/customerSignInfo/{customerId}")
+    public CustomerSignInfoDto getCustomerSignInfo(@PathVariable String customerId) {
+        return customerSignInfoMapper.selectByPrimaryKey(customerId);
     }
 
     @RequestMapping("/user/customerSignInfo/all")
@@ -40,9 +40,9 @@ public class CustomerSignInfoController {
         return customerSignInfoMapper.insert(customerSignInfoDto);
     }
 
-    @RequestMapping("/user/customerSignInfo/delete/{customerId}/{productId}")
-    public Long deleteCustomerSignInfo(@PathVariable String customerId, @PathVariable String productId) {
-        return customerSignInfoMapper.delete(customerId,productId);
+    @RequestMapping("/user/customerSignInfo/delete/{customerId}")
+    public Long deleteCustomerSignInfo(@PathVariable String customerId) {
+        return customerSignInfoMapper.delete(customerId);
     }
 
 }
