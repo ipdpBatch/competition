@@ -8,6 +8,8 @@ import com.octopus.common.utils.DateUtil;
 import com.octopus.feign.consumer.BuyConsumer;
 import com.octopus.feign.consumer.UserDispatcher;
 import com.octopus.common.enums.MicroService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import java.util.Date;
 
 @Component
 public class MqListener {
+    private final static Logger logger = LoggerFactory.getLogger(MqListener.class);
 
     @Autowired
     UserDispatcher userDispatcher;
@@ -29,8 +32,13 @@ public class MqListener {
     @RabbitHandler
     @RabbitListener(queues = "Control")
     public void process(String content) {
-          System.out.println(content + "这是接收到的队列");
+          logger.error(content + "这是接收到的队列");
           BuyBo buybo = JSONObject.parseObject(content , BuyBo.class);
-          buyConsumer.buy(buybo);
+        try {
+            buyConsumer.buy(buybo);
+        } catch (Exception e) {
+            logger.error("MQ侦听层调用买入交易报错！！");
+            e.printStackTrace();
+        }
     }
 }

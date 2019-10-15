@@ -30,7 +30,7 @@ public interface ControlUserMapper {
      * @param controlUserDto
      * @return 受影响的行数
      */
-    @Update("update t_control_user set request_time=#{requestTime},update_time=#{updateTime}, order_step=#{orderStep},order_status=#{orderStatus} where order_seq= #{orderSeq}")
+    @Update("update t_control_user set request_time=#{requestTime},update_time=#{updateTime}, order_step=#{orderStep},order_status=#{orderStatus} where order_seq= #{orderSeq} and order_step=#{orderStep}")
     public int update(ControlUserDto controlUserDto);
 
     /**

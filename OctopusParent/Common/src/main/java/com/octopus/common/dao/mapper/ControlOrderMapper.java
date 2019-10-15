@@ -33,7 +33,7 @@ public interface ControlOrderMapper {
             + "<if test = \" updateTime != null and updateTime != '' \"> , update_time=#{updateTime}</if>"
             + "<if test = \" orderStep != null and orderStep != '' \"> , order_step=#{orderStep}</if>"
             + "<if test = \" stepStatus != null and stepStatus != '' \"> , step_status=#{stepStatus} </if>"
-            +" where order_seq= #{orderSeq} </script>")
+            +" where order_seq= #{orderSeq} and order_step=#{orderStep}</script>")
     public int update(ControlOrderDto controlOrderDto);
 
     /**
