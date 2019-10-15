@@ -120,6 +120,6 @@ public class ProductBaseInfoController {
 
     @RequestMapping("/product/checkProduct")
     public BuyResponseBo checkProduct(@RequestBody BuyBo buyBo){
-        return productService.checkProduct(buyBo);
+            return productService.checkProduct(buyBo);
     }
 }
