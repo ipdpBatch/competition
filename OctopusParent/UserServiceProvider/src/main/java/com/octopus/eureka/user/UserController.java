@@ -6,6 +6,8 @@ import com.octopus.common.dao.domain.CustomerCifInfoDto;
 import com.octopus.common.dao.domain.CustomerSignInfoDto;
 import com.octopus.common.dao.mapper.CustomerCifInfoMapper;
 import com.octopus.common.dao.mapper.CustomerSignInfoMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,6 +25,7 @@ import java.util.List;
  */
 @RestController
 public class UserController {
+    private final static Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private CustomerCifInfoMapper customerCifInfoMapper;
 
@@ -79,18 +82,27 @@ public class UserController {
             case 0:
                 buyResponseBo.setOrderReturnCode(false);
                 buyResponseBo.setErrorDetail("用户不存在");
+                logger.info("用户不存在");
                 break;
             case 10:
                 buyResponseBo.setOrderReturnCode(false);
                 buyResponseBo.setErrorDetail("用户未签约");
+                logger.info("用户未签约");
                 break;
             case 11:
                 buyResponseBo.setOrderReturnCode(true);
                 buyResponseBo.setErrorDetail("客户预检查成功");
+                logger.info("客户预检查成功");
+                break;
+            case 22:
+                buyResponseBo.setOrderReturnCode(false);
+                buyResponseBo.setErrorDetail("插入用户控制表失败");
+                logger.info("插入用户控制表失败");
                 break;
             default:
                 buyResponseBo.setOrderReturnCode(false);
                 buyResponseBo.setErrorDetail("返回值不合法");
+                logger.info("返回值不合法");
         }
         return buyResponseBo;
     }
