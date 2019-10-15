@@ -4,6 +4,7 @@ import com.octopus.common.bo.BuyBo;
 import com.octopus.common.bo.BuyResponseBo;
 import com.octopus.common.dao.domain.ControlOrderDto;
 import com.octopus.common.dao.domain.OrderFinancialDto;
+import com.octopus.common.dao.domain.ProductBaseInfoDto;
 import com.octopus.common.dao.domain.ProductQuotaInfo;
 import com.octopus.feign.consumer.provider.OrderClient;
 import com.octopus.feign.consumer.provider.QuotaClient;
@@ -26,7 +27,7 @@ public class QuotaDispatcher {
     @Autowired
     private QuotaClient quotaClient;
 
-    ProductQuotaInfo checkQuota(BuyBo buyBo) {
+    ProductBaseInfoDto checkQuota(BuyBo buyBo) {
         return quotaClient.checkQuota(buyBo);
     }
 }

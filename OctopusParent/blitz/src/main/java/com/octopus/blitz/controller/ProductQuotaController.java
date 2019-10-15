@@ -54,7 +54,7 @@ public class ProductQuotaController {
 
     @RequestMapping(value = "/process")
     @Transactional
-    public ProductQuotaInfo checkQuota(@RequestBody BuyBo buyBo) throws BlitzException {
+    public ProductBaseInfo checkQuota(@RequestBody BuyBo buyBo) throws BlitzException {
         ControlProduct controlProduct = new ControlProduct();
         controlProduct.setOrderSeq(buyBo.getOrderSeq());
         controlProduct.setOrderStep(buyBo.getOrderStep());
@@ -62,7 +62,7 @@ public class ProductQuotaController {
         controlProduct.setUpdateTime(DateUtil.formatTime(new Date()));
         controlProduct.setStepStatus("INIT");
         insertIntoControl(controlProduct);
-        return checkQuotaWithTransactionAndUpdateFirstWithCache(buyBo.getProductId(), buyBo.getTransactionAmount());
+        return checkQuotaWithTransactionAndUpdateFirstWithCacheWithProductBaseInfo(buyBo.getProductId(), buyBo.getTransactionAmount());
     }
 
 
@@ -144,6 +144,23 @@ public class ProductQuotaController {
         logger.info(productQuotaInfo.toString());
         return productQuotaInfo;
     }
+
+
+    @RequestMapping(value = "/v6/{productId}/{volume}")
+    @Transactional
+    public ProductBaseInfo checkQuotaWithTransactionAndUpdateFirstWithCacheWithProductBaseInfo(@PathVariable String productId, @PathVariable BigDecimal volume) {
+
+        productBaseInfoRepository.substractSurplusVolume(productId, volume);
+        try {
+            Thread.sleep(SLEEP_MILLIS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ProductBaseInfo productBaseInfo = productBaseInfoRepository.getOne(productId);
+        logger.info(productBaseInfo.toString());
+        return productBaseInfo;
+    }
+
 
     @RequestMapping(value = "/v5/{productId}/{volume}")
     @Transactional

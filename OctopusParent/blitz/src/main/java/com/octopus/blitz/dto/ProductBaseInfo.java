@@ -24,7 +24,11 @@ public class ProductBaseInfo implements Serializable {
     private String productId;
 
     @Getter @Setter
-    @Column(name = "product_name")
-    private String productName;
+    @Column(name = "product_raise_amount")
+    BigDecimal productRaiseAmount;
+
+    @Getter @Setter
+    @Column(name = "product_remain_amount")
+    BigDecimal productRemainAmount;
 
 }
