@@ -59,7 +59,8 @@ public interface OrderFinancialMapper {
      * @return
      */
     @Select("<script>" + "select order_seq, create_date, create_time, transaction_code, customer_id, product_id, transaction_amount, transaction_vol, order_status, capital_status from t_order_financial where 1=1 "
-            +"<if test=\" customerId != null and customerId != '' \"> AND customer_id = #{customerId} </if></script>")
+            +"<if test=\" customerId != null and customerId != '' \"> AND customer_id = #{customerId} </if>"
+            +" ORDER BY order_seq DESC</script>")
     @Results({
             @Result(property = "orderSeq",column = "order_seq"),
             @Result(property = "createDate",column = "create_date"),
