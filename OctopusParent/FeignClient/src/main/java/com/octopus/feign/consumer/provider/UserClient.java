@@ -20,7 +20,7 @@ public interface UserClient {
     BuyResponseBo preCheck(@RequestBody BuyBo buybo);
 
     @RequestMapping(value = "/user/customerSign/{customerId}")
-    Boolean customerSignService(@PathVariable String customerId);
+    Boolean customerSignService(@PathVariable("customerId") String customerId);
 
     //控制表
     @RequestMapping(value = "/controlUser/all", method = RequestMethod.GET)
