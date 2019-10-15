@@ -84,8 +84,8 @@ public interface PositionBalanceMapper {
     @Select("<script>"+
             "select customer_id, product_id, total_volume, on_the_way_vol, on_the_way_amt, position_status " +
             "from t_position_balance where 1=1 "+
-            "<if test='productId!=null'>and product_id=#{productId} </if>"+
-            "<if test='customerId!=null'>and customer_id=#{customerId}</if>"+
+            "<if test=\"productId!=null and productId != ''\">and product_id=#{productId} </if>"+
+            "<if test=\"customerId!=null and customerId != ''\">and customer_id=#{customerId}</if>"+
             "</script>")
     @Results({
             @Result(property = "customerId",column = "customer_id"),
