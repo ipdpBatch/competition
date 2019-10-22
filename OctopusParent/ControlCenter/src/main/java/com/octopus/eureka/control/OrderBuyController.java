@@ -37,7 +37,7 @@ public class OrderBuyController {
     }
 
     @RequestMapping(value = "/transaction/buy", method = RequestMethod.POST)
-    public String buy(@RequestBody BuyBo buyBo, Model model){
+    public BuyBo buy(@RequestBody BuyBo buyBo, Model model){
         logger.info("前端传来的buyBo为：" + buyBo.toString());
         if (buyBo.getCustomerId() == null | "".equals(buyBo.getCustomerId())){
             logger.error("custormerId请求参数为空!");
@@ -51,8 +51,7 @@ public class OrderBuyController {
         if (buyBo.getBusinessCode() == null | "".equals(buyBo.getBusinessCode())){
             logger.error("businessCode请求参数为空!");
         }
-        orderBuyService.orderBuy(buyBo);
-        return "orderlist";
+        return orderBuyService.orderBuy(buyBo);
     }
 
 }
